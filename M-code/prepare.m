@@ -5,84 +5,84 @@
 clear all;
 
 % Original 420 planar sequence 111111
-filename420 = 'short_352x288_25Hz_P420.yuv';
+filename420 = '../sequences/short_352x288_25Hz_P420.yuv';
 width420 = 352;
 height420 = 288;
 
 % Destination 444 planar sequence
-filename444 = 'short_352x288_25Hz_P444.yuv';
+filename444 = '../sequences/short_352x288_25Hz_P444.yuv';
 
 % Destination 422 planar sequence
-filename422 = 'short_352x288_25Hz_P422.yuv';
+filename422 = '../sequences/short_352x288_25Hz_P422.yuv';
 
 % Destination 411 planar sequence
-filename411 = 'short_352x288_25Hz_P411.yuv';
+filename411 = '../sequences/short_352x288_25Hz_P411.yuv';
 
 % Destination 410 planar sequence
-filename410 = 'short_352x288_25Hz_P410.yuv';
+filename410 = '../sequences/short_352x288_25Hz_P410.yuv';
 
 % Destination 444 interleaved sequence
-filename444i = 'short_352x288_25Hz_I444.yuv';
+filename444i = '../sequences/short_352x288_25Hz_I444.yuv';
 
 % Destination 422 interleaved sequence
-filename422i = 'short_352x288_25Hz_I422.yuv';
+filename422i = '../sequences/short_352x288_25Hz_I422.yuv';
 
 % Destination 411 interleaved sequence
-filename411i = 'short_352x288_25Hz_I411.yuv';
+filename411i = '../sequences/short_352x288_25Hz_I411.yuv';
 
 % Destination 420 interleaved sequence
-filename420i = 'short_352x288_25Hz_I420.yuv';
+filename420i = '../sequences/short_352x288_25Hz_I420.yuv';
 
 % Destination 420 UYVY interleaved sequence
-filename420iuyvy = 'short_352x288_25Hz_UYVY.yuv';
+filename420iuyvy = '../sequences/short_352x288_25Hz_UYVY.yuv';
 
 % Destination 410 interleaved sequence
-filename410i = 'short_352x288_25Hz_I410.yuv';
+filename410i = '../sequences/short_352x288_25Hz_I410.yuv';
 
 % Destination 420 few-bits sequence
-filename420lb = 'short_352x288_25Hz_P420_5b.yuv';
+filename420lb = '../sequences/short_352x288_25Hz_P420_5b.yuv';
 
 % Destination 420 many-bits sequence
-filename420hb = 'short_352x288_25Hz_P420_10b.yuv';
+filename420hb = '../sequences/short_352x288_25Hz_P420_10b.yuv';
 
 % Destination 420 16-bits sequence
-filename42016b = 'short_352x288_25Hz_P420_16b.yuv';
+filename42016b = '../sequences/short_352x288_25Hz_P420_16b.yuv';
 
 % Destination 420 few-bits signed sequence
-filename420lbs = 'short_352x288_25Hz_P420_-5b.yuv';
+filename420lbs = '../sequences/short_352x288_25Hz_P420_-5b.yuv';
 
 % Destination 420 many-bits signed sequence
-filename420hbs = 'short_352x288_25Hz_P420_-10b.yuv';
+filename420hbs = '../sequences/short_352x288_25Hz_P420_-10b.yuv';
 
 % Destination 444 RGB sequence
-filename444rgb = 'short_352x288_25Hz_P444.rgb';
+filename444rgb = '../sequences/short_352x288_25Hz_P444.rgb';
 
 % Destination 444 XYZ sequence
-filename444xyz = 'short_352x288_25Hz_P444.xyz';
+filename444xyz = '../sequences/short_352x288_25Hz_P444.xyz';
 
 % Destination 444 HSV sequence
-filename444hsv = 'short_352x288_25Hz_P444.hsv';
+filename444hsv = '../sequences/short_352x288_25Hz_P444.hsv';
 
 % Destination 444 YIQ sequence
-filename444yiq = 'short_352x288_25Hz_P444.yiq';
+filename444yiq = '../sequences/short_352x288_25Hz_P444.yiq';
 
 % Destination 400 BW sequence
-filename444bw = 'short_352x288_25Hz_P400.bw';
+filename444bw = '../sequences/short_352x288_25Hz_P400.bw';
 
 % Destination 444 YCoCg sequence
-filename444ycocg = 'short_352x288_25Hz_P444.ycocg';
+filename444ycocg = '../sequences/short_352x288_25Hz_P444.ycocg';
 
 % Destination anamorphic RGB sequence
-filename1781 = 'short_198x288_25Hz_P444_anamorphic.rgb';
+filename1781 = '../sequences/short_198x288_25Hz_P444_anamorphic.rgb';
 
 % Destination interlaced RGB sequence
-filename444i = 'short_352x288_50Hz_P444i.rgb';
+filename444i = '../sequences/short_352x288_50Hz_P444i.rgb';
 
 % Destination odd sized RGB sequence
-filename444odd = 'short_351x287_50Hz_P444.rgb';
+filename444odd = '../sequences/short_351x287_50Hz_P444.rgb';
 
 % Destination 444 YCxCz sequence
-filename444ycxcz = 'short_352x288_25Hz_P444.ycxcz';
+filename444ycxcz = '../sequences/short_352x288_25Hz_P444.ycxcz';
 
 % Prepare some info on source file
 aaa = dir(filename420);

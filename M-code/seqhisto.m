@@ -6,7 +6,7 @@ clear all;
 % width = 352;
 % height = 288;
 % numframes = 5;
-filename = '\\Dsplab.diei.unipg.it\common\sequences\CIF\foreman.cif';
+filename = 'foreman.cif';
 width = 352;
 height = 288;
 numframes = Inf;
