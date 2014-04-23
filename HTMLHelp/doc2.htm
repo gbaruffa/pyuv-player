@@ -1,0 +1,254 @@
+<html>
+
+<head>
+	<title>Controls</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+</head>
+
+<body BGCOLOR="#FFFFFF">
+
+<center>
+	<a HREF="doc.htm"><img align="center" src="contents.gif" BORDER="0" ALT="Contents"></a>
+	<a HREF="doc.htm"><img align="center" src="up.gif" BORDER="0" ALT="Up"></a>
+	<a HREF="doc1.htm#intro"><img align="center" src="back.gif" BORDER="0" ALT="Previous"></a>
+	<a HREF="doc3.htm#format"><img align="center" src="forward.gif" BORDER="0" ALT="Next"></a>
+</center>
+
+<hr>
+
+<a NAME="control"></a>
+<h2>Controls</h2>
+
+	<p>A short guide to the controls in PYUV.</p>
+
+	<h3>File</h3>
+
+		<blockquote>
+
+		<h4>Open (CTRL+O)</h4>
+		<p>Opens a file in YUV or similar format.</p>
+		<p>For automatic parameter setup, the filename must contain the following tokens, in any order.
+		
+		<br>
+		<blockquote>whatever_<b>width</b>x<b>height</b>_<b>rate</b>Hz_<b>prec</b>b_<b>format</b>.yuv</blockquote>
+		<br><br>
+
+		<ul>
+			<li><b>width</b>  = integer number, the frame width in pixel</li>
+			<li><b>height</b> = integer number, the frame height in pixel</li>
+			<li><b>rate</b>   = real number, the frames per second to be rendered</li>
+			<li><b>prec</b>   = relative number, the precision of the image in bit per pixel</li>
+			<li><b>format</b> = YUV format. Currently, valid choices are
+				<ul>
+					<li>P444 - Planar, progressive, 4:4:4</li>
+					<li>P422 - Planar, progressive, 4:2:2</li>
+					<li>P420 - Planar, progressive, 4:2:0</li>
+					<li>P411 - Planar, progressive, 4:1:1</li>
+					<li>P410 - Planar, progressive, 4:1:0</li>
+					<li>P400 - Planar, progressive, 4:0:0</li>
+					<li>IYUV - Planar, progressive, 4:2:0</li>
+					<li>I444 - Packed, progressive, 4:4:4</li>
+					<li>I422 - Packed, progressive, 4:2:2</li>
+					<li>I420 - Packed, progressive, 4:2:0</li>
+					<li>I411 - Packed, progressive, 4:1:1</li>
+					<li>I410 - Packed, progressive, 4:1:0</li>
+					<li>UYVY - Packed, progressive, 4:2:2</li>
+					<li>YUY2 - Packed, progressive, 4:2:2</li>
+					<li>YVYU - Packed, progressive, 4:2:2</li>
+					<li>VIX  - Kakadu format for managing movies</li>
+				</ul>
+			</li>
+		</ul>
+
+		<br>If the number of tokens is not sufficient in order to determine the image format, a file with
+		the same name and extension .hdr will be searched in the same directory. It must contain, one per line,
+		the tokens required for the filename (e.g., width = 144\nheight = 100\netc.).<br>
+		If this file is not found, a file named <em>pyuvdefault.hdr</em> will be looked for.<br>
+		If this is not still sufficient, a format selection window will open.
+
+		</p>
+
+		<h4>Close (CTRL+C)</h4>
+		<p>Closes a previously opened file and returns to the default welcome screen.</p>
+
+		<h4>Save frame (CTRL+S)</h4>
+		<p>Save the current (un)zoomed frame to a bitmap file, selecting its name (will default to frameXXXX.bmp,
+		where XXX is the frame number).</p>
+
+		<h4>Format (CTRL+F)</h4>
+		<p>Opens a modal dialog window, where a number of options related to the video sequence
+		display and file format can be selected.<br />
+		It may be also shown after having selected a file to open: automatically recognized sequence
+		properties appear in the fields.</p>
+		
+		<br /><img alt="w32formatdialog (26K)" src="w32formatdialogmain.jpg" height="419" width="263" />
+		<br /><img alt="w32formatdialog (26K)" src="w32formatdialogextra.jpg" height="419" width="263" />
+
+			<h5>Frame size</h5>
+
+				<h6>Resolution</h6>
+				<p>Choose between one of the proposed, standard resolutions.</p>
+
+				<h6>Size (WxH)</h6>
+				<p>Specify the width and the height, in pixels, of the selected sequence.</p>
+
+
+			<h5>Frame rate</h5>
+
+				<h6>Frames/second</h6>
+				<p>Specify the frame rate of the sequence, in terms of fields (if interlaced)
+				or whole frames. Integer and fractional part of the rate can be specified.<br>
+				N.B.: the accuracy in rendering frame rate is not guaranteed.</p>
+
+				<h6>Interlaced video</h6>
+				<p>Specify whether the sequence is in progressive or interlaced mode.</p>
+
+
+			<h5>Video format</h5>
+
+				<h6>Color space</h6>
+				<p>Select one of the available color space transformations.</p>
+
+				<h6>Gamma encoding</h6>
+				<p>Type the gamma encoding value applied to the clip (it will be re-encoded before display).</p>
+
+				<h6>Subsampling</h6>
+				<p>Select one of the available subsampling modes.</p>
+
+				<h6>Ordering</h6>
+				<p>Select one of the available ordering modes (only for interleaved mode).</p>
+
+				<h6>Interleaved format</h6>
+				<p>Specify whether the sequence is in planar or packed (i.e. interleaved) format.</p>
+
+				<h6>Anamorphic format</h6>
+				<p>You can apply a 1.78:1 horizontal stretching to the image.</p>
+
+
+			<h5>File format</h5>
+
+				<h6>Bits per sample</h6>
+				<p>How many bit a sample is represented by in the disk file (a number less ot equal than 8
+				will result in 1 byte per sample, a larger one will result in two bytes per sample).</p>
+
+				<h6>Signed format</h6>
+				<p>Specify whether the samples are signed or unsigned.</p>
+
+				<h6>Endian format</h6>
+				<p>Switch between little-endian and big-endian, when reading data from disk.</p>
+
+				<h6>Header bytes</h6>
+				<p>Specify the number of beginning file bytes which do not represent raw image data.</p>
+
+
+		<h4>Exit (CTRL+Q)</h4>
+		<p>Shut down the application.</p>
+
+		</blockquote>
+
+	<h3>Control</h3>
+
+		<blockquote>
+
+		<h4>Play/pause (SPACE)</h4>
+		<p>Alternately starts or pauses the playout of the opened sequence file.</p>
+
+		<h4>Stop (ESC)</h4>
+		<p>Stops the sequence and rewinds to the first frame.</p>
+
+		<h4>Rewind (LEFT ARROW)</h4>
+		<p>Jump one frame back in the video sequence. Pauses the playout if selected during play mode.</p>
+
+		<h4>Forward (RIGHT ARROW)</h4>
+		<p>Jump one frame ahead in the video sequence. Pauses the playout if selected during play mode.</p>
+
+		<h4>Goto (Ctrl+G)</h4>
+		<p>Jump directly to a frame number in the video sequence, selected by means of a numeric entry dialog.</p>
+
+		<h4>Cycle (CTRL+Y)</h4>
+		<p>Enable or disable the continuous playout of the sequence; when the end is reached, it starts again
+		from the beginning</p>
+
+		<h4>Sync (CTRL+S)</h4>
+		<p>Opens a dialog for synchronizing commands between a master instance and one or more slave instances
+		of PYUV, which receive the commands from the master itself (play/pause, stop, ecc.)</p>
+
+		<br /><img alt="w32syncdialog (26K)" src="w32syncdialog.jpg" height="305" width="259" />
+
+			<h5>Search</h5>
+			<p>Search and list available instances of PYUV. The searcher PYUV instance is not listed; already
+			booked slave instances are not listed; the listing is not active if the current instance is already
+			a slave of someone else. Close the file to disconnect from the master.</p>
+
+			<h5>Identify</h5>
+			<p>Activate/deactivate the identity number in all the running instances.</p>
+
+			<h5>Unlink</h5>
+			<p>Abandon your master instance, if you are commanded, to become a freedman.</p>
+
+			<h5>OK/Apply</h5>
+			<p>Book or unbook all the listed instances: the selected ones will be booked, the nonselected ones
+			are unbooked. Close the open file to reset everything.</p>
+
+
+		</blockquote>
+
+	<h3>View</h3>
+
+		<blockquote>
+
+		<h4>Zoom</h4>
+		<p>Scale up/down the image for a better rendering on the display. Please note that there is 
+		no anti-aliasing processing, thus scaled images may appear "crispy". Scaling will affect timing
+		performance a little.</p>
+
+			<blockquote>
+			<h5>200%</h5>
+			<p>Double size.</p>
+
+			<h5>100%</h5>
+			<p>Original size, no scaling</p>
+
+			<h5>50%</h5>
+			<p>Half size (1 pixel out of 2 is discarded).</p>
+
+			<h5>33%</h5>
+			<p>Third size (2 pixels out of 3 are discarded).</p>
+
+			<h5>25%</h5>
+			<p>Quarter size (3 pixels out of 4 are discarded).</p>
+
+			</blockquote>
+
+		<h4>Deinterlace (D)</h4>
+		<p>Deinterlace the video using the averaging between odd and even fields.</p>
+
+		<h4>Time code (T)</h4>
+		<p>Shows a label in the lower left corner of the image, reporting the current frame number (f) and the
+		minute (m), second (s), hundredth (c) of the frame, with the format <i>ffff: mm'ss"cc</i> .</p>
+
+		<h4>Identity (I)</h4>
+		<p>Shows a label in the upper right corner of the image, reporting the number of the current
+		selected instance of PYUV.</p>
+
+		<h4>Copy (F8)</h4>
+		<p>Copy the current (un)zoomed image to the clipboard.</p>
+
+		</blockquote>
+
+	<h3>Help</h3>
+
+		<blockquote>
+		<h4>Contents</h4>
+		<p>This help book.</p>
+
+		<h4>About</h4>
+		<p>A small dialog reporting the name of the program, the build date and time, and some credits
+		information.</p>
+
+		</blockquote>
+
+
+</body>
+
+</html>

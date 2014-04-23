@@ -1,0 +1,157 @@
+<html>
+
+<head>
+	<title>Format</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+</head>
+
+<body BGCOLOR="#FFFFFF">
+
+<center>
+	<a HREF="doc.htm"><img align="center" src="contents.gif" BORDER="0" ALT="Contents"></a>
+	<a HREF="doc.htm"><img align="center" src="up.gif" BORDER="0" ALT="Up"></a>
+	<a HREF="doc2.htm#control"><img align="center" src="back.gif" BORDER="0" ALT="Previous"></a>
+	<a HREF="doc4.htm#trouble"><img align="center" src="forward.gif" BORDER="0" ALT="Next"></a>
+</center>
+
+<hr>
+
+<a NAME="format"></a>
+<h2>Format support</h2>
+<p>PYUV is intended to support the playout of raw sequences, i.e. video which has not yet been compressed in any way, but rather is still very redundant and native.<br />
+Currently, the supported formats are any combination of:
+</p>
+<h3>Colorspace</h3>
+<ul>
+<li><a href="#RGB">RGB</a></li>
+<li><a href="#YUV">YUV/YCbCr</a></li>
+<li><a href="#YIQ">YIQ</a></li>
+<li><a href="#HSV">HSV</a></li>
+<li><a href="#BW">B/W</a></li>
+<li><a href="#XYZ">XYZ</a></li>
+<li><a href="#YCOCG">YCoCg</a></li>
+<li><a href="#YCXCZ">YCxCz</a></li>
+</ul>
+<h3>Subsampling</h3>
+<ul>
+<li><a href="#subsampling">4:4:4</a></li>
+<li><a href="#subsampling">4:2:2</a></li>
+<li><a href="#subsampling">4:2:0</a></li>
+<li><a href="#subsampling">4:1:1</a></li>
+<li><a href="#subsampling">4:1:0</a></li>
+<li><a href="#subsampling">4:0:0</a></li>
+</ul>
+<h3>File data organization</h3>
+<ul>
+<li>planar/packed components</li>
+<li><a href="#progressive">progressive</a> scan</li>
+<li>Signed/unsigned data samples</li>
+<li>1 to 16 bit per sample precision</li>
+</ul>
+
+<p>
+<b><a name="YUV">YUV/YCbCr - </a></b> The YUV model defines a color space in terms of one luminance and two chrominance
+components. YUV is used in the PAL and NTSC systems of television broadcasting, which are the standards in much
+of the world.<br />
+YUV models human perception of color more closely than the standard RGB model used in computer graphics hardware,
+but not as closely as the HSL color space and HSV color space.<br />
+Y stands for the luminance component (the brightness) and U and V are the chrominance (color) components.
+The YCbCr or YPbPr color space, used in component video, is derived from it (Cb/Pb and Cr/Pr are simply scaled
+versions of U and V), and is sometimes inaccurately called "YUV". The YIQ color space used in the NTSC television
+broadcasting system is related to it, although in a more complex way.<br />
+YUV signals are created from an original RGB (red, green and blue) source. The weighted values of R, G and B are
+added together to produce a single Y signal, representing the overall brightness, or luminance, of that spot.
+The U signal is then created by subtracting the Y from the blue signal of the original RGB, and then scaling;
+and V by subtracting the Y from the red, and then scaling by a different factor. This can be accomplished easily
+with analog circuitry.
+</p>
+
+
+<p>
+<b><a name="YIQ">YIQ - </a></b> YIQ is a color space, formerly used in the NTSC television standard.
+I stands for in-phase, while Q stands for quadrature, referring to the components used in quadrature
+amplitude modulation. NTSC now uses the YUV color space, which is also used by other systems such as PAL.
+The Y component represents the luma information, and is the only component used by black-and-white television
+receivers. I and Q represent the chrominance information. In YUV, the U and V components can be thought of
+as X and Y coordinates within the colorspace. I and Q can be thought of as a second pair of axes on the same
+graph, rotated 33°; therefore IQ and UV represent different coordinate systems on the same plane.
+The YIQ system is intended to take advantage of human color-response characteristics. The eye is more sensitive
+to changes in the orange-blue (I) range than in the purple-green range (Q) — therefore less bandwidth is
+required for Q than for I. Broadcast NTSC limits I to 1.3 MHz and Q to 0.4 MHz. I and Q are frequency
+interleaved into the 4 MHz Y signal, which keeps the bandwidth of the overall signal down to 4.2 MHz.
+In YUV systems, since U and V both contain information in the orange-blue range, both components must be given
+the same amount of bandwidth as I to achieve similar color fidelity.
+Very few television sets perform true I and Q decoding, due to the high costs of such an implementation.
+The Rockwell Modular Digital Radio (MDR) was one, which in 1997 could operate in frame-at-a-time mode with a
+PC or in realtime with the Fast IQ Processor (FIQP).
+</p>
+
+<p>
+<b><a name="RGB">RGB - </a></b> The RGB color model is an additive model in which red, green and blue (often used
+in additive light models) are combined in various ways to reproduce other colors. The name of the model and
+the abbreviation "RGB" come from the three primary colors, Red, Green and Blue. These three colors should not
+be confused with the primary pigments of red, blue and yellow, known in the art world as "primary colors".<br />
+The RGB color model itself does not define what is meant by "red", "green" and "blue", and the results of mixing
+them are not exact unless the exact spectral make-up of the red, green and blue primaries are defined. 
+</p>
+
+<p>
+<b><a name="HSV">HSV - </a></b> The HSV (Hue, Saturation, Value) model, also known as HSB
+(Hue, Saturation, Brightness) or HSL (Hue, Saturation, Luminosity), defines a color space in terms of three
+constituent components: Hue, the color type (such as red, blue, or yellow), ranges from 0-360 (but normalized
+to 0-100% in some applications); Saturation, the "vibrancy" of the color, ranges from 0-100%, also sometimes
+called the "purity" by analogy to the colorimetric quantities excitation purity and colorimetric purity;
+the lower the saturation of a color, the more "grayness" is present and the more faded the color will appear,
+thus useful to define desaturation as the qualitative inverse of saturation; Value, the brightness of the color, 
+Ranges from 0-100%.<br />
+The HSV model was created in 1978 by Alvy Ray Smith. It is a nonlinear transformation of the RGB color space,
+and may be used in color progressions. Note that HSV and HSB are the same, but HSL is different.
+</p>
+
+<p>
+<b><a name="XYZ">XYZ - </a></b> In the study of the perception of color, one of the first mathematically
+defined color spaces was the CIE XYZ color space (also known as CIE 1931 color space), created by the
+International Commission on Illumination (CIE) in 1931. The human eye has receptors for short (S), middle (M),
+and long (L) wavelengths, also known as blue, green, and red receptors. That means that one, in principle,
+needs three parameters to describe a color sensation. A specific method for associating three numbers
+(or tristimulus values) with each color is called a color space: the CIE XYZ color space is one of many
+such spaces. However, the CIE XYZ color space is special, because it is based on direct measurements of the
+human eye, and serves as the basis from which many other color spaces are defined. The CIE XYZ color space was
+derived from a series of experiments done in the late 1920s by W. David Wright and John Guild.
+Their experimental results were combined into the specification of the CIE RGB color space, from which
+the CIE XYZ color space was derived. In the CIE XYZ color space, the tristimulus values are not the S, M,
+and L stimuli of the human eye, but rather a set of tristimulus values called X, Y, and Z,
+which are also roughly red, green and blue, respectively. Two light sources may be made up of different
+mixtures of various colors, and yet have the same color (metamerism). If two light sources have the same
+apparent color, then they will have the same tristimulus values, no matter what different mixtures of light
+were used to produce them.
+</p>
+
+<p>
+<b><a name="subsampling">[2]</a></b> In digital image processing, chroma subsampling is the use of lower resolution for the color (chroma) information in an image than for the brightness (intensity or luma) information. It is used when an analog component video or YUV signal is digitally sampled.<br />
+Because the human eye is less sensitive to color than intensity, the chroma components of an image need not be as well defined as the luma component, so many video systems sample the color difference channels at a lower definition (i.e., sample frequency) than the brightness. This reduces the overall bandwidth of the video signal without much apparent loss of picture quality. The missing values will be interpolated or repeated from the preceding sample for that channel.<br />
+The subsampling in a video system is usually expressed as a three part ratio. The three terms of the ratio are: the number of brightness ("luminance" "luma" or Y) samples, followed by the number of samples of the two color ("chroma") components: U/Cb then V/Cr, for each complete sample area. For quality comparison, only the ratio between those values is important, so 4:4:4 could easily be called 1:1:1; however, traditionally the value for brightness is always 4, with the rest of the values scaled accordingly.<br />
+<img alt="subsampling (2K)" src="subsampling.png" height="84" width="283" /><br />
+Sometimes, four part relations are written, like 4:2:2:4. In these cases, the fourth number means the sampling frequency ratio of a key channel. In virtually all cases, that number will be 4, since high quality is very desirable in keying applications.<br />
+The mapping examples given are only theoretical and for illustration. The bitstreams of real-life implementations will most likely differ.<br />
+Video usually requires massive amounts of bandwidth. Because of storage and transmission limitations, there is always a desire to reduce (or compress) the signal. 4:4:4 video, whether RGB or YUV, is considered lossless. Since the human visual system is much more senstive to variations in brightness than colour, we can take YUV and reduce the U and V components to half the bit resolution, giving 4:2:2. The end result is a compressed video signal with little impact on what is perceived by the viewer.
+</p>
+
+<p>
+<b><a name="progressive">[3]</a></b>
+Progressive or non-interlaced scanning is any method for displaying, storing or transmitting moving images in which the lines of each frame are drawn in sequence. This is in contrast to the interlacing used in traditional television systems.
+
+Progressive scan is used in most CRTs used as computer monitors. It is also becoming increasingly common in high-end television equipment, which is often capable of performing deinterlacing so that interlaced video can still be viewed.
+
+Advantages of progressive scan include:
+<ul>
+<li>Subjectively increased vertical resolution. The perceived vertical resolution of an interlaced image is usually equivalent to multiplying the active lines by about 1.6. This explains, for example, why HDTV standards such as 1080i (1920x1080, interlaced) in most cases deliver a quality equal to or slightly poorer than that of 720p (1280x720, progressive), despite containing far more lines of resolution.</li>
+<li>No flickering of narrow horizontal patterns</li>
+<li>Simpler video processing equipment</li>
+<li>Easier compression</li>
+</ul>
+</p>
+
+</body>
+
+</html>
