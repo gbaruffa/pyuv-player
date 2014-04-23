@@ -1,0 +1,25 @@
+/* XPM */
+static const char *stop16[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1",
+"  c #800000",
+". c gray100",
+"X c None",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XX            XX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX"
+};
