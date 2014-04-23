@@ -1,0 +1,12 @@
+Package: pyuv
+Version: 0.5-1
+Section: science
+Priority: optional
+Architecture: i386
+Installed-Size: 448
+Depends: libwxgtk2.8-0 (>= 2.8.7.1), libgcc1 (>= 4.2.3), libc6 (>= 2.7-10)
+Maintainer: Giuseppe Baruffa <baruffa@diei.unipg.it>
+Homepage: http://dante.diei.unipg.it/~baruffa
+Description: Raw sequence player
+ Pyuv is a program that may be used to view raw uncompressed sequence
+ written as an headerless bunch of bytes on a single file.

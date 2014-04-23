@@ -1,0 +1,14 @@
+
+This is the Debian GNU/Linux prepackaged version of the Pyuv
+program. Pyuv was written by
+Giuseppe Baruffa <baruffa@diei.unipg.it>.
+
+This package is currently maintained
+by Giuseppe Baruffa <baruffa@diei.unipg.it>.
+
+See /usr/share/doc/pyuv/changelog.Debian.gz for details on the
+applied changes.
+
+pyuv is Copyright (C) 2005 - 2008 Giuseppe Baruffa
+
+    Read the LICENCE file.
