@@ -291,8 +291,9 @@ static const wxCmdLineEntryDesc pyuvCommandLine[] = {
 // Initialize the application
 bool pyuvApp::OnInit()
 {
+#if 0
 	int res;
-
+#endif
 	// Set the English locale
 	wxLocale(wxLANGUAGE_ENGLISH, wxLOCALE_LOAD_DEFAULT);
 
@@ -356,7 +357,11 @@ bool pyuvApp::OnInit()
 		wxLogNull log;
 
 		// Pass false to suppress auto Usage() message
+#if 0
 		res = cmdParser.Parse(false);
+#else
+		cmdParser.Parse(false);
+#endif
 	}
 
 	// Check for a sequence filename
@@ -1977,7 +1982,9 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
 // Animation timer handler
 bool pyuvFrame::pyuvDraw(void)
 {
+#if 0
 	int n, area = pyuvWidth * pyuvHeight * 3;
+#endif
 
 	if (readfile(pyuvBuffer, pyuvFramebytes)) {
 
@@ -3273,8 +3280,9 @@ wxConnectionBase *pyuvServer::OnAcceptConnection(const wxString& topic)
 		wxWindowList::Node* node = wxTopLevelWindows.GetFirst();
 		while (node) {
 			wxDialog* dialog = wxDynamicCast(node->GetData(), wxDialog);
-			if (dialog && dialog->IsModal())
-				return false;
+			if (dialog && dialog->IsModal()) {
+				return NULL;
+			}
 			node = node->GetNext();
 		};
 

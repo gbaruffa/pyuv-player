@@ -193,14 +193,18 @@ prepare_lut(int bits, int sign, int endian, double gamma)
 		} else if (bits > 8) {
 
 			int i;
+#if 0
 			signed short temp;
+#endif
 			signed short start = - (signed short) (((int) 1) << (bits - 1));
 			signed short stop = (signed short) ((((int) 1) << (bits - 1)) - 1);
 			scalelutstart = start;
 
 			/* Cycle on rows */
 			for (i = start; i <= stop; i++) {
+#if 0
 				temp = endian ? SHORT_SWAP(i) : i;
+#endif
 				//scalelut[i - scalelutstart] = (unsigned char) (0.5F + ((float) i + offsetf[bits]) * scalef[bits]);
 				scalelut[i - scalelutstart] = (unsigned char) (0.5 + 255.0 * powf((((float) i + offsetf[bits]) * scalef[bits]) / 255.0F, gamma));
 			}
@@ -1756,6 +1760,10 @@ prepare_screen(unsigned char *dest, unsigned char *orig, unsigned int width, uns
 	int n, area = width * height * 3;
 
 	for (n = 0; n < area; n++)
-
+#if 0
 		*(dest++) = screenlut[*dest];
+#else
+		*dest = screenlut[*dest];
+		dest++;
+#endif
 }
