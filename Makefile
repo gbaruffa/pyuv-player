@@ -1,10 +1,10 @@
 # Makefile for PYUV
 
 # General configuration variables:
-CC = $(shell wx-config --cxx)
+CC = $(shell wx-config-3.0 --cxx)
 AR = ar
 
-CFLAGS = $(shell wx-config --cxxflags) -Wall # -g -p -pg
+CFLAGS = $(shell wx-config-3.0 --cxxflags) -Wall # -g -p -pg
 
 PYUV_SRCS = source/converter.cpp source/playuvApp.cpp
 
@@ -16,7 +16,7 @@ all: pyuv
 	$(CC) $(CFLAGS) -c $< -o $@
 
 pyuv: $(PYUV_SRCS)
-	$(CC) $(CFLAGS) -I .. $(PYUV_SRCS) -o pyuv -lm -lstdc++ $(shell wx-config --libs)
+	$(CC) $(CFLAGS) -I .. $(PYUV_SRCS) -o pyuv -lm -lstdc++ $(shell wx-config-3.0 --libs)
 
 
 clean:
@@ -59,5 +59,3 @@ app: pyuv
 	mkdir dmg_tmp
 	cp -R pyuv.app dmg_tmp
 	hdiutil create -srcfolder dmg_tmp -volname "Pyuv for Mac" -format UDZO -ov pyuv_install.dmg
-
-
