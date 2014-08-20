@@ -5,11 +5,6 @@
  * with the destination components
  */
 
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
-
 /*
  *
  * Strange functions
@@ -19,13 +14,12 @@
 /*
  * compute the difference between actual and previous frame
  */
-void difference(unsigned char *diff, unsigned char *orig, unsigned int width, unsigned int height);
+void difference(uint8_t *diff, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * draw a grid on the frame
  */
-void drawgrid(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height,
-			  unsigned int gridsize, unsigned int gridcol);
+void drawgrid(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t gridsize, uint32_t gridcol);
 
 /*
  * Bit depth conversion
@@ -33,7 +27,7 @@ void drawgrid(unsigned char *dest, unsigned char *orig, unsigned int width, unsi
  *
  *
  */
-void bitdepth_adjust(unsigned char *dest, void *orig, unsigned int numsamples, int bits, int sign, int endian);
+void bitdepth_adjust(uint8_t *dest, void *orig, uint32_t numsamples, int bits, int sign, int endian);
 
 /*
  * Prepare the scaling LUT --> faster
@@ -51,7 +45,7 @@ void prepare_lut(int bits, int sign, int endian, double gamma);
  * Rec. BT.601
  *
  */
-void ycbcr601_to_rgb(unsigned char *rgb, unsigned char *ycbcr, unsigned int width, unsigned int height);
+void ycbcr601_to_rgb(uint8_t *rgb, uint8_t *ycbcr, uint32_t width, uint32_t height);
 
 /*
  * YCbCr->RGB conversion
@@ -59,7 +53,7 @@ void ycbcr601_to_rgb(unsigned char *rgb, unsigned char *ycbcr, unsigned int widt
  * Rec. BT.709
  *
  */
-void ycbcr709_to_rgb(unsigned char *rgb, unsigned char *ycbcr, unsigned int width, unsigned int height);
+void ycbcr709_to_rgb(uint8_t *rgb, uint8_t *ycbcr, uint32_t width, uint32_t height);
 
 /*
  * XYZ->RGB conversion
@@ -67,52 +61,52 @@ void ycbcr709_to_rgb(unsigned char *rgb, unsigned char *ycbcr, unsigned int widt
  * D65 white point
  *
  */
-void xyzD65_to_rgb(unsigned char *rgb, unsigned char *xyz, unsigned int width, unsigned int height);
+void xyzD65_to_rgb(uint8_t *rgb, uint8_t *xyz, uint32_t width, uint32_t height);
 
 /*
  * HSV->RGB conversion
  *
  *
  */
-void hsv_to_rgb(unsigned char *rgb, unsigned char *hsv, unsigned int width, unsigned int height);
+void hsv_to_rgb(uint8_t *rgb, uint8_t *hsv, uint32_t width, uint32_t height);
 
 /*
  * YIQ->RGB conversion
  *
  *
  */
-void yiq_to_rgb(unsigned char *rgb, unsigned char *yiq, unsigned int width, unsigned int height);
+void yiq_to_rgb(uint8_t *rgb, uint8_t *yiq, uint32_t width, uint32_t height);
 
 /*
  * YCoCg->RGB conversion
  *
  *
  */
-void ycocg_to_rgb(unsigned char *rgb, unsigned char *ycocg, unsigned int width, unsigned int height);
+void ycocg_to_rgb(uint8_t *rgb, uint8_t *ycocg, uint32_t width, uint32_t height);
 
 /*
  * YCxCz->RGB conversion
  *
  *
  */
-void ycxcz_to_rgb(unsigned char *rgb, unsigned char *ycxcz, unsigned int width, unsigned int height);
+void ycxcz_to_rgb(uint8_t *rgb, uint8_t *ycxcz, uint32_t width, uint32_t height);
 
 /*
  * one selected component->RGB conversion
  *
  *
  */
-void whatever_to_rgb(unsigned char *rgb, unsigned char *any, unsigned int width, unsigned int height, int compno);
+void whatever_to_rgb(uint8_t *rgb, uint8_t *any, uint32_t width, uint32_t height, int compno);
 
 /*
  * RGB->RGB conversion
  */
-void rgb_to_rgb(unsigned char *rgb, unsigned char *ycbcr, unsigned int width, unsigned int height);
+void rgb_to_rgb(uint8_t *rgb, uint8_t *ycbcr, uint32_t width, uint32_t height);
 
 /*
  * B/W->RGB conversion
  */
-void bw_to_rgb(unsigned char *rgb, unsigned char *y, unsigned int width, unsigned int height);
+void bw_to_rgb(uint8_t *rgb, uint8_t *y, uint32_t width, uint32_t height);
 
 
 /*
@@ -123,95 +117,95 @@ void bw_to_rgb(unsigned char *rgb, unsigned char *y, unsigned int width, unsigne
  * Resample an image by a scale factor
  *
  */
-void downsample(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height, unsigned int widths, unsigned int heights, unsigned int scale);
-void downsample_anamorphic(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height, unsigned int widths, unsigned int heights, unsigned int scale);
-void upsample(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height, unsigned int widths, unsigned int heights, unsigned int scale);
-void upsample_anamorphic(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height, unsigned int widths, unsigned int heights, unsigned int scale);
+void downsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale);
+void downsample_anamorphic(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale);
+void upsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale);
+void upsample_anamorphic(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale);
 
 /*
  * 4:0:0 planar to 1:1:1 interleaved conversion
  */
-void p400_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p400_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:1:0 planar to 1:1:1 interleaved conversion
  */
-void p410_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p410_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:1:1 planar to 1:1:1 interleaved conversion
  */
-void p411_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p411_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:0 planar to 1:1:1 interleaved conversion
  */
-void p420_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p420_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:0 planar to 1:1:1 interleaved conversion
  */
-void p420_to_i111bis(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p420_to_i111bis(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:2 planar to 1:1:1 interleaved conversion
  */
-void p422_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:4:4 planar to 1:1:1 interleaved conversion
  */
-void p444_123_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
-void p444_321_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p444_123_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
+void p444_321_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:4:4 planar interlaced to 1:1:1 interleaved conversion
  */
-void p444i_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void p444i_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:4:4 interleaved to 1:1:1 interleaved conversion
  */
-void i444_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void i444_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:2 interleaved to 1:1:1 interleaved conversion
  */
-void i422_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void i422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:1:1 interleaved to 1:1:1 interleaved conversion
  */
-void i411_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void i411_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:0 interleaved to 1:1:1 interleaved conversion
  */
-void i420_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void i420_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:1:0 interleaved to 1:1:1 interleaved conversion
  */
-void i410_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void i410_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * deinterlace video
  */
-void deinterlace(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void deinterlace(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:0 UYVY interleaved to 1:1:1 interleaved conversion
  */
-void iuyvy422_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void iuyvy422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:2 YUY2 interleaved to 1:1:1 interleaved conversion
  */
-void iyuy2422_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void iyuy2422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
  * 4:2:2 YVYU interleaved to 1:1:1 interleaved conversion
  */
-void iyvyu422_to_i111(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void iyvyu422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
-void prepare_screen(unsigned char *dest, unsigned char *orig, unsigned int width, unsigned int height);
+void prepare_screen(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
