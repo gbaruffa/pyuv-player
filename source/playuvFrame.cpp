@@ -1549,7 +1549,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxT("Main site:\t%s\n")
         wxT("Fork site:\t%s\n")
         wxT("\nCreated with %s\n")
-        wxT("\n(c) 2006-2013, Giuseppe Baruffa, DSPLab"),
+        wxT("\n(c) 2006-2014, Giuseppe Baruffa, DSPLab"),
         PYUV_VERSION, PYUV_SUBVERSION, PYUV_REVISION, wxT(PYUV_BETA),
         PYUV_BTIME,
         wxT(PYUV_WEBSITE),
