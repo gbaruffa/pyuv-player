@@ -4,11 +4,12 @@
 CC = $(shell wx-config-3.0 --cxx)
 AR = ar
 
-CFLAGS = $(shell wx-config-3.0 --cxxflags) -Wall # -g -p -pg
+#CFLAGS = $(shell wx-config-3.0 --cxxflags) -Wall # -g -p -pg
+CFLAGS = $(shell wx-config-3.0 --cxxflags) -std=c++11 -Wall -O2
 
-PYUV_SRCS = source/converter.cpp source/playuvApp.cpp
+PYUV_SRCS = source/converter.cpp source/playuvApp.cpp source/playuvFrame.cpp source/playuvFormat.cpp source/playuvSync.cpp
 
-MODULES = $(OPJV_SRCS:.cpp=.o)
+MODULES = $(PYUV_SRCS:.cpp=.o)
 
 all: pyuv
 
@@ -16,7 +17,7 @@ all: pyuv
 	$(CC) $(CFLAGS) -c $< -o $@
 
 pyuv: $(PYUV_SRCS)
-	$(CC) $(CFLAGS) -I .. $(PYUV_SRCS) -o pyuv -lm -lstdc++ $(shell wx-config-3.0 --libs)
+	$(CC) $(CFLAGS) -I .. -o pyuv $(PYUV_SRCS) -lm -lstdc++ $(shell wx-config-3.0 --libs)
 
 
 clean:
