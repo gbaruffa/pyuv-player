@@ -43,7 +43,7 @@ deb: pyuv
 	mkdir -p debian/usr/share/applications
 	cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
 	fakeroot dpkg-deb --build debian
-	mv debian.deb pyuv_0.5-1_i386.deb
+	mv debian.deb pyuv_0.6.1-1_i386.deb
 	rm -fr debian
 
 #http://endrift.com/blog/2010/06/14/dmg-files-volume-icons-cli/
