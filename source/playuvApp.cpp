@@ -209,7 +209,10 @@ bool pyuvApp::OnInit()
     }
 
     // Add handler
+#if 0
+    // the wxBMPHandler is always installed, so no need to do it again
     wxImage::AddHandler(new wxBMPHandler);
+#endif
 
     // Start the event loop
     return true;
