@@ -211,14 +211,14 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
 
     itemSizer3->Add(3, 3, 1, wxALL, 0);
 
-    customwidthText = new wxTextCtrl(panel, ID_WIDTHTEXT, wxString::Format(wxT("%d"), frame->GetWidth()),
+    customwidthText = new wxTextCtrl(panel, ID_WIDTHTEXT, wxString::Format(wxT("%d"), (uint32_t)frame->GetWidth()),
         wxDefaultPosition, wxSize(60, -1), wxTE_RIGHT);
     itemSizer3->Add(customwidthText, 0, wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer3->Add(new wxStaticText(panel, wxID_ANY, wxT("x")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 1);
 
-    customheightText = new wxTextCtrl(panel, ID_HEIGHTTEXT, wxString::Format(wxT("%d"), frame->GetHeight()),
+    customheightText = new wxTextCtrl(panel, ID_HEIGHTTEXT, wxString::Format(wxT("%d"), (uint32_t)frame->GetHeight()),
         wxDefaultPosition, wxSize(60, -1));
     itemSizer3->Add(customheightText, 0, wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
@@ -430,7 +430,7 @@ wxPanel* pyuvFormatDialog::CreateExtraSettingsPage(wxWindow* parent)
 
     itemSizer9->Add(3, 3, 1, wxALL, 0);
 
-    headersizeText = new wxTextCtrl(panel, wxID_ANY, wxString::Format(wxT("%d"), frame->GetHeaderSize()),
+    headersizeText = new wxTextCtrl(panel, wxID_ANY, wxString::Format(wxT("%d"), (uint32_t)frame->GetHeaderSize()),
         wxDefaultPosition, wxSize(60, -1));
     itemSizer9->Add(headersizeText, 0, wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
