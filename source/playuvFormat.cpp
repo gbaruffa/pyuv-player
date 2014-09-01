@@ -61,42 +61,42 @@ wxEND_EVENT_TABLE()
 
 const uint32_t pyuvFormatDialog::pyuvWidths[] =
 {
-	0,      // choose one
-	176,    // qcif
-	352,    // sif
-	352,    // cif
-	640,    // vga
-	700,    // ntsc
-	720,    // sd576
-	780,    // pal
-	1280,   // hd720
-	1920,   // hd1080
-	2048,   // dci2k
-	3840,   // shd
-	4096,   // dci4k
-	4520,   // red
-	7680,   // uhd
-	0       // custom
+    0,      // choose one
+    176,    // qcif
+    352,    // sif
+    352,    // cif
+    640,    // vga
+    700,    // ntsc
+    720,    // sd576
+    780,    // pal
+    1280,   // hd720
+    1920,   // hd1080
+    2048,   // dci2k
+    3840,   // shd
+    4096,   // dci4k
+    4520,   // red
+    7680,   // uhd
+    0       // custom
 };
 
 const uint32_t pyuvFormatDialog::pyuvHeights[] =
 {
-	0,      // choose one
-	144,    // qcif
-	240,    // sif
-	288,    // cif
-	480,    // vga
-	525,    // ntsc
-	576,    // sd576
-	586,    // pal
-	720,    // hd720
-	1080,   // hd1080
-	1080,   // dci2k
-	2160,   // shd
-	2160,   // dci4k
-	2540,   // red
-	4320,   // uhd
-	0       // custom
+    0,      // choose one
+    144,    // qcif
+    240,    // sif
+    288,    // cif
+    480,    // vga
+    525,    // ntsc
+    576,    // sd576
+    586,    // pal
+    720,    // hd720
+    1080,   // hd1080
+    1080,   // dci2k
+    2160,   // shd
+    2160,   // dci4k
+    2540,   // red
+    4320,   // uhd
+    0       // custom
 };
 
 // Video resolutions: short names and sizes
@@ -128,7 +128,7 @@ pyuvFrame *pyuvFormatDialog::frame;
 // Ctor
 pyuvFormatDialog::pyuvFormatDialog(wxWindow *win)
 {
-    frame = (pyuvFrame *)GetParent();
+    frame = (pyuvFrame *)win;
 
     frame->GetWidthScreen() = frame->GetWidth() / frame->GetScale();
     frame->GetHeightScreen() = frame->GetHeight() / frame->GetScale();

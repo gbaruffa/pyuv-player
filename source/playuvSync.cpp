@@ -58,7 +58,7 @@ END_EVENT_TABLE()
 // Ctor
 pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
 {
-    frame = (pyuvFrame *)GetParent();
+    frame = (pyuvFrame *)win;
 
     // Transfer all data from window children
     // Activate a contextual help
