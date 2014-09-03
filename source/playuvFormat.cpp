@@ -614,8 +614,8 @@ pyuvFormatDialog::formatApplyClick(wxCommandEvent& e)
     // depth = XXXX
     // space = XXXX
     // gamma = XXXX
-    headerfile.AddLine(wxString::Format(wxT("width = %d"), frame->GetWidth()));
-    headerfile.AddLine(wxString::Format(wxT("height = %d"), frame->GetHeight()));
+    headerfile.AddLine(wxString::Format(wxT("width = %d"), (uint32_t)frame->GetWidth()));
+    headerfile.AddLine(wxString::Format(wxT("height = %d"), (uint32_t)frame->GetHeight()));
     headerfile.AddLine(wxString::Format(wxT("rate = %f"), frame->GetRate()));
     headerfile.AddLine(wxString::Format(wxT("format = %s"), (*frame->GetFormatShort())[frame->GetFormat()]));
     headerfile.AddLine(wxString::Format(wxT("depth = %d"), frame->GetSampleBits()));
