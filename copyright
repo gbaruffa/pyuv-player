@@ -4,11 +4,11 @@ program. Pyuv was written by
 Giuseppe Baruffa <baruffa@diei.unipg.it>.
 
 This package is currently maintained
-by Giuseppe Baruffa <baruffa@diei.unipg.it>.
+by Yufei Yuan <yyuan@gmx.com>.
 
 See /usr/share/doc/pyuv/changelog.Debian.gz for details on the
 applied changes.
 
-pyuv is Copyright (C) 2005 - 2008 Giuseppe Baruffa
+pyuv is Copyright (C) 2005 - 2014 Giuseppe Baruffa
 
     Read the LICENCE file.
