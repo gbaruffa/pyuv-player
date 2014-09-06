@@ -1,11 +1,11 @@
 # Makefile for PYUV
 
 # General configuration variables:
-CC = $(shell wx-config-3.0 --cxx)
+CC = $(shell wx-config --cxx)
 AR = ar
 
 #CFLAGS = $(shell wx-config-3.0 --cxxflags) -Wall # -g -p -pg
-CFLAGS = $(shell wx-config-3.0 --cxxflags) -std=c++11 -Wall -g -O0
+CFLAGS = $(shell wx-config --cxxflags) -std=c++11 -Wall -O2
 
 PYUV_SRCS = source/converter.cpp source/playuvApp.cpp source/playuvFrame.cpp source/playuvFormat.cpp source/playuvSync.cpp
 
@@ -17,7 +17,7 @@ all: pyuv
 	$(CC) $(CFLAGS) -c $< -o $@
 
 pyuv: $(PYUV_SRCS)
-	$(CC) $(CFLAGS) -I .. -o pyuv $(PYUV_SRCS) -lm -lstdc++ $(shell wx-config-3.0 --libs)
+	$(CC) $(CFLAGS) -I .. -o pyuv $(PYUV_SRCS) -lm -lstdc++ $(shell wx-config --libs)
 
 
 clean:
@@ -44,7 +44,7 @@ deb: pyuv
 	mkdir -p debian/usr/share/applications
 	cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
 	fakeroot dpkg-deb --build debian
-	mv debian.deb pyuv_0.6.1-1_i386.deb
+	mv debian.deb pyuv_0.6.1-1_amd64.deb
 	rm -fr debian
 
 #http://endrift.com/blog/2010/06/14/dmg-files-volume-icons-cli/
