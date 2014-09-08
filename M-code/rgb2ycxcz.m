@@ -16,6 +16,23 @@ function ycxcz = rgb2ycxcz(in)
 %   image.  If the input is a colormap, the input and output 
 %   colormaps are both of class double.
 
+% Copyright (C) 2005 - 2014 Giuseppe Baruffa
+% 
+% This file is part of PYUV.
+% 
+% PYUV is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% PYUV is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
+
 if ndims(in)~=3 | size(in,3)~=3
    if ndims(in)==2 & size(in,2)==3 % a colormap
       iscolormap=1;
