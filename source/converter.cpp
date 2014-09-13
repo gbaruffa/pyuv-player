@@ -2,6 +2,26 @@
 // Purpose: conversion functions used throughout
 // Author:  Giuseppe Baruffa
 
+
+/*
+Copyright (C) 2005 - 2014 Giuseppe Baruffa
+
+This file is part of PYUV.
+
+PYUV is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+PYUV is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 // Inclusion of the main header file
 #include <string.h>
 #include <stdint.h>
@@ -1762,4 +1782,3 @@ prepare_screen(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height)
         dest++;
 #endif
 }
-

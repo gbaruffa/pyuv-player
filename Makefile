@@ -4,7 +4,7 @@
 CC = $(shell wx-config --cxx)
 AR = ar
 
-#CFLAGS = $(shell wx-config-3.0 --cxxflags) -Wall # -g -p -pg
+#CFLAGS = $(shell wx-config --cxxflags) -Wall # -g -p -pg
 CFLAGS = $(shell wx-config --cxxflags) -std=c++11 -Wall -O2
 
 PYUV_SRCS = source/converter.cpp source/playuvApp.cpp source/playuvFrame.cpp source/playuvFormat.cpp source/playuvSync.cpp
