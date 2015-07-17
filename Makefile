@@ -4,11 +4,12 @@
 CC = $(shell wx-config --cxx)
 AR = ar
 
-CFLAGS = $(shell wx-config --cxxflags) -Wall # -g -p -pg
+#CFLAGS = $(shell wx-config --cxxflags) -Wall # -g -p -pg
+CFLAGS = $(shell wx-config --cxxflags) -std=c++11 -Wall -O2
 
-PYUV_SRCS = source/converter.cpp source/playuvApp.cpp
+PYUV_SRCS = source/converter.cpp source/playuvApp.cpp source/playuvFrame.cpp source/playuvFormat.cpp source/playuvSync.cpp
 
-MODULES = $(OPJV_SRCS:.cpp=.o)
+MODULES = $(PYUV_SRCS:.cpp=.o)
 
 all: pyuv
 
@@ -16,7 +17,7 @@ all: pyuv
 	$(CC) $(CFLAGS) -c $< -o $@
 
 pyuv: $(PYUV_SRCS)
-	$(CC) $(CFLAGS) -I .. $(PYUV_SRCS) -o pyuv -lm -lstdc++ $(shell wx-config --libs)
+	$(CC) $(CFLAGS) -I .. -o pyuv $(PYUV_SRCS) -lm -lstdc++ $(shell wx-config --libs)
 
 
 clean:
@@ -29,7 +30,7 @@ deb: pyuv
 	cp pyuv ./debian/usr/bin
 	mkdir -p debian/usr/share/doc/pyuv
 	cp copyright ./debian/usr/share/doc/pyuv
-	cp doc.htb ./debian/usr/share/doc/pyuv
+#	cp doc.htb ./debian/usr/share/doc/pyuv
 	gzip --best - <changelog >./debian/usr/share/doc/pyuv/changelog.gz
 	gzip --best - <changelog.Debian >./debian/usr/share/doc/pyuv/changelog.Debian.gz
 	mkdir -p debian/usr/share/man/man1
@@ -38,11 +39,12 @@ deb: pyuv
 	find ./debian -type d | xargs chmod 755
 	cp control debian/DEBIAN/control
 	mkdir -p debian/usr/share/icons
-	cp -p resource/playuv64.png debian/usr/share/icons/pyuv.xpm
+#	cp -p resource/playuv64.png debian/usr/share/icons/pyuv.xpm
+	cp -p source/playuv16.xpm debian/usr/share/icons/pyuv.xpm
 	mkdir -p debian/usr/share/applications
 	cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
 	fakeroot dpkg-deb --build debian
-	mv debian.deb pyuv_0.5-1_i386.deb
+	mv debian.deb pyuv_0.6.1-1_amd64.deb
 	rm -fr debian
 
 #http://endrift.com/blog/2010/06/14/dmg-files-volume-icons-cli/
@@ -59,5 +61,3 @@ app: pyuv
 	mkdir dmg_tmp
 	cp -R pyuv.app dmg_tmp
 	hdiutil create -srcfolder dmg_tmp -volname "Pyuv for Mac" -format UDZO -ov pyuv_install.dmg
-
-

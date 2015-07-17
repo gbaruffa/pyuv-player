@@ -1,3 +1,10 @@
+pyuv (0.6.1) ubuntu debian; urgency=low
+
+  * Refactored the source files, switched to wxWidgets-3.0.
+    Fixed the start-up segmentation fault.
+
+ -- Yufei Yuan <yyuan@gmx.com>  Sep 06 2014 MET
+
 pyuv (0.5) ubuntu debian; urgency=low
 
   * Debian maintainer and upstream author are identical.
