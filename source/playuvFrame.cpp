@@ -99,6 +99,7 @@ wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     EVT_MENU(Menu_View_Timecode, pyuvFrame::OnTimecode)         // Time code menu
     EVT_MENU(Menu_View_Deinterlace, pyuvFrame::OnDeinterlace)   // Deinterlace menu
     EVT_MENU(Menu_View_Identity, pyuvFrame::OnIdentity)         // Identity menu
+    EVT_MENU(Menu_View_Zoom_400, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_200, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_100, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_50, pyuvFrame::OnScale)             // Change of scale
@@ -301,6 +302,8 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxMenu *zoomMenu = new wxMenu;
 
     // Append zoom menus
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_400, wxT("4&00%\tCtrl+Q"), wxT("Four x size"));
+    zoomMenu->Enable(Menu_View_Zoom_400, true);
     zoomMenu->AppendRadioItem(Menu_View_Zoom_200, wxT("2&00%\tCtrl+D"), wxT("Double size"));
     zoomMenu->Enable(Menu_View_Zoom_200, true);
     zoomMenu->AppendRadioItem(Menu_View_Zoom_100, wxT("&100%\tCtrl+1"), wxT("Original size"));
@@ -1389,6 +1392,10 @@ void pyuvFrame::OnScale(wxCommandEvent& event)
     float readjust;
 
     switch (event.GetId()) {
+
+    case (Menu_View_Zoom_400):
+        pyuvScale = -4;
+        break;
 
     case (Menu_View_Zoom_200):
         pyuvScale = -2;
