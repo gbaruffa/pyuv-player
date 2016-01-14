@@ -21,15 +21,15 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #define  PYUV_SHORTNAME         "PYUV"
 #define  PYUV_VERSION           0
 #define  PYUV_SUBVERSION        6
-#define  PYUV_REVISION          1
-#define  PYUV_BETA              "fork"
+#define  PYUV_REVISION          2
+#define  PYUV_BETA              ""
 #define  PYUV_BTIME             wxT(__DATE__) wxT(", ") wxT(__TIME__)
 #define  PYUV_WEBSITE           "http://dsplab.diei.unipg.it/pyuv_raw_video_sequence_player"
-#define  PYUV_GITHUB            "https://github.com/tufei/pyuv-player"
+#define  PYUV_GITHUB            "https://github.com/gbaruffa/pyuv-player"
 
 // Standard dims for the frame
-#define  PYUV_WIDTH             250
-#define  PYUV_HEIGHT            200
+#define  PYUV_WIDTH             350
+#define  PYUV_HEIGHT            300
 #define  PYUV_DEPTH             8
 #define  PYUV_SIGNED            false
 #define  PYUV_MINWIDTH          150

@@ -1,7 +1,7 @@
 # Makefile for PYUV
 
 # General configuration variables:
-CC = $(CC)
+CC = $(shell wx-config --cxx)
 AR = ar
 
 #CFLAGS = $(shell wx-config --cxxflags) -Wall # -g -p -pg
