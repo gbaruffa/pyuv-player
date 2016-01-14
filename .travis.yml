@@ -1,5 +1,8 @@
 language: cpp
 compiler: gcc
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libwxgtk2.8-dev libwxgtk2.8-dbg
 install: true
 script: make all
 
