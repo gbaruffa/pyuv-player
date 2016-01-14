@@ -21,6 +21,10 @@ You should have received a copy of the GNU General Public License
 along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 // turn off 'warning C4355: 'this' : used in base member initializer list'
 #if defined(_WIN32_)
     #pragma warning ( disable:4355 )
@@ -1564,7 +1568,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
 
     msg.Printf(
         wxT("PYUV - A portable and multiplatform RAW sequence player\n")
-        wxT("Version %d.%d.%d %s - ")
+        wxT("Version %s %s - ")
 #ifdef __WXMSW__
         wxT("for Windows\n")
 #endif
@@ -1576,7 +1580,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxT("Github:\t%s\n")
         wxT("\nCreated with %s\n")
         wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab"),
-        PYUV_VERSION, PYUV_SUBVERSION, PYUV_REVISION, wxT(PYUV_BETA),
+        wxT(PACKAGE_VERSION), wxT(PYUV_BETA),
         PYUV_BTIME,
         wxT(PYUV_WEBSITE),
         wxT(PYUV_GITHUB),
