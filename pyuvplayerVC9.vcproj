@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="pyuvplayerVC9"
+	Name="pyuv"
 	ProjectGUID="{37A9A8B7-CD92-4167-92D2-B3BAEB9BEC2E}"
 	RootNamespace="pyuvplayerVC9"
 	Keyword="Win32Proj"
@@ -56,6 +56,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswud&quot;;extras\MSVC"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -132,6 +133,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswu&quot;;extras\MSVC"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -139,6 +141,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="wxmsw30u_core.lib wxbase30u.lib wxmsw30u_html.lib wxmsw30u_adv.lib wxzlib.lib wxregexu.lib wxjpeg.lib wxpng.lib comctl32.lib rpcrt4.lib winmm.lib advapi32.lib wsock32.lib"
+				OutputFile="$(OutDir)\pyuv.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN30)\lib\vc_lib"
 				GenerateDebugInformation="true"
@@ -167,6 +170,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine=""
 			/>
 		</Configuration>
 	</Configurations>
@@ -230,6 +234,116 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\src\playuv.rc"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="HTML help"
+			>
+			<File
+				RelativePath=".\doc\back.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\books.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\contents.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc.hhc"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc.hhk"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc.hhp"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc1.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc2.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc3.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc4.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\doc5.htm"
+				DeploymentContent="true"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\forward.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\l32playuv.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\l32pyuv.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\playuv128.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\subsampling.png"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\up.gif"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32formatdialog.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32formatdialogextra.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32formatdialogmain.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32playuv.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32pyuv.jpg"
+				>
+			</File>
+			<File
+				RelativePath=".\doc\w32syncdialog.jpg"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

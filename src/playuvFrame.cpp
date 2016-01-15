@@ -1579,8 +1579,8 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxT("for Linux\n")
 #endif
         wxT("(%s)\n\n")
-        wxT("Website:\t%s\n")
-        wxT("Github:\t%s\n")
+        wxT("Website: %s\n")
+        wxT("Github:  %s\n")
         wxT("\nCreated with %s\n")
         wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab"),
         PACKAGE_VERSION,

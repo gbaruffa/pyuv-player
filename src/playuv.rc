@@ -1,0 +1,2 @@
+playuv ICON playuv.ico
+#include "wx/msw/wx.rc"
