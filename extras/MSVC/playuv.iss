@@ -29,7 +29,7 @@ DefaultDirName={pf}\pYUV
 DefaultGroupName=pYUV
 OutputDir=.\setup
 OutputBaseFilename=pYUV_v062
-SetupIconFile=.\src\playuv.ico
+SetupIconFile=..\..\src\playuv.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -41,7 +41,7 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 
 [Files]
 Source: "Release\pyuv.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "doc\doc.htb"; DestDir: "{app}"; DestName: "doc.htb"; Flags: ignoreversion
+Source: "..\..\doc\doc.htb"; DestDir: "{app}"; DestName: "doc.htb"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\pYUV"; Filename: "{app}\pyuv.exe"; WorkingDir: "{app}"; IconFilename: "{app}\pyuv.exe"; IconIndex: 0
