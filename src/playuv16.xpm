@@ -1,0 +1,90 @@
+/*
+Copyright (C) 2005 - 2014 Giuseppe Baruffa
+
+This file is part of PYUV.
+
+PYUV is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+PYUV is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* XPM */
+static const char *playuv16[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 49 1",
+"  c black",
+". c #07587E",
+"X c #1D5F7F",
+"o c #436565",
+"O c #48706D",
+"+ c #566C61",
+"@ c #66624D",
+"# c #7E714F",
+"$ c #084D82",
+"% c #095C83",
+"& c #0A5B8E",
+"* c #0A5791",
+"= c #0A5A90",
+"- c #0B5D9A",
+"; c #0D6484",
+": c #0A678F",
+"> c #0E6C8C",
+", c #0A6F90",
+"< c #0C7694",
+"1 c #0B7997",
+"2 c #0B7F9E",
+"3 c #126385",
+"4 c #196282",
+"5 c #1A6B8B",
+"6 c #147891",
+"7 c #0C62A0",
+"8 c #286C8C",
+"9 c #257181",
+"0 c #227788",
+"q c #2E7580",
+"w c #2E7292",
+"e c #3B7E9D",
+"r c #0B819F",
+"t c #0C82A0",
+"y c #3C82A0",
+"u c #885731",
+"i c #9E5B2A",
+"p c #966D3E",
+"a c #A56B34",
+"s c #BC6D29",
+"d c #8C6840",
+"f c #8A7149",
+"g c #956F41",
+"h c #957143",
+"j c #C5722A",
+"k c #CA752A",
+"l c #DA7E2A",
+"z c #E0822A",
+"x c None",
+/* pixels */
+"xxxxxxxxxxxxxxxx",
+"xxxxxxxxxxxxxxxx",
+"xzxxzxzxxjxzxxzx",
+"xzzzxxzxxkxzxxzx",
+"xxzzxxzxxkxzixzx",
+"xxxzxxzxxzxxkzzx",
+"xxxzxxzxxlxxzuxx",
+"xxxzx>zozzrtOzxx",
+"x1zzttqzz0tt69>x",
+"x<t2tttt>1tt+f@x",
+"x>t%2t2<>5tt#zpx",
+"x%,&:138yw<;#zgx",
+"x.*7&%,8ye4r#zhx",
+"xx-7=<1X8X>xdzax",
+"xxx$xxxxxxxxxzsx",
+"xxxxxxxxxxxxxxxx"
+};
