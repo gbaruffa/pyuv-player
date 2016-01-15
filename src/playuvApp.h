@@ -19,10 +19,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 
 // Versioning
 #define  PYUV_SHORTNAME         "PYUV"
-#define  PYUV_VERSION           0
-#define  PYUV_SUBVERSION        6
-#define  PYUV_REVISION          2
-#define  PYUV_BETA              ""
+#define  PYUV_VERSION           "0.6.2"
 #define  PYUV_BTIME             wxT(__DATE__) wxT(", ") wxT(__TIME__)
 #define  PYUV_WEBSITE           "http://dsplab.diei.unipg.it/pyuv_raw_video_sequence_player"
 #define  PYUV_GITHUB            "https://github.com/gbaruffa/pyuv-player"

@@ -179,7 +179,7 @@ prepare_lut(int bits, int sign, int endian, double gamma)
 
             /* Cycle on rows */
             for (i = start; i <= stop; i++) {
-                bbbb = powf(((float) i * scalef[bits]) / 255.0F, gamma);
+                bbbb = powf(((float) i * scalef[bits]) / 255.0F, (float) gamma);
                 scalelut[i] = (uint8_t) (0.5 + 255.0 * bbbb);
             }
 
@@ -194,7 +194,7 @@ prepare_lut(int bits, int sign, int endian, double gamma)
             for (i = start; i <= stop; i++) {
                 temp = endian ? SHORT_SWAP(i) : i;
                 //scalelut[i] = (uint8_t) (0.5F + (float) temp * scalef[bits]);
-                scalelut[i] = (uint8_t) (0.5 + 255.0 * powf(((float) temp * scalef[bits]) / 255.0F, gamma));
+                scalelut[i] = (uint8_t) (0.5 + 255.0 * powf(((float) temp * scalef[bits]) / 255.0F, (float) gamma));
             }
 
         };
@@ -212,7 +212,7 @@ prepare_lut(int bits, int sign, int endian, double gamma)
             /* Cycle on rows */
             for (i = start; i <= stop; i++)
                 //scalelut[i - scalelutstart] = (uint8_t) (0.5F + ((float) i + offsetf[bits]) * scalef[bits]);
-                scalelut[i] = (uint8_t) (0.5 + 255.0 * powf((((float) i + offsetf[bits]) * scalef[bits]) / 255.0F, gamma));
+                scalelut[i] = (uint8_t) (0.5 + 255.0 * powf((((float) i + offsetf[bits]) * scalef[bits]) / 255.0F, (float) gamma));
 
         } else if (bits > 8) {
 
@@ -230,7 +230,7 @@ prepare_lut(int bits, int sign, int endian, double gamma)
                 temp = endian ? SHORT_SWAP(i) : i;
 #endif
                 //scalelut[i - scalelutstart] = (uint8_t) (0.5F + ((float) i + offsetf[bits]) * scalef[bits]);
-                scalelut[i - scalelutstart] = (uint8_t) (0.5 + 255.0 * powf((((float) i + offsetf[bits]) * scalef[bits]) / 255.0F, gamma));
+                scalelut[i - scalelutstart] = (uint8_t) (0.5 + 255.0 * powf((((float) i + offsetf[bits]) * scalef[bits]) / 255.0F, (float) gamma));
             }
         }
         break;
@@ -240,7 +240,7 @@ prepare_lut(int bits, int sign, int endian, double gamma)
     }
 
     for (n = 0; n < 256; n++)
-        screenlut[n] = (uint8_t) (0.5 + 255.0 * powf((float) n / 255.0F, 1.0 / gamma));
+        screenlut[n] = (uint8_t) (0.5 + 255.0 * powf((float) n / 255.0F, (float) (1.0 / gamma)));
 #endif
 }
 

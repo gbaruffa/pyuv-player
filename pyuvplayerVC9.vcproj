@@ -25,6 +25,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -41,8 +42,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;extras\MSVC"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;WINVER=0x0400;__WXMSW__;__WXDEBUG__;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswud&quot;;extras\MSVC"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;WINVER=0x0400;__WXDEBUG__;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -62,7 +63,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkLibraryDependencies="true"
-				AdditionalDependencies="wxmsw28ud_core.lib wxbase28ud.lib comctl32.lib rpcrt4.lib winmm.lib advapi32.lib wsock32.lib"
+				AdditionalDependencies="wxmsw30ud_core.lib wxbase30ud.lib wxmsw30ud_html.lib wxmsw30ud_adv.lib wxzlibd.lib wxregexud.lib wxjpegd.lib wxpngd.lib comctl32.lib rpcrt4.lib winmm.lib advapi32.lib wsock32.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(WXWIN30)\lib\vc_lib"
 				GenerateDebugInformation="true"
@@ -118,7 +119,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;extras\MSVC"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswu&quot;;extras\MSVC"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;WINVER=0x0400;__WXMSW_;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -137,7 +138,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw28u_core.lib wxbase28u.lib comctl32.lib rpcrt4.lib winmm.lib advapi32.lib wsock32.lib"
+				AdditionalDependencies="wxmsw30u_core.lib wxbase30u.lib wxmsw30u_html.lib wxmsw30u_adv.lib wxzlib.lib wxregexu.lib wxjpeg.lib wxpng.lib comctl32.lib rpcrt4.lib winmm.lib advapi32.lib wsock32.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN30)\lib\vc_lib"
 				GenerateDebugInformation="true"

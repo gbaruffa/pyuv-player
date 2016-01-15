@@ -23,6 +23,8 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
+#else
+#define PACKAGE_VERSION PYUV_VERSION
 #endif
 
 // turn off 'warning C4355: 'this' : used in base member initializer list'
@@ -61,6 +63,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/regex.h>
 #include <wx/spinbutt.h>
 #include <wx/spinctrl.h>
+#include <wx/textfile.h>
 
 #include <stdint.h>
 
@@ -1372,8 +1375,8 @@ bool pyuvFrame::sendcommand(char *cmd)
                             wxString::Format(wxT("/tmp/PYUV%02d"), servno),
                             wxT("dothis")))) {
             // Ask the other instance, booking in case
-            if (!connection->Execute(wxString::FromAscii(cmd)))
-                /*pyuvApp::GetMyClient()[servno] = false*/;
+            /*if (!connection->Execute(wxString::FromAscii(cmd)))
+                pyuvApp::GetMyClient()[servno] = false;*/
             connection->Disconnect();
 
         } else {
@@ -1568,7 +1571,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
 
     msg.Printf(
         wxT("PYUV - A portable and multiplatform RAW sequence player\n")
-        wxT("Version %s %s - ")
+        wxT("Version %s - ")
 #ifdef __WXMSW__
         wxT("for Windows\n")
 #endif
@@ -1580,7 +1583,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxT("Github:\t%s\n")
         wxT("\nCreated with %s\n")
         wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab"),
-        wxT(PACKAGE_VERSION), wxT(PYUV_BETA),
+        PACKAGE_VERSION,
         PYUV_BTIME,
         wxT(PYUV_WEBSITE),
         wxT(PYUV_GITHUB),

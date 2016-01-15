@@ -53,6 +53,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/spinctrl.h>
 #include <wx/spinbutt.h>
 #include <wx/rawbmp.h>
+#include <wx/textfile.h>
 
 #include <stdint.h>
 

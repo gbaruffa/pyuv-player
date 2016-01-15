@@ -138,7 +138,7 @@ class pyuvFrame : public wxFrame
         static bool GetDoubleBuffer(void) { return pyuvDoublebuffer; }
         static int GetEngine(void) { return pyuvEngine; }
 
-        static wxString& GetCurrentTime(void) { return pyuvCurtime; }
+        static wxString& GetCurrentTime2(void) { return pyuvCurtime; }
 
         static void GetTimeCodePosition(wxCoord& x, wxCoord& y) { x = tcx; y = tcy; }
         static void GetTimeCodeDimension(wxCoord& width, wxCoord& height) { width = tcwidth; height = tcheight; }

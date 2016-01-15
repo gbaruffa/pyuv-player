@@ -416,7 +416,7 @@ void pyuvCanvas::OnPaint(wxPaintEvent& event)
             dc.DrawRectangle(pyuvApp::GetTimeBack());
 
             // Watermark the screen
-            dc.DrawText(pyuvFrame::GetCurrentTime(), tcx, tcy);
+            dc.DrawText(pyuvFrame::GetCurrentTime2(), tcx, tcy);
         }
 
         // Show the identity
