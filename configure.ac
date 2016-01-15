@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.69])
 AC_INIT([pyuv], [0.6.2], [giuseppe.baruffa@unipg.it])
-AM_INIT_AUTOMAKE([foreign subdir-objects])
-AC_CONFIG_SRCDIR([source/playuvApp.cpp])
+AM_INIT_AUTOMAKE([foreign])
+AC_CONFIG_SRCDIR([src/playuvApp.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
@@ -45,5 +45,5 @@ AC_FUNC_ERROR_AT_LINE
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([floor memset])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile man/Makefile])
 AC_OUTPUT
