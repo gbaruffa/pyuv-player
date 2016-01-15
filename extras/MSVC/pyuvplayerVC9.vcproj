@@ -4,7 +4,7 @@
 	Version="9,00"
 	Name="pyuv"
 	ProjectGUID="{37A9A8B7-CD92-4167-92D2-B3BAEB9BEC2E}"
-	RootNamespace="pyuvplayerVC9"
+	RootNamespace="pyuvplayer"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswud&quot;;extras\MSVC"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswud&quot;;."
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WXMSW__;WINVER=0x0400;__WXDEBUG__;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -120,7 +120,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswu&quot;;extras\MSVC"
+				AdditionalIncludeDirectories="&quot;$(WXWIN30)\include&quot;;&quot;$(WXWIN30)\include\mscv&quot;;&quot;$(WXWIN30)\lib\vc_lib\mswu&quot;;."
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;WINVER=0x0400;__WXMSW_;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -183,23 +183,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\converter.cpp"
+				RelativePath="..\..\src\converter.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvApp.cpp"
+				RelativePath="..\..\src\playuvApp.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvFormat.cpp"
+				RelativePath="..\..\src\playuvFormat.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvFrame.cpp"
+				RelativePath="..\..\src\playuvFrame.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvSync.cpp"
+				RelativePath="..\..\src\playuvSync.cpp"
 				>
 			</File>
 		</Filter>
@@ -209,23 +209,23 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\src\converter.h"
+				RelativePath="..\..\src\converter.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvApp.h"
+				RelativePath="..\..\src\playuvApp.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvFormat.h"
+				RelativePath="..\..\src\playuvFormat.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvFrame.h"
+				RelativePath="..\..\src\playuvFrame.h"
 				>
 			</File>
 			<File
-				RelativePath=".\src\playuvSync.h"
+				RelativePath="..\..\src\playuvSync.h"
 				>
 			</File>
 		</Filter>
@@ -235,7 +235,7 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\src\playuv.rc"
+				RelativePath="..\..\src\playuv.rc"
 				>
 			</File>
 		</Filter>
@@ -243,105 +243,105 @@
 			Name="HTML help"
 			>
 			<File
-				RelativePath=".\doc\back.gif"
+				RelativePath="..\..\doc\back.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\books.gif"
+				RelativePath="..\..\doc\books.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\contents.gif"
+				RelativePath="..\..\doc\contents.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc.hhc"
+				RelativePath="..\..\doc\doc.hhc"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc.hhk"
+				RelativePath="..\..\doc\doc.hhk"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc.hhp"
+				RelativePath="..\..\doc\doc.hhp"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc.htm"
+				RelativePath="..\..\doc\doc.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc1.htm"
+				RelativePath="..\..\doc\doc1.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc2.htm"
+				RelativePath="..\..\doc\doc2.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc3.htm"
+				RelativePath="..\..\doc\doc3.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc4.htm"
+				RelativePath="..\..\doc\doc4.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\doc5.htm"
+				RelativePath="..\..\doc\doc5.htm"
 				DeploymentContent="true"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\forward.gif"
+				RelativePath="..\..\doc\forward.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\l32playuv.jpg"
+				RelativePath="..\..\doc\l32playuv.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\l32pyuv.jpg"
+				RelativePath="..\..\doc\l32pyuv.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\playuv128.gif"
+				RelativePath="..\..\doc\playuv128.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\subsampling.png"
+				RelativePath="..\..\doc\subsampling.png"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\up.gif"
+				RelativePath="..\..\doc\up.gif"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32formatdialog.jpg"
+				RelativePath="..\..doc\w32formatdialog.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32formatdialogextra.jpg"
+				RelativePath="..\..\doc\w32formatdialogextra.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32formatdialogmain.jpg"
+				RelativePath="..\..\doc\w32formatdialogmain.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32playuv.jpg"
+				RelativePath="..\..\doc\w32playuv.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32pyuv.jpg"
+				RelativePath="..\..\doc\w32pyuv.jpg"
 				>
 			</File>
 			<File
-				RelativePath=".\doc\w32syncdialog.jpg"
+				RelativePath="..\..\doc\w32syncdialog.jpg"
 				>
 			</File>
 		</Filter>
