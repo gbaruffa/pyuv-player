@@ -1,6 +1,6 @@
 # !/bin/bash
 
-# Ubuntu/Debian packegr for PYUV
+# Ubuntu/Debian packager for PYUV
 
 rm -fR debian pyuv*.deb
 cp ../../src/pyuv .
