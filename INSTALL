@@ -19,7 +19,7 @@ The only basic requirements are wxWidgets 3.0 and a modern C++ compiler.
 
 
 2.1 GNU/Linux
----------
+-------------
 
 The configure script can (almost) cover all common distributions requirements, thus the commands are as simple as
 
