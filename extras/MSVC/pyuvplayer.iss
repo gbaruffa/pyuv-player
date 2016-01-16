@@ -28,10 +28,11 @@ AppUpdatesURL=http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_playe
 DefaultDirName={pf}\pYUV
 DefaultGroupName=pYUV
 OutputDir=.\setup
-OutputBaseFilename=pYUV_v062
+OutputBaseFilename=pYUV_v062_setup
 SetupIconFile=..\..\src\playuv.ico
 Compression=lzma
 SolidCompression=yes
+WizardImageFile=wizardimage.bmp
 
 [Languages]
 Name: english; MessagesFile: compiler:Default.isl
