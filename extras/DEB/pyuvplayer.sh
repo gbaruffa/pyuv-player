@@ -24,14 +24,14 @@ chmod 644 ./debian/usr/share/man/man1/pyuv.1.gz
 mkdir -p debian/DEBIAN
 find ./debian -type d | xargs chmod 755
 cp control debian/DEBIAN/control
-mkdir -p debian/usr/share/icons/gnome/128x128/apps
+mkdir -p debian/usr/share/icons/hicolor/128x128/apps
 chmod 755  debian/usr/share/icons
-chmod 755  debian/usr/share/icons/gnome
-chmod 755  debian/usr/share/icons/gnome/128x128
-chmod 755  debian/usr/share/icons/gnome/128x128/apps
-cp -p ../../src/playuv128.png debian/usr/share/icons/gnome/128x128/apps/pyuv.png
+chmod 755  debian/usr/share/icons/hicolor
+chmod 755  debian/usr/share/icons/hicolor/128x128
+chmod 755  debian/usr/share/icons/hicolor/128x128/apps
+cp -p ../../src/playuv128.png debian/usr/share/icons/hicolor/128x128/apps/pyuv.png
 #cp -p ../../src/playuv16.xpm debian/usr/share/icons/pyuv.xpm
-chmod 644 debian/usr/share/icons/gnome/128x128/apps/pyuv.png
+chmod 644 debian/usr/share/icons/hicolor/128x128/apps/pyuv.png
 mkdir -p debian/usr/share/applications
 chmod 755 debian/usr/share/applications
 cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
