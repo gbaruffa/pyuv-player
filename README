@@ -1,23 +1,36 @@
-pyuv-player
-===========
+1. pyuv-player
+==============
 
 Uncompressed video player for YUV files and similar.
 The original project was (historically, is)
 
 http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
 
-Compilation instructions
-========================
+During our research activity, we have to deal sometimes with raw sequences that must be source encoded before being transmitted, let's say, with DVB-T. Of course, there are a number of players out there, but not so many are capable to display the raw sequence before it has been encoded. In terms of rawness, such sequences can be either in native RGB format or, more often, in YUV format (sometimes, there is also a VIX format).
 
-For Linux:
+There are some specially crafted players which can satisfy your needs, but many of them are designed only for Windows, thus keeping out all Linux and Mac users.
+
+* It plays RGB and YUV sequences
+* It runs under Windows, Linux, and Mac OS X
+* It is not written in Java or .NET, so it is extremely fast
+* It uses wxWidgets as GUI, making it consistent with your preferred environment
+* It is free: you can use it for your purposes without any sort of restriction
+
+
+2. Compilation instructions
+===========================
+
+Check the INSTALL file.
+
+
+3. Development
+==============
+
+Under Linux, do not forget to regenerate the configure script with autotools, like
 
 $ aclocal
 $ autoconf
 $ autoheader
 $ automake
-$ ./configure
-$ make
 
-For Windows:
-use the MSVC workspace
-
+There is a Ubuntu packaging script in extras/DEB. For Windows, there is an InnoSetup script in extras/MSVC.
