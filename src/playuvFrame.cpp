@@ -196,10 +196,10 @@ bool pyuvFrame::pyuvHelpsystem = false;
 
 const wxString pyuvFrame::pyuvComponents[] =
 {
-    wxT("Choose one"),
+    _("Choose one"),
     wxT("RGB"), wxT("XYZ"), wxT("HSV"), wxT("YUV"), wxT("YCbCr"),
     wxT("YCbCr709"), wxT("YIQ"), wxT("YCoCg"), wxT("YCxCz"), wxT("BW"),
-    wxT("Custom")
+    _("Custom")
 };
 
 const wxString pyuvFrame::pyuvFormatShort[] =
@@ -271,37 +271,37 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxMenu *fileMenu = new wxMenu;
 
     // Append file menus
-    fileMenu->Append(wxID_OPEN,  wxT("O&pen\tCtrl+O"), wxT("Open a file"));
-    fileMenu->Append(wxID_CLOSE, wxT("C&lose\tCtrl+C"), wxT("Close the file"));
-    fileMenu->Append(wxID_SAVEAS, wxT("S&ave frame\tCtrl+S"), wxT("Save the frame"));
+    fileMenu->Append(wxID_OPEN,  _("O&pen\tCtrl+O"), _("Open a file"));
+    fileMenu->Append(wxID_CLOSE, _("C&lose\tCtrl+C"), _("Close the file"));
+    fileMenu->Append(wxID_SAVEAS, _("S&ave frame\tCtrl+S"), _("Save the frame"));
     fileMenu->AppendSeparator();
-    fileMenu->Append(Menu_File_Format, wxT("&Format\tCtrl+F"), wxT("Select the video format"));
+    fileMenu->Append(Menu_File_Format, _("&Format\tCtrl+F"), _("Select the video format"));
     fileMenu->AppendSeparator();
-    fileMenu->Append(wxID_EXIT,  wxT("E&xit\tCtrl+Q"), wxT("Quit this program"));
+    fileMenu->Append(wxID_EXIT,  _("E&xit\tCtrl+Q"), _("Quit this program"));
 
     // Create a control menu bar
     wxMenu *controlMenu = new wxMenu;
 
     // Append control menus
     pyuvPlay = false;
-    controlMenu->Append(Menu_Control_Play, wxT("&Play\tSpace"), wxT("Play/pause a sequence"));
+    controlMenu->Append(Menu_Control_Play, _("&Play\tSpace"), _("Play/pause a sequence"));
     controlMenu->Enable(Menu_Control_Play, false);
-    controlMenu->Append(Menu_Control_Stop, wxT("&Stop\tEsc"), wxT("Stop a sequence"));
+    controlMenu->Append(Menu_Control_Stop, _("&Stop\tEsc"), _("Stop a sequence"));
     controlMenu->Enable(Menu_Control_Stop, false);
-    controlMenu->Append(Menu_Control_Rewind, wxT("&Backward\tLeft"), wxT("Backward a frame"));
+    controlMenu->Append(Menu_Control_Rewind, _("&Backward\tLeft"), _("Backward a frame"));
     controlMenu->Enable(Menu_Control_Rewind, false);
-    controlMenu->Append(Menu_Control_Forward, wxT("&Forward\tRight"), wxT("Forward a frame"));
+    controlMenu->Append(Menu_Control_Forward, _("&Forward\tRight"), _("Forward a frame"));
     controlMenu->Enable(Menu_Control_Forward, false);
-    controlMenu->Append(Menu_Control_Goto, wxT("&Goto\tCtrl+G"), wxT("Go to frame")); 
+    controlMenu->Append(Menu_Control_Goto, _("&Goto\tCtrl+G"), _("Go to frame")); 
     controlMenu->Enable(Menu_Control_Goto, false);
     controlMenu->AppendSeparator();
-    controlMenu->AppendCheckItem(Menu_Control_Loop, wxT("&Loop\tCtrl+Y"), wxT("Loop continuously"));
+    controlMenu->AppendCheckItem(Menu_Control_Loop, _("&Loop\tCtrl+Y"), _("Loop continuously"));
     pyuvLoop = true;
     controlMenu->Check(Menu_Control_Loop, true);
     controlMenu->Enable(Menu_Control_Loop, false);
 
     // Add a sync menu
-    controlMenu->Append(Menu_Control_Sync, wxT("&Sync\tCtrl+K"), wxT("Sync commands between PYUVs"));
+    controlMenu->Append(Menu_Control_Sync, _("&Sync\tCtrl+K"), _("Sync commands between PYUVs"));
 
     // Create a view menu bar
     wxMenu *viewMenu = new wxMenu;
@@ -310,47 +310,47 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxMenu *zoomMenu = new wxMenu;
 
     // Append zoom menus
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_400, wxT("4&00%\tCtrl+Q"), wxT("Four x size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_400, _("4&00%\tCtrl+Q"), _("Four x size"));
     zoomMenu->Enable(Menu_View_Zoom_400, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_200, wxT("2&00%\tCtrl+D"), wxT("Double size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_200, _("2&00%\tCtrl+D"), _("Double size"));
     zoomMenu->Enable(Menu_View_Zoom_200, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_100, wxT("&100%\tCtrl+1"), wxT("Original size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_100, _("&100%\tCtrl+1"), _("Original size"));
     zoomMenu->Check(Menu_View_Zoom_100, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_50, wxT("&50%\tCtrl+2"), wxT("Half size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_50, _("&50%\tCtrl+2"), _("Half size"));
     zoomMenu->Enable(Menu_View_Zoom_50, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_33, wxT("&33%\tCtrl+3"), wxT("Third size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_33, _("&33%\tCtrl+3"), _("Third size"));
     zoomMenu->Enable(Menu_View_Zoom_33, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_25, wxT("&25%\tCtrl+4"), wxT("Quarter size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_25, _("&25%\tCtrl+4"), _("Quarter size"));
     zoomMenu->Enable(Menu_View_Zoom_25, true);
 
     // Append them to View
-    viewMenu->Append(Menu_View_Zoom, wxT("Zoom"), zoomMenu);
+    viewMenu->Append(Menu_View_Zoom, _("Zoom"), zoomMenu);
 
     // Create a component submenu
     wxMenu *compMenu = new wxMenu;
 
     // Append component menus
-    compMenu->Append(Menu_View_Comp_All, wxT("&All\tA"), wxT("Show all components"));
-    compMenu->Append(Menu_View_Comp_Next, wxT("&Next\tN"), wxT("Show next component"));
+    compMenu->Append(Menu_View_Comp_All, _("&All\tA"), _("Show all components"));
+    compMenu->Append(Menu_View_Comp_Next, _("&Next\tN"), _("Show next component"));
 
     // Append them to View
-    viewMenu->Append(Menu_View_Comp, wxT("Components"), compMenu);
+    viewMenu->Append(Menu_View_Comp, _("Components"), compMenu);
 
     // Add other menus to View
-    viewMenu->AppendCheckItem(Menu_View_Deinterlace, wxT("&Deinterlace\tD"), wxT("Deinterlace"));
+    viewMenu->AppendCheckItem(Menu_View_Deinterlace, _("&Deinterlace\tD"), _("Deinterlace"));
     pyuvDeinterlace = false;
     viewMenu->Check(Menu_View_Deinterlace, false);
 
-    viewMenu->AppendCheckItem(Menu_View_Timecode, wxT("&Time code\tT"), wxT("Show the timecode"));
+    viewMenu->AppendCheckItem(Menu_View_Timecode, _("&Time code\tT"), _("Show the timecode"));
     pyuvShowtimecode = false;
     viewMenu->Check(Menu_View_Timecode, false);
 
-    viewMenu->AppendCheckItem(Menu_View_Identity, wxT("&Identity\tI"), wxT("Show identity"));
+    viewMenu->AppendCheckItem(Menu_View_Identity, _("&Identity\tI"), _("Show identity"));
     pyuvShowidentity = false;
     viewMenu->Check(Menu_View_Identity, false);
 
     viewMenu->AppendSeparator();
-    viewMenu->Append(wxID_COPY, wxT("Cop&y frame\tF8"), wxT("Copy the frame to clipboard"));
+    viewMenu->Append(wxID_COPY, _("Cop&y frame\tF8"), _("Copy the frame to clipboard"));
 
     // Create a settings menu bar
     wxMenu *settingsMenu = new wxMenu;
@@ -359,19 +359,19 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxMenu *drawMenu = new wxMenu;
 
     // Drawing engines
-    drawMenu->AppendRadioItem(Menu_Settings_Draw_Bitmap, wxT("&Bitmap\tCtrl+B"), wxT("Draw with bitmaps"));
+    drawMenu->AppendRadioItem(Menu_Settings_Draw_Bitmap, _("&Bitmap\tCtrl+B"), _("Draw with bitmaps"));
     if (pyuvEngine == 0)
         drawMenu->Check(Menu_Settings_Draw_Bitmap, true);
-    drawMenu->AppendRadioItem(Menu_Settings_Draw_Raw, wxT("&Raw bitmap\tCtrl+R"), wxT("Draw with raw bitmaps"));
+    drawMenu->AppendRadioItem(Menu_Settings_Draw_Raw, _("&Raw bitmap\tCtrl+R"), _("Draw with raw bitmaps"));
     drawMenu->Enable(Menu_Settings_Draw_Raw, false);
     if (pyuvEngine == 1)
         drawMenu->Check(Menu_Settings_Draw_Raw, true);
-    drawMenu->AppendRadioItem(Menu_Settings_Draw_OGL, wxT("&OpenGL\tCtrl+L"), wxT("Draw with OpenGL"));
+    drawMenu->AppendRadioItem(Menu_Settings_Draw_OGL, _("&OpenGL\tCtrl+L"), _("Draw with OpenGL"));
     drawMenu->Enable(Menu_Settings_Draw_OGL, false);
     if (pyuvEngine == 2)
         drawMenu->Check(Menu_Settings_Draw_OGL, true);
     drawMenu->AppendSeparator();
-    drawMenu->AppendCheckItem(Menu_Settings_Draw_Double, wxT("&Double buffer\tCtrl+F"), wxT("Use double buffering"));
+    drawMenu->AppendCheckItem(Menu_Settings_Draw_Double, _("&Double buffer\tCtrl+F"), _("Use double buffering"));
     if (pyuvDoublebuffer)
         drawMenu->Check(Menu_Settings_Draw_Double, true);
     else
@@ -380,7 +380,7 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
 
 
     // Append them to Settings
-    settingsMenu->Append(Menu_Settings_Draw, wxT("Draw engine"), drawMenu);
+    settingsMenu->Append(Menu_Settings_Draw, _("Draw engine"), drawMenu);
 
     // Create a help menu bar
     wxMenu *helpMenu = new wxMenu;
@@ -393,10 +393,10 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     if (help.AddBook(wxFileName(wxT(HELP_FILENAME), wxPATH_UNIX))
         || help.AddBook(wxFileName(wxT("/Applications/pyuv.app/Contents/MacOS/doc.htb"), wxPATH_UNIX))
         || help.AddBook(wxFileName(wxT("/usr/share/doc/pyuv/doc.htb"), wxPATH_UNIX))) {
-        helpMenu->Append(Menu_Help_Contents, wxT("&Contents\tCtrl+H"), wxT("Show program help"));
+        helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), _("Show program help"));
         pyuvHelpsystem = true;
     } else {
-        helpMenu->Append(Menu_Help_Contents, wxT("&Contents\tCtrl+H"), wxT(HELP_FILENAME) wxT(" not found!!!"));
+        helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), wxT(HELP_FILENAME) _(" not found!!!"));
         helpMenu->Enable(Menu_Help_Contents, false);
         pyuvHelpsystem = false;
     }
@@ -405,15 +405,15 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     printf("%s\n", (const char*)cwd.mb_str());*/
 
     // The "About" item should be in the help menu
-    helpMenu->Append(wxID_ABOUT, wxT("&About...\tF1"), wxT("Show about dialog"));
+    helpMenu->Append(wxID_ABOUT, _("&About...\tF1"), _("Show about dialog"));
 
     // Now append the freshly created menus to the menu bar...
     wxMenuBar *menuBar = new wxMenuBar();
-    menuBar->Append(fileMenu, wxT("&File"));
-    menuBar->Append(controlMenu, wxT("&Control"));
-    menuBar->Append(viewMenu, wxT("&View"));
-    menuBar->Append(settingsMenu, wxT("&Settings"));
-    menuBar->Append(helpMenu, wxT("&Help"));
+    menuBar->Append(fileMenu, _("&File"));
+    menuBar->Append(controlMenu, _("&Control"));
+    menuBar->Append(viewMenu, _("&View"));
+    menuBar->Append(settingsMenu, _("&Settings"));
+    menuBar->Append(helpMenu, _("&Help"));
 
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
@@ -422,7 +422,7 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     CreateStatusBar(2);
     int stwid[] = {120, -1};
     SetStatusWidths(2, stwid);
-    SetStatusText(wxT("Welcome to PYUV!"), 0);
+    SetStatusText(_("Welcome to PYUV!"), 0);
 
     // This is the top frame sizer
     frameSizer = new wxBoxSizer(wxVERTICAL);
@@ -558,14 +558,14 @@ void pyuvFrame::OnOpen(wxCommandEvent& event)
     // Prepare file open dialog
     wxFileDialog dialog(
         this,  // parent
-        wxT("Open"), // title of the dialog
+        _("Open"), // title of the dialog
         wxT(""), // starting directory
         wxT(""), // starting filename
 #ifdef __WXMOTIF__
-        wxT("PYUV files (*.*)|*.*") // only 1 choice for MOTIF
+        _("PYUV files (*.*)|*.*") // only 1 choice for MOTIF
 #else
-        wxT("PYUV files (*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix)|")
-            wxT("*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix|All files (*.*)|*.*")
+        _("PYUV files (*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix)|")
+            _("*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix|All files (*.*)|*.*")
 #endif
     );
 
@@ -593,10 +593,10 @@ void pyuvFrame::OnSaveAs(wxCommandEvent& event)
     // Prepare file save as dialog
     wxFileDialog dialog(
         this,  // parent
-        wxT("Save frame as BMP"), // title of the dialog
+        _("Save frame as BMP"), // title of the dialog
         wxT(""), // starting directory
         wxString::Format(wxT("frame%06d.bmp"), pyuvFramenumber), // starting filename
-        wxT("BMP files (*.bmp)|*.bmp|All files (*.*)|*.*"), 
+        _("BMP files (*.bmp)|*.bmp|All files (*.*)|*.*"), 
         wxFD_SAVE | wxFD_OVERWRITE_PROMPT
     );
 
@@ -605,13 +605,13 @@ void pyuvFrame::OnSaveAs(wxCommandEvent& event)
 
         // Debug dialog: disposable
         wxString info;
-        info.Printf(wxT("Full file name: %s\n")
-            wxT("Path: %s\n")
-            wxT("Name: %s\n"),
+        info.Printf(_("Full file name: %s\n")
+            _("Path: %s\n")
+            _("Name: %s\n"),
             dialog.GetPath().c_str(),
             dialog.GetDirectory().c_str(),
             dialog.GetFilename().c_str());
-        wxMessageDialog dialog2(this, info, wxT("Selected file"));
+        wxMessageDialog dialog2(this, info, _("Selected file"));
         //dialog2.ShowModal();
 
         wxImage myImg;
@@ -621,11 +621,11 @@ void pyuvFrame::OnSaveAs(wxCommandEvent& event)
         // Save the image
         if (myImg.IsOk()) {
             if (!myImg.SaveFile(dialog.GetPath(), (wxBitmapType) wxBITMAP_TYPE_BMP)) {
-                wxMessageDialog dialog2(this, wxT("The frame could not be saved"), wxT("File not saved"));
+                wxMessageDialog dialog2(this, _("The frame could not be saved"), _("File not saved"));
                 dialog2.ShowModal();
             };
         } else {
-            wxMessageDialog dialog2(this, wxT("The frame could not really be saved"), wxT("File not saved"));
+            wxMessageDialog dialog2(this, _("The frame could not really be saved"), _("File not saved"));
             dialog2.ShowModal();
         }
 
@@ -682,7 +682,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     pyuvFile = new wxFile(pyuvFilename, wxFile::read);
     if (!pyuvFile->IsOpened()) {
         // Display a message box with the info
-        wxMessageBox(wxT("File could not be opened: ") + pyuvFilename, wxT("PYUV Error"), wxOK, this);
+        wxMessageBox(_("File could not be opened: ") + pyuvFilename, _("PYUV Error"), wxOK, this);
         return;
     };
 
@@ -716,7 +716,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     // Find a frame size
     mystr = wxT("([0-9]*)x([0-9]*)");
     if (!myreg.Compile(mystr)) {
-        wxMessageDialog dialog3(this, wxT("BAD REGEX!!!"), wxT(""));
+        wxMessageDialog dialog3(this, _("BAD REGEX!!!"), wxT(""));
         dialog3.ShowModal();
         return;
     };
@@ -732,7 +732,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     // Find a frame rate
     mystr = wxT("([.0-9]*)Hz");
     if (!myreg.Compile(mystr)) {
-        wxMessageDialog dialog3(this, wxT("BAD REGEX!!!"), wxT(""));
+        wxMessageDialog dialog3(this, _("BAD REGEX!!!"), wxT(""));
         dialog3.ShowModal();
         return;
     };
@@ -744,7 +744,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     // Find a gamma value
     mystr = wxT("g([0-9]*)");
     if (!myreg.Compile(mystr)) {
-        wxMessageDialog dialog3(this, wxT("BAD REGEX!!!"), wxT(""));
+        wxMessageDialog dialog3(this, _("BAD REGEX!!!"), wxT(""));
         dialog3.ShowModal();
         return;
     };
@@ -757,7 +757,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     // Find a bit depth
     mystr = wxT("_([-0-9]*)b");
     if (!myreg.Compile(mystr)) {
-        wxMessageDialog dialog3(this, wxT("BAD REGEX!!!"), wxT(""));
+        wxMessageDialog dialog3(this, _("BAD REGEX!!!"), wxT(""));
         dialog3.ShowModal();
         return;
     };
@@ -975,7 +975,7 @@ void pyuvFrame::openfile(wxFileName videofile)
         pyuvHeightS = pyuvHeight / pyuvScale;
 
         // Set up
-        info.Printf(wxT("%d frames, %.0f'%.0f\", %.3f MB"),
+        info.Printf(_("%d frames, %.0f'%.0f\", %.3f MB"),
             pyuvNumframes,
             floorf(((double) pyuvNumframes / (double) pyuvRate) / 60.0F),
             ((double) pyuvNumframes / (double) pyuvRate) -
@@ -1008,7 +1008,7 @@ void pyuvFrame::OnClose(wxCommandEvent& event)
     };
     pyuvFilename = wxT("");
     pyuvShowtimecode = false;
-    GetMenuBar()->SetLabel(Menu_Control_Play, wxT("P&lay\tSpace"));
+    GetMenuBar()->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
     playButton->SetBitmapLabel(wxBitmap(play16));
     GetMenuBar()->Enable(Menu_Control_Play, false);
     playButton->Enable(false);
@@ -1019,7 +1019,7 @@ void pyuvFrame::OnClose(wxCommandEvent& event)
     GetMenuBar()->Enable(Menu_Control_Goto, false);
     GetMenuBar()->Enable(Menu_Control_Loop, false);
     SetStatusText(wxT(""), 1);
-    SetTitle(pyuvTopbasetitle + wxT(" - a portable YUV player"));
+    SetTitle(pyuvTopbasetitle + _(" - a portable YUV player"));
 
     // Abandon your master
     pyuvApp::GetMyMaster() = -1;
@@ -1150,7 +1150,7 @@ void pyuvFrame::OnPlay(wxCommandEvent& event)
         // Go to Play mode
         animTimer.Start(pyuvFrameTime);
         pyuvPlay = true;
-        mbar->SetLabel(Menu_Control_Play, wxT("P&ause\tSpace"));
+        mbar->SetLabel(Menu_Control_Play, _("P&ause\tSpace"));
         playButton->SetBitmapLabel(wxBitmap(pause16));
         mbar->Enable(Menu_Control_Stop, true);
         stopButton->Enable(true);
@@ -1162,7 +1162,7 @@ void pyuvFrame::OnPlay(wxCommandEvent& event)
         // Go to Pause mode
         animTimer.Stop();
         pyuvPlay = false;
-        mbar->SetLabel(Menu_Control_Play, wxT("P&lay\tSpace"));
+        mbar->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
         playButton->SetBitmapLabel(wxBitmap(play16));
 
     };
@@ -1186,7 +1186,7 @@ void pyuvFrame::OnStop(wxCommandEvent& event)
 
     // Not playing now
     pyuvPlay = false;
-    mbar->SetLabel(Menu_Control_Play, wxT("P&lay\tSpace"));
+    mbar->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
     playButton->SetBitmapLabel(wxBitmap(play16));
     mbar->Enable(Menu_Control_Play, true);
     playButton->Enable(true);
@@ -1228,7 +1228,7 @@ void pyuvFrame::OnRewind(wxCommandEvent& event)
         frameSlider->SetValue(pyuvFramenumber);
     
     pyuvPlay = false;
-    mbar->SetLabel(Menu_Control_Play, wxT("P&lay\tSpace"));
+    mbar->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
     playButton->SetBitmapLabel(wxBitmap(play16));
 
 }
@@ -1252,7 +1252,7 @@ void pyuvFrame::OnForward(wxCommandEvent& event)
     mbar->Enable(Menu_Control_Stop, true);
     stopButton->Enable(true);
     pyuvPlay = false;
-    mbar->SetLabel(Menu_Control_Play, wxT("P&lay\tSpace"));
+    mbar->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
     playButton->SetBitmapLabel(wxBitmap(play16));
 
     // Send the command to your slave(s)
@@ -1265,9 +1265,9 @@ void pyuvFrame::OnForward(wxCommandEvent& event)
 // Goto menu handler
 void pyuvFrame::OnGoto(wxCommandEvent& event)
 {
-    pyuvFramenumber = (long unsigned int) wxGetNumberFromUser(wxString::Format(wxT("You can directly go to a frame\nin the video sequence\n(select a number between 0 and %d)"), pyuvNumframes - 1),
-                                wxT("Jump to frame:"), // prompt text
-                                wxT("Frame selection dialog"), // title test
+    pyuvFramenumber = (long unsigned int) wxGetNumberFromUser(wxString::Format(_("You can directly go to a frame\nin the video sequence\n(select a number between 0 and %d)"), pyuvNumframes - 1),
+                                _("Jump to frame:"), // prompt text
+                                _("Frame selection dialog"), // title test
                                 pyuvFramenumber, // default value
                                 0, // minimum value
                                 pyuvNumframes - 1 // maximum value
@@ -1432,8 +1432,8 @@ void pyuvFrame::OnScale(wxCommandEvent& event)
 
     default:
         pyuvScale = 1;
-        wxMessageBox(wxT("Scale is unknown: assuming 100%"),
-                 wxT("Scaling"),
+        wxMessageBox(_("Scale is unknown: assuming 100%"),
+                 _("Scaling"),
                  wxOK | wxICON_WARNING,
                  this);
         break;
@@ -1563,9 +1563,7 @@ void pyuvFrame::OnSync(wxCommandEvent& event)
 void pyuvFrame::OnContents(wxCommandEvent& event)
 {
     if (!pyuvHelpsystem)
-        wxMessageBox(wxT("The file '") wxT(HELP_FILENAME) wxT("' is missing in\n")
-            wxT("the program directory:\n")
-            wxT("the help system is not available"));
+        wxMessageBox(_("The file '") wxT(HELP_FILENAME) _("' is missing in\nthe program directory:\nthe help system is not available"));
     else
         help.Display(wxT("doc.htm"));
 }
@@ -1576,18 +1574,18 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
     wxString msg;
 
     msg.Printf(
-        wxT("PYUV - A portable and multiplatform RAW sequence player\n")
-        wxT("Version %s - ")
+        _("PYUV - A portable and multiplatform RAW sequence player\n")
+        _("Version %s - ")
 #ifdef __WXMSW__
-        wxT("for Windows\n")
+        _("for Windows\n")
 #endif
 #ifdef __WXGTK__
-        wxT("for Linux\n")
+        _("for Linux\n")
 #endif
         wxT("(%s)\n\n")
-        wxT("Website: %s\n")
+        _("Website: %s\n")
         wxT("Github:  %s\n")
-        wxT("\nCreated with %s\n")
+        _("\nCreated with %s\n")
         wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab"),
         PACKAGE_VERSION,
         PYUV_BTIME,
@@ -1596,7 +1594,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxVERSION_STRING);
         
     // Display a message box with the info
-    wxMessageBox(msg, wxT("About PYUV"), wxOK | wxICON_INFORMATION, this);
+    wxMessageBox(msg, _("About PYUV"), wxOK | wxICON_INFORMATION, this);
 }
 
 // Animation timer handler

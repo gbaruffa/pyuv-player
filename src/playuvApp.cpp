@@ -53,6 +53,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/panel.h>
 #include <wx/propdlg.h>
 #include <wx/rawbmp.h>
+#include <wx/stdpaths.h>
 
 #include <stdint.h>
 
@@ -96,6 +97,63 @@ wxString pyuvApp::GetServerNoString(void)
     return wxString::Format(wxT("%02d"), pyuvServno);
 }
 
+wxLocale* locale;
+long language;
+
+long getUsersFavoriteLanguage()
+{
+	return wxLANGUAGE_ITALIAN;
+}
+
+bool userWantsAnotherLanguageThanDefault()
+{
+	return false;
+}
+
+void initLanguageSupport()
+{
+    language =  wxLANGUAGE_DEFAULT;
+ 
+    // fake functions, use proper implementation
+    if( userWantsAnotherLanguageThanDefault() )
+        language = getUsersFavoriteLanguage();
+ 
+    // load language if possible, fall back to english otherwise
+    if(wxLocale::IsAvailable(language))
+    {
+        locale = new wxLocale( language );
+ 
+        #ifdef __WXGTK__
+        // add locale search paths
+        wxStandardPaths* paths = (wxStandardPaths*) &wxStandardPaths::Get();
+        wxString prefix = paths->GetInstallPrefix();
+	wxLogMessage(_("prefix %s\n"), paths->GetLocalizedResourcesDir( "it", wxStandardPaths::ResourceCat_Messages ));
+        locale->AddCatalogLookupPathPrefix( prefix );
+        locale->AddCatalogLookupPathPrefix( "/usr/share/locale" );
+        locale->AddCatalogLookupPathPrefix( "/home/giuseppe/usr/share/locale" );
+	locale->AddCatalogLookupPathPrefix(".");
+       #endif
+ 
+        printf("addcatalog %d\n", locale->AddCatalog(wxT("pyuv")));
+ 
+        if(! locale->IsOk() )
+        {
+            std::cerr << "selected language is wrong" << std::endl;
+            delete locale;
+            locale = new wxLocale( wxLANGUAGE_ENGLISH );
+            language = wxLANGUAGE_ENGLISH;
+        }
+    }
+    else
+    {
+        std::cout << "The selected language is not supported by your system."
+                  << "Try installing support for this language." << std::endl;
+        locale = new wxLocale( wxLANGUAGE_ENGLISH );
+        language = wxLANGUAGE_ENGLISH;
+    }
+ 
+}
+
 // Initialize the application
 bool pyuvApp::OnInit()
 {
@@ -104,7 +162,8 @@ bool pyuvApp::OnInit()
 #endif
 
     // Set the English locale
-    wxLocale(wxLANGUAGE_ENGLISH, wxLOCALE_LOAD_DEFAULT);
+    //wxLocale(wxLANGUAGE_ENGLISH, wxLOCALE_LOAD_DEFAULT);
+    initLanguageSupport();
 
     // Look for existing clients and set up an IPC server
     {
