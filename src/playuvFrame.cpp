@@ -64,6 +64,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/spinbutt.h>
 #include <wx/spinctrl.h>
 #include <wx/textfile.h>
+#include <wx/stdpaths.h>
 
 #include <stdint.h>
 
@@ -389,7 +390,9 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxFileSystem::AddHandler(new wxZipFSHandler);
     wxImage::AddHandler(new wxJPEGHandler);
     wxImage::AddHandler(new wxPNGHandler);
-    if (help.AddBook(wxFileName(wxT(HELP_FILENAME), wxPATH_UNIX)) || help.AddBook(wxFileName(wxT("/usr/share/doc/pyuv/doc.htb"), wxPATH_UNIX))) {
+    if (help.AddBook(wxFileName(wxT(HELP_FILENAME), wxPATH_UNIX))
+        || help.AddBook(wxFileName(wxT("/Applications/pyuv.app/Contents/MacOS/doc.htb"), wxPATH_UNIX))
+        || help.AddBook(wxFileName(wxT("/usr/share/doc/pyuv/doc.htb"), wxPATH_UNIX))) {
         helpMenu->Append(Menu_Help_Contents, wxT("&Contents\tCtrl+H"), wxT("Show program help"));
         pyuvHelpsystem = true;
     } else {
@@ -397,6 +400,9 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
         helpMenu->Enable(Menu_Help_Contents, false);
         pyuvHelpsystem = false;
     }
+    /*wxStandardPaths sp = wxStandardPaths::Get();
+    wxString cwd = wxFileName(sp.GetExecutablePath(), wxPATH_UNIX);
+    printf("%s\n", (const char*)cwd.mb_str());*/
 
     // The "About" item should be in the help menu
     helpMenu->Append(wxID_ABOUT, wxT("&About...\tF1"), wxT("Show about dialog"));
@@ -1588,7 +1594,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         wxT(PYUV_WEBSITE),
         wxT(PYUV_GITHUB),
         wxVERSION_STRING);
-
+        
     // Display a message box with the info
     wxMessageBox(msg, wxT("About PYUV"), wxOK | wxICON_INFORMATION, this);
 }
