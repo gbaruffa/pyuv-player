@@ -65,6 +65,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/spinctrl.h>
 #include <wx/textfile.h>
 #include <wx/stdpaths.h>
+#include <wx/intl.h>
 
 #include <stdint.h>
 
@@ -396,7 +397,7 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
         helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), _("Show program help"));
         pyuvHelpsystem = true;
     } else {
-        helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), wxT(HELP_FILENAME) _(" not found!!!"));
+        helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), wxString(wxT(HELP_FILENAME)) + _(" not found!!!"));
         helpMenu->Enable(Menu_Help_Contents, false);
         pyuvHelpsystem = false;
     }
@@ -564,7 +565,7 @@ void pyuvFrame::OnOpen(wxCommandEvent& event)
 #ifdef __WXMOTIF__
         _("PYUV files (*.*)|*.*") // only 1 choice for MOTIF
 #else
-        _("PYUV files (*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix)|")
+        _("PYUV files (*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix)|") +
             _("*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix|All files (*.*)|*.*")
 #endif
     );
@@ -605,8 +606,8 @@ void pyuvFrame::OnSaveAs(wxCommandEvent& event)
 
         // Debug dialog: disposable
         wxString info;
-        info.Printf(_("Full file name: %s\n")
-            _("Path: %s\n")
+        info.Printf(_("Full file name: %s\n") +
+            _("Path: %s\n") +
             _("Name: %s\n"),
             dialog.GetPath().c_str(),
             dialog.GetDirectory().c_str(),
@@ -1563,7 +1564,7 @@ void pyuvFrame::OnSync(wxCommandEvent& event)
 void pyuvFrame::OnContents(wxCommandEvent& event)
 {
     if (!pyuvHelpsystem)
-        wxMessageBox(_("The file '") wxT(HELP_FILENAME) _("' is missing in\nthe program directory:\nthe help system is not available"));
+        wxMessageBox(_("The file '") + wxString(wxT(HELP_FILENAME)) + _("' is missing in\nthe program directory:\nthe help system is not available"));
     else
         help.Display(wxT("doc.htm"));
 }
@@ -1574,19 +1575,19 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
     wxString msg;
 
     msg.Printf(
-        _("PYUV - A portable and multiplatform RAW sequence player\n")
-        _("Version %s - ")
+        _("PYUV - A portable and multiplatform RAW sequence player\n") +
+        _("Version %s - ") +
 #ifdef __WXMSW__
-        _("for Windows\n")
+        _("for Windows\n") +
 #endif
 #ifdef __WXGTK__
         _("for Linux\n")
 #endif
-        wxT("(%s)\n\n")
-        _("Website: %s\n")
-        wxT("Github:  %s\n")
-        _("\nCreated with %s\n")
-        wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab"),
+        wxString(wxT("(%s)\n\n")) +
+        _("Website: %s\n") + 
+        wxString(wxT("Github:  %s\n")) +
+        _("\nCreated with %s\n") +
+        wxString(wxT("\n(c) 2006-2016, Giuseppe Baruffa, DSPLab")),
         PACKAGE_VERSION,
         PYUV_BTIME,
         wxT(PYUV_WEBSITE),
