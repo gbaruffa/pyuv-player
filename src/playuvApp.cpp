@@ -97,61 +97,108 @@ wxString pyuvApp::GetServerNoString(void)
     return wxString::Format(wxT("%02d"), pyuvServno);
 }
 
-wxLocale* locale;
-long language;
-
-long getUsersFavoriteLanguage()
+// language data
+static const wxLanguage langIds[] =
 {
-	return wxLANGUAGE_ITALIAN;
-}
+    wxLANGUAGE_DEFAULT,
+    wxLANGUAGE_FRENCH,
+    wxLANGUAGE_ITALIAN,
+    wxLANGUAGE_GERMAN,
+    wxLANGUAGE_RUSSIAN,
+    wxLANGUAGE_BULGARIAN,
+    wxLANGUAGE_CZECH,
+    wxLANGUAGE_POLISH,
+    wxLANGUAGE_SWEDISH,
+#if wxUSE_UNICODE || defined(__WXMOTIF__)
+    wxLANGUAGE_JAPANESE,
+#endif
+#if wxUSE_UNICODE
+    wxLANGUAGE_GEORGIAN,
+    wxLANGUAGE_ENGLISH,
+    wxLANGUAGE_ENGLISH_US,
+    wxLANGUAGE_ARABIC,
+    wxLANGUAGE_ARABIC_EGYPT
+#endif
+};
 
-bool userWantsAnotherLanguageThanDefault()
+// note that it makes no sense to translate these strings, they are
+// shown before we set the locale anyhow
+const wxString langNames[] =
 {
-	return false;
-}
+    "System default",
+    "French",
+    "Italian",
+    "German",
+    "Russian",
+    "Bulgarian",
+    "Czech",
+    "Polish",
+    "Swedish",
+#if wxUSE_UNICODE || defined(__WXMOTIF__)
+    "Japanese",
+#endif
+#if wxUSE_UNICODE
+    "Georgian",
+    "English",
+    "English (U.S.)",
+    "Arabic",
+    "Arabic (Egypt)"
+#endif
+};
 
-void initLanguageSupport()
+void pyuvApp::initLanguageSupport2()
 {
-    language =  wxLANGUAGE_DEFAULT;
- 
-    // fake functions, use proper implementation
-    if( userWantsAnotherLanguageThanDefault() )
-        language = getUsersFavoriteLanguage();
- 
-    // load language if possible, fall back to english otherwise
-    if(wxLocale::IsAvailable(language))
+	m_lang = wxLANGUAGE_UNKNOWN;
+    if ( m_lang == wxLANGUAGE_UNKNOWN )
     {
-        locale = new wxLocale( language );
- 
-        #ifdef __WXGTK__
-        // add locale search paths
-        wxStandardPaths* paths = (wxStandardPaths*) &wxStandardPaths::Get();
-        wxString prefix = paths->GetInstallPrefix();
-	wxLogMessage(_("prefix %s\n"), paths->GetLocalizedResourcesDir( "it", wxStandardPaths::ResourceCat_Messages ));
-        locale->AddCatalogLookupPathPrefix( prefix );
-        locale->AddCatalogLookupPathPrefix( "/usr/share/locale" );
-        locale->AddCatalogLookupPathPrefix( "/home/giuseppe/usr/share/locale" );
-	locale->AddCatalogLookupPathPrefix(".");
-       #endif
- 
-        printf("addcatalog %d\n", locale->AddCatalog(wxT("pyuv")));
- 
-        if(! locale->IsOk() )
-        {
-            std::cerr << "selected language is wrong" << std::endl;
-            delete locale;
-            locale = new wxLocale( wxLANGUAGE_ENGLISH );
-            language = wxLANGUAGE_ENGLISH;
-        }
+        int lng = wxGetSingleChoiceIndex
+                  (
+                    _("Please choose language:"),
+                    _("Language"),
+                    WXSIZEOF(langNames),
+                    langNames
+                  );
+        m_lang = lng == -1 ? wxLANGUAGE_DEFAULT : langIds[lng];
     }
-    else
+
+    // don't use wxLOCALE_LOAD_DEFAULT flag so that Init() doesn't return
+    // false just because it failed to load wxstd catalog
+    if ( !m_locale.Init(m_lang, wxLOCALE_DONT_LOAD_DEFAULT) )
     {
-        std::cout << "The selected language is not supported by your system."
-                  << "Try installing support for this language." << std::endl;
-        locale = new wxLocale( wxLANGUAGE_ENGLISH );
-        language = wxLANGUAGE_ENGLISH;
+        wxLogWarning(_("This language is not supported by the system."));
+
+        // continue nevertheless
     }
- 
+
+    // normally this wouldn't be necessary as the catalog files would be found
+    // in the default locations, but when the program is not installed the
+    // catalogs are in the build directory where we wouldn't find them by
+    // default
+    wxLocale::AddCatalogLookupPathPrefix(".");
+
+    // Initialize the catalogs we'll be using
+    const wxLanguageInfo* pInfo = wxLocale::GetLanguageInfo(m_lang);
+    if (!m_locale.AddCatalog("pyuv"))
+    {
+        wxLogError(_("Couldn't find/load the 'pyuv' catalog for locale '%s'."),
+                   pInfo ? pInfo->GetLocaleName() : _("unknown"));
+    }
+
+    // Now try to add wxstd.mo so that loading "NOTEXIST.ING" file will produce
+    // a localized error message:
+    m_locale.AddCatalog("wxstd");
+        // NOTE: it's not an error if we couldn't find it!
+
+    // this catalog is installed in standard location on Linux systems and
+    // shows that you may make use of the standard message catalogs as well
+    //
+    // if it's not installed on your system, it is just silently ignored
+#ifdef __LINUX__
+    {
+        wxLogNull noLog;
+        m_locale.AddCatalog("fileutils");
+    }
+#endif
 }
 
 // Initialize the application
@@ -163,7 +210,7 @@ bool pyuvApp::OnInit()
 
     // Set the English locale
     //wxLocale(wxLANGUAGE_ENGLISH, wxLOCALE_LOAD_DEFAULT);
-    initLanguageSupport();
+    initLanguageSupport2();
 
     // Look for existing clients and set up an IPC server
     {

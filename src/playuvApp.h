@@ -107,6 +107,8 @@ public:
     static wxString GetServerNoString(void);
 
     static wxColour (*GetClientColour(void))[MAX_NO_SERVERS] { return &pyuvSlaveColors; }
+	
+	void initLanguageSupport2();
 
 private:
     pyuvFrame *frame;
@@ -129,6 +131,10 @@ private:
     static bool pyuvMySlave[MAX_NO_SERVERS];
 
     pyuvServer *m_server;
+	
+protected:
+    wxLanguage m_lang;  // language specified by user
+    wxLocale m_locale;  // locale we'll be using
 };
 
 // Implements pyuvApp& GetApp()

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Pyuv 0.6.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-17 18:45+0100\n"
-"PO-Revision-Date: 2016-01-17 19:01+0100\n"
+"PO-Revision-Date: 2016-01-19 21:37+0100\n"
 "Last-Translator: Giuseppe Baruffa <giuseppe.baruffa@unipg.it>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -249,7 +249,7 @@ msgstr "Disegna con le bitmap grezze"
 
 #: playuvFrame.cpp:280
 msgid "E&xit\tCtrl+Q"
-msgstr "T&ermina\tCtrl+Q"
+msgstr "E&sci\tCtrl+Q"
 
 #: playuvFrame.cpp:685
 msgid "File could not be opened: "

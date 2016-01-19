@@ -1581,7 +1581,7 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
         _("for Windows\n") +
 #endif
 #ifdef __WXGTK__
-        _("for Linux\n")
+        _("for Linux\n") + 
 #endif
         wxString(wxT("(%s)\n\n")) +
         _("Website: %s\n") + 
