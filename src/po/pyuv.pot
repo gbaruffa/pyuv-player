@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-17 18:43+0100\n"
+"POT-Creation-Date: 2016-01-21 22:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,433 +17,446 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: playuvFrame.cpp:1588
+#: playuvFrame.cpp:1589
 #, c-format
 msgid ""
 "\n"
 "Created with %s\n"
 msgstr ""
 
-#: playuvFrame.cpp:1022
+#: playuvFrame.cpp:1023
 msgid " - a portable YUV player"
 msgstr ""
 
-#: playuvFrame.cpp:399
+#: playuvFrame.cpp:400
 msgid " not found!!!"
 msgstr ""
 
-#: playuvFrame.cpp:978
+#: playuvFrame.cpp:979
 #, c-format
 msgid "%d frames, %.0f'%.0f\", %.3f MB"
 msgstr ""
 
-#: playuvFrame.cpp:317
+#: playuvFrame.cpp:318
 msgid "&100%\tCtrl+1"
 msgstr ""
 
-#: playuvFrame.cpp:323
+#: playuvFrame.cpp:324
 msgid "&25%\tCtrl+4"
 msgstr ""
 
-#: playuvFrame.cpp:321
+#: playuvFrame.cpp:322
 msgid "&33%\tCtrl+3"
 msgstr ""
 
-#: playuvFrame.cpp:319
+#: playuvFrame.cpp:320
 msgid "&50%\tCtrl+2"
 msgstr ""
 
-#: playuvFrame.cpp:408
+#: playuvFrame.cpp:409
 msgid "&About...\tF1"
 msgstr ""
 
-#: playuvFrame.cpp:333
+#: playuvFrame.cpp:334
 msgid "&All\tA"
 msgstr ""
 
-#: playuvFrame.cpp:291
+#: playuvFrame.cpp:292
 msgid "&Backward\tLeft"
 msgstr ""
 
-#: playuvFrame.cpp:362
+#: playuvFrame.cpp:363
 msgid "&Bitmap\tCtrl+B"
 msgstr ""
 
-#: playuvFrame.cpp:396 playuvFrame.cpp:399
+#: playuvFrame.cpp:397 playuvFrame.cpp:400
 msgid "&Contents\tCtrl+H"
 msgstr ""
 
-#: playuvFrame.cpp:413
+#: playuvFrame.cpp:414
 msgid "&Control"
 msgstr ""
 
-#: playuvFrame.cpp:340
+#: playuvFrame.cpp:341
 msgid "&Deinterlace\tD"
 msgstr ""
 
-#: playuvFrame.cpp:374
+#: playuvFrame.cpp:375
 msgid "&Double buffer\tCtrl+F"
 msgstr ""
 
-#: playuvFrame.cpp:412
+#: playuvFrame.cpp:413
 msgid "&File"
 msgstr ""
 
-#: playuvFrame.cpp:278
+#: playuvFrame.cpp:279
 msgid "&Format\tCtrl+F"
 msgstr ""
 
-#: playuvFrame.cpp:293
+#: playuvFrame.cpp:294
 msgid "&Forward\tRight"
 msgstr ""
 
-#: playuvFrame.cpp:295
+#: playuvFrame.cpp:296
 msgid "&Goto\tCtrl+G"
 msgstr ""
 
-#: playuvFrame.cpp:416
+#: playuvFrame.cpp:417
 msgid "&Help"
 msgstr ""
 
-#: playuvFrame.cpp:348
+#: playuvFrame.cpp:349
 msgid "&Identity\tI"
 msgstr ""
 
-#: playuvFrame.cpp:298
+#: playuvFrame.cpp:299
 msgid "&Loop\tCtrl+Y"
 msgstr ""
 
-#: playuvFrame.cpp:334
+#: playuvFrame.cpp:335
 msgid "&Next\tN"
 msgstr ""
 
-#: playuvFrame.cpp:369
+#: playuvFrame.cpp:370
 msgid "&OpenGL\tCtrl+L"
 msgstr ""
 
-#: playuvFrame.cpp:287
+#: playuvFrame.cpp:288
 msgid "&Play\tSpace"
 msgstr ""
 
-#: playuvFrame.cpp:365
+#: playuvFrame.cpp:366
 msgid "&Raw bitmap\tCtrl+R"
 msgstr ""
 
-#: playuvFrame.cpp:415
+#: playuvFrame.cpp:416
 msgid "&Settings"
 msgstr ""
 
-#: playuvFrame.cpp:289
+#: playuvFrame.cpp:290
 msgid "&Stop\tEsc"
 msgstr ""
 
-#: playuvFrame.cpp:304
+#: playuvFrame.cpp:305
 msgid "&Sync\tCtrl+K"
 msgstr ""
 
-#: playuvFrame.cpp:344
+#: playuvFrame.cpp:345
 msgid "&Time code\tT"
 msgstr ""
 
-#: playuvFrame.cpp:414
+#: playuvFrame.cpp:415
 msgid "&View"
 msgstr ""
 
-#: playuvFrame.cpp:1566
+#: playuvFrame.cpp:1567
 msgid ""
 "' is missing in\n"
 "the program directory:\n"
 "the help system is not available"
 msgstr ""
 
-#: playuvFrame.cpp:568
+#: playuvFrame.cpp:569
 msgid ""
 "*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*.vix|All files "
 "(*.*)|*.*"
 msgstr ""
 
-#: playuvFrame.cpp:315
+#: playuvFrame.cpp:316
 msgid "2&00%\tCtrl+D"
 msgstr ""
 
-#: playuvFrame.cpp:313
+#: playuvFrame.cpp:314
 msgid "4&00%\tCtrl+Q"
 msgstr ""
 
-#: playuvFrame.cpp:1597
+#: playuvFrame.cpp:1598
 msgid "About PYUV"
 msgstr ""
 
-#: playuvFrame.cpp:719 playuvFrame.cpp:735 playuvFrame.cpp:747
-#: playuvFrame.cpp:760
+#: playuvFrame.cpp:720 playuvFrame.cpp:736 playuvFrame.cpp:748
+#: playuvFrame.cpp:761
 msgid "BAD REGEX!!!"
 msgstr ""
 
-#: playuvFrame.cpp:599
+#: playuvFrame.cpp:600
 msgid "BMP files (*.bmp)|*.bmp|All files (*.*)|*.*"
 msgstr ""
 
-#: playuvFrame.cpp:291
+#: playuvFrame.cpp:292
 msgid "Backward a frame"
 msgstr ""
 
-#: playuvFrame.cpp:275
+#: playuvFrame.cpp:276
 msgid "C&lose\tCtrl+C"
 msgstr ""
 
-#: playuvFrame.cpp:199
+#: playuvFrame.cpp:200
 msgid "Choose one"
 msgstr ""
 
-#: playuvFrame.cpp:275
+#: playuvFrame.cpp:276
 msgid "Close the file"
 msgstr ""
 
-#: playuvFrame.cpp:337
+#: playuvFrame.cpp:338
 msgid "Components"
 msgstr ""
 
-#: playuvFrame.cpp:353
+#: playuvFrame.cpp:354
 msgid "Cop&y frame\tF8"
 msgstr ""
 
-#: playuvFrame.cpp:353
+#: playuvFrame.cpp:354
 msgid "Copy the frame to clipboard"
 msgstr ""
 
-#: playuvFrame.cpp:202
+#: playuvApp.cpp:186
+#, c-format
+msgid "Couldn't find/load the 'pyuv' catalog for locale '%s'."
+msgstr ""
+
+#: playuvFrame.cpp:203
 msgid "Custom"
 msgstr ""
 
-#: playuvFrame.cpp:340
+#: playuvFrame.cpp:341
 msgid "Deinterlace"
 msgstr ""
 
-#: playuvFrame.cpp:315
+#: playuvFrame.cpp:316
 msgid "Double size"
 msgstr ""
 
-#: playuvFrame.cpp:383
+#: playuvFrame.cpp:384
 msgid "Draw engine"
 msgstr ""
 
-#: playuvFrame.cpp:369
+#: playuvFrame.cpp:370
 msgid "Draw with OpenGL"
 msgstr ""
 
-#: playuvFrame.cpp:362
+#: playuvFrame.cpp:363
 msgid "Draw with bitmaps"
 msgstr ""
 
-#: playuvFrame.cpp:365
+#: playuvFrame.cpp:366
 msgid "Draw with raw bitmaps"
 msgstr ""
 
-#: playuvFrame.cpp:280
+#: playuvFrame.cpp:281
 msgid "E&xit\tCtrl+Q"
 msgstr ""
 
-#: playuvFrame.cpp:685
+#: playuvFrame.cpp:686
 msgid "File could not be opened: "
 msgstr ""
 
-#: playuvFrame.cpp:624 playuvFrame.cpp:628
+#: playuvFrame.cpp:625 playuvFrame.cpp:629
 msgid "File not saved"
 msgstr ""
 
-#: playuvFrame.cpp:293
+#: playuvFrame.cpp:294
 msgid "Forward a frame"
 msgstr ""
 
-#: playuvFrame.cpp:313
+#: playuvFrame.cpp:314
 msgid "Four x size"
 msgstr ""
 
-#: playuvFrame.cpp:1270
+#: playuvFrame.cpp:1271
 msgid "Frame selection dialog"
 msgstr ""
 
-#: playuvFrame.cpp:608
+#: playuvFrame.cpp:609
 #, c-format
 msgid "Full file name: %s\n"
 msgstr ""
 
-#: playuvFrame.cpp:295
+#: playuvFrame.cpp:296
 msgid "Go to frame"
 msgstr ""
 
-#: playuvFrame.cpp:319
+#: playuvFrame.cpp:320
 msgid "Half size"
 msgstr ""
 
-#: playuvFrame.cpp:1269
+#: playuvFrame.cpp:1270
 msgid "Jump to frame:"
 msgstr ""
 
-#: playuvFrame.cpp:298
+#: playuvApp.cpp:160
+msgid "Language"
+msgstr ""
+
+#: playuvFrame.cpp:299
 msgid "Loop continuously"
 msgstr ""
 
-#: playuvFrame.cpp:610
+#: playuvFrame.cpp:611
 #, c-format
 msgid "Name: %s\n"
 msgstr ""
 
-#: playuvFrame.cpp:274
+#: playuvFrame.cpp:275
 msgid "O&pen\tCtrl+O"
 msgstr ""
 
-#: playuvFrame.cpp:561
+#: playuvFrame.cpp:562
 msgid "Open"
 msgstr ""
 
-#: playuvFrame.cpp:274
+#: playuvFrame.cpp:275
 msgid "Open a file"
 msgstr ""
 
-#: playuvFrame.cpp:317
+#: playuvFrame.cpp:318
 msgid "Original size"
 msgstr ""
 
-#: playuvFrame.cpp:1153
+#: playuvFrame.cpp:1154
 msgid "P&ause\tSpace"
 msgstr ""
 
-#: playuvFrame.cpp:1011 playuvFrame.cpp:1165 playuvFrame.cpp:1189
-#: playuvFrame.cpp:1231 playuvFrame.cpp:1255
+#: playuvFrame.cpp:1012 playuvFrame.cpp:1166 playuvFrame.cpp:1190
+#: playuvFrame.cpp:1232 playuvFrame.cpp:1256
 msgid "P&lay\tSpace"
 msgstr ""
 
-#: playuvFrame.cpp:1577
+#: playuvFrame.cpp:1578
 msgid "PYUV - A portable and multiplatform RAW sequence player\n"
 msgstr ""
 
-#: playuvFrame.cpp:685
+#: playuvFrame.cpp:686
 msgid "PYUV Error"
 msgstr ""
 
-#: playuvFrame.cpp:565
+#: playuvFrame.cpp:566
 msgid "PYUV files (*.*)|*.*"
 msgstr ""
 
-#: playuvFrame.cpp:567
+#: playuvFrame.cpp:568
 msgid ""
 "PYUV files (*.yuv;*.raw;*.rgb;*.xyz;*.hsv;*.yiq;*.bw;*.cif;*.sif;*.qcif;*."
 "vix)|"
 msgstr ""
 
-#: playuvFrame.cpp:609
+#: playuvFrame.cpp:610
 #, c-format
 msgid "Path: %s\n"
 msgstr ""
 
-#: playuvFrame.cpp:287
+#: playuvFrame.cpp:288
 msgid "Play/pause a sequence"
 msgstr ""
 
-#: playuvFrame.cpp:323
+#: playuvApp.cpp:159
+msgid "Please choose language:"
+msgstr ""
+
+#: playuvFrame.cpp:324
 msgid "Quarter size"
 msgstr ""
 
-#: playuvFrame.cpp:280
+#: playuvFrame.cpp:281
 msgid "Quit this program"
 msgstr ""
 
-#: playuvFrame.cpp:276
+#: playuvFrame.cpp:277
 msgid "S&ave frame\tCtrl+S"
 msgstr ""
 
-#: playuvFrame.cpp:596
+#: playuvFrame.cpp:597
 msgid "Save frame as BMP"
 msgstr ""
 
-#: playuvFrame.cpp:276
+#: playuvFrame.cpp:277
 msgid "Save the frame"
 msgstr ""
 
-#: playuvFrame.cpp:1435
+#: playuvFrame.cpp:1436
 msgid "Scale is unknown: assuming 100%"
 msgstr ""
 
-#: playuvFrame.cpp:1436
+#: playuvFrame.cpp:1437
 msgid "Scaling"
 msgstr ""
 
-#: playuvFrame.cpp:278
+#: playuvFrame.cpp:279
 msgid "Select the video format"
 msgstr ""
 
-#: playuvFrame.cpp:614
+#: playuvFrame.cpp:615
 msgid "Selected file"
 msgstr ""
 
-#: playuvFrame.cpp:408
+#: playuvFrame.cpp:409
 msgid "Show about dialog"
 msgstr ""
 
-#: playuvFrame.cpp:333
+#: playuvFrame.cpp:334
 msgid "Show all components"
 msgstr ""
 
-#: playuvFrame.cpp:348
+#: playuvFrame.cpp:349
 msgid "Show identity"
 msgstr ""
 
-#: playuvFrame.cpp:334
+#: playuvFrame.cpp:335
 msgid "Show next component"
 msgstr ""
 
-#: playuvFrame.cpp:396
+#: playuvFrame.cpp:397
 msgid "Show program help"
 msgstr ""
 
-#: playuvFrame.cpp:344
+#: playuvFrame.cpp:345
 msgid "Show the timecode"
 msgstr ""
 
-#: playuvFrame.cpp:289
+#: playuvFrame.cpp:290
 msgid "Stop a sequence"
 msgstr ""
 
-#: playuvFrame.cpp:304
+#: playuvFrame.cpp:305
 msgid "Sync commands between PYUVs"
 msgstr ""
 
-#: playuvFrame.cpp:1566
+#: playuvFrame.cpp:1567
 msgid "The file '"
 msgstr ""
 
-#: playuvFrame.cpp:624
+#: playuvFrame.cpp:625
 msgid "The frame could not be saved"
 msgstr ""
 
-#: playuvFrame.cpp:628
+#: playuvFrame.cpp:629
 msgid "The frame could not really be saved"
 msgstr ""
 
-#: playuvFrame.cpp:321
+#: playuvFrame.cpp:322
 msgid "Third size"
 msgstr ""
 
-#: playuvFrame.cpp:374
+#: playuvFrame.cpp:375
 msgid "Use double buffering"
 msgstr ""
 
-#: playuvFrame.cpp:1578
+#: playuvFrame.cpp:1579
 #, c-format
 msgid "Version %s - "
 msgstr ""
 
-#: playuvFrame.cpp:1586
+#: playuvFrame.cpp:1587
 #, c-format
 msgid "Website: %s\n"
 msgstr ""
 
-#: playuvFrame.cpp:425
+#: playuvFrame.cpp:426
 msgid "Welcome to PYUV!"
 msgstr ""
 
-#: playuvFrame.cpp:1268
+#: playuvFrame.cpp:1269
 #, c-format
 msgid ""
 "You can directly go to a frame\n"
@@ -451,14 +464,18 @@ msgid ""
 "(select a number between 0 and %d)"
 msgstr ""
 
-#: playuvFrame.cpp:327
+#: playuvFrame.cpp:328
 msgid "Zoom"
 msgstr ""
 
-#: playuvFrame.cpp:1583
+#: playuvFrame.cpp:1584
 msgid "for Linux\n"
 msgstr ""
 
-#: playuvFrame.cpp:1580
+#: playuvFrame.cpp:1581
 msgid "for Windows\n"
+msgstr ""
+
+#: playuvApp.cpp:187
+msgid "unknown"
 msgstr ""
