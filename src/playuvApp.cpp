@@ -151,6 +151,7 @@ void pyuvApp::initLanguageSupport2()
 	m_lang = wxLANGUAGE_DEFAULT;
 	//m_lang = wxLANGUAGE_ENGLISH;
 	//m_lang = wxLANGUAGE_FRENCH;
+        //m_lang = wxLANGUAGE_UNKNOWN;
     if ( m_lang == wxLANGUAGE_UNKNOWN )
     {
         int lng = wxGetSingleChoiceIndex
@@ -167,7 +168,7 @@ void pyuvApp::initLanguageSupport2()
     // false just because it failed to load wxstd catalog
     if ( !m_locale.Init(m_lang, wxLOCALE_DONT_LOAD_DEFAULT) )
     {
-        wxLogWarning(_("This language is not supported by the system."));
+        //wxLogWarning(_("This language is not supported by the system."));
 
         // continue nevertheless
     }

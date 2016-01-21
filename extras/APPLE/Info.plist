@@ -23,7 +23,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string></string>
 	<key>CFBundleGetInfoString</key>
-	<string>pyuv version , (c) 2002-2006 wxWidgets</string>
+	<string>pyuv version 0.7.0, (c) 2002-2006 wxWidgets</string>
 	<key>CFBundleLongVersionString</key>
 	<string>, (c) 2002-2006 wxWidgets</string>
 	<key>NSHumanReadableCopyright</key>
