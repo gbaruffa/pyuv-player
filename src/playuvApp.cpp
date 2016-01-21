@@ -148,7 +148,9 @@ const wxString langNames[] =
 
 void pyuvApp::initLanguageSupport2()
 {
-	m_lang = wxLANGUAGE_UNKNOWN;
+	m_lang = wxLANGUAGE_DEFAULT;
+	//m_lang = wxLANGUAGE_ENGLISH;
+	//m_lang = wxLANGUAGE_FRENCH;
     if ( m_lang == wxLANGUAGE_UNKNOWN )
     {
         int lng = wxGetSingleChoiceIndex
