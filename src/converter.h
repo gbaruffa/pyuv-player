@@ -177,6 +177,7 @@ void p422_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height)
  * 4:4:4 planar to 1:1:1 interleaved conversion
  */
 void p444_123_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
+void p444_231_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 void p444_321_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height);
 
 /*
