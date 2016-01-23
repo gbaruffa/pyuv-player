@@ -1,5 +1,6 @@
 Authors of PYUV
 See also the files THANKS and ChangeLog
 
-Giuseppe Baruffa designed and implemented PYUV.
-Yufei Yuan (yyuan@gmx.com) refactored the code and added compatibility with wxWidgets 3.0
+* Giuseppe Baruffa designed and implemented PYUV.
+* Yufei Yuan <yyuan@gmx.com> refactored the code and added compatibility with wxWidgets 3.0
+* Kieran Kunhya <kieran@kunhya.com> added support for GBR content
