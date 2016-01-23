@@ -363,15 +363,19 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     drawMenu->AppendRadioItem(Menu_Settings_Draw_Bitmap, _("&Bitmap\tCtrl+B"), _("Draw with bitmaps"));
     if (pyuvEngine == 0)
         drawMenu->Check(Menu_Settings_Draw_Bitmap, true);
-    drawMenu->AppendRadioItem(Menu_Settings_Draw_Raw, _("&Raw bitmap\tCtrl+R"), _("Draw with raw bitmaps"));
-    drawMenu->Enable(Menu_Settings_Draw_Raw, false);
+		
+    /*drawMenu->AppendRadioItem(Menu_Settings_Draw_Raw, _("&Raw bitmap\tCtrl+R"), _("Draw with raw bitmaps"));
     if (pyuvEngine == 1)
         drawMenu->Check(Menu_Settings_Draw_Raw, true);
-    drawMenu->AppendRadioItem(Menu_Settings_Draw_OGL, _("&OpenGL\tCtrl+L"), _("Draw with OpenGL"));
-    drawMenu->Enable(Menu_Settings_Draw_OGL, false);
+    drawMenu->Enable(Menu_Settings_Draw_Raw, false);*/
+		
+    /*drawMenu->AppendRadioItem(Menu_Settings_Draw_OGL, _("&OpenGL\tCtrl+L"), _("Draw with OpenGL"));
     if (pyuvEngine == 2)
         drawMenu->Check(Menu_Settings_Draw_OGL, true);
+    drawMenu->Enable(Menu_Settings_Draw_OGL, false);*/
+		
     drawMenu->AppendSeparator();
+	
     drawMenu->AppendCheckItem(Menu_Settings_Draw_Double, _("&Double buffer\tCtrl+F"), _("Use double buffering"));
     if (pyuvDoublebuffer)
         drawMenu->Check(Menu_Settings_Draw_Double, true);

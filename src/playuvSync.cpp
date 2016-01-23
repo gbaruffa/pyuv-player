@@ -103,7 +103,7 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
                                                wxDefaultPosition,
                                                wxDefaultSize,
                                                5);
-    topSizer->Add(descrText, 1, wxALIGN_LEFT|wxLEFT|wxTOP|wxRIGHT, 10);
+    topSizer->Add(descrText, 1, wxALIGN_LEFT|wxEXPAND|wxLEFT|wxTOP|wxRIGHT, 10);
 
     // Create the applications management sizer
     wxBoxSizer* appmagSizer = new wxBoxSizer(wxHORIZONTAL);
