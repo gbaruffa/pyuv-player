@@ -16,9 +16,9 @@ echo -n "APPL????" >pyuv.app/Contents/PkgInfo
 cp -f ../../src/pyuv pyuv.app/Contents/MacOS/pyuv
 cp -f playuv.icns pyuv.app/Contents/Resources/playuv.icns
 cp -f ../../src/po/it.mo pyuv.app/Contents/Resources/it.lproj/pyuv.mo
-cp -f ../../src/po/en.mo pyuv.app/Contents/Resources/en.lproj/pyuv.mo
-cp -f ../../src/po/en.mo pyuv.app/Contents/Resources/en_GB.lproj/pyuv.mo
-cp -f ../../src/po/en.mo pyuv.app/Contents/Resources/en_US.lproj/pyuv.mo
+#touch pyuv.app/Contents/Resources/en.lproj/pyuv.mo
+#touch pyuv.app/Contents/Resources/en_GB.lproj/pyuv.mo
+#touch pyuv.app/Contents/Resources/en_US.lproj/pyuv.mo
 cp -f ../../doc/doc.htb pyuv.app/Contents/MacOS/doc.htb
 ./dylibbundler -od -b -x ./pyuv.app/Contents/MacOS/pyuv -d ./pyuv.app/Contents/Frameworks
 
