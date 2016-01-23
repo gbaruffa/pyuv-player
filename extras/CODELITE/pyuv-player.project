@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="pyuv-player" InternalType="GUI">
+  <Plugins>
+    <Plugin Name="CMakePlugin">
+      <![CDATA[[{
+  "name": "Release",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }]]]>
+    </Plugin>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0007Release000000000000]]>
+    </Plugin>
+  </Plugins>
   <Description/>
   <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../../src/converter.cpp"/>
+    <File Name="../../src/converter.h"/>
+    <File Name="../../src/playuvApp.cpp"/>
+    <File Name="../../src/playuvApp.h"/>
+    <File Name="../../src/playuvFormat.cpp"/>
+    <File Name="../../src/playuvFormat.h"/>
+    <File Name="../../src/playuvFrame.cpp"/>
+    <File Name="../../src/playuvFrame.h"/>
+    <File Name="../../src/playuvSync.cpp"/>
+    <File Name="../../src/playuvSync.h"/>
+  </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -64,7 +93,9 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild/>
+      <PostBuild>
+        <Command Enabled="yes">cp $(ProjectPath)/$(OutDir)/pyuv-player ../../src/pyuv</Command>
+      </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
         <CleanCommand/>
@@ -87,16 +118,4 @@
       </Completion>
     </Configuration>
   </Settings>
-  <VirtualDirectory Name="src">
-    <File Name="../../src/converter.cpp"/>
-    <File Name="../../src/converter.h"/>
-    <File Name="../../src/playuvApp.cpp"/>
-    <File Name="../../src/playuvApp.h"/>
-    <File Name="../../src/playuvFormat.cpp"/>
-    <File Name="../../src/playuvFormat.h"/>
-    <File Name="../../src/playuvFrame.cpp"/>
-    <File Name="../../src/playuvFrame.h"/>
-    <File Name="../../src/playuvSync.cpp"/>
-    <File Name="../../src/playuvSync.h"/>
-  </VirtualDirectory>
 </CodeLite_Project>

@@ -156,8 +156,8 @@ void pyuvApp::initLanguageSupport2()
     {
         int lng = wxGetSingleChoiceIndex
                   (
-                    _("Please choose language:"),
-                    _("Language"),
+                    wxT("Please choose language:"),
+                    wxT("Language"),
                     WXSIZEOF(langNames),
                     langNames
                   );
@@ -180,11 +180,11 @@ void pyuvApp::initLanguageSupport2()
     wxLocale::AddCatalogLookupPathPrefix(".");
 
     // Initialize the catalogs we'll be using
-    const wxLanguageInfo* pInfo = wxLocale::GetLanguageInfo(m_lang);
+    /*const wxLanguageInfo* pInfo = wxLocale::GetLanguageInfo(m_lang);*/
     if (!m_locale.AddCatalog("pyuv"))
     {
-        wxLogError(_("Couldn't find/load the 'pyuv' catalog for locale '%s'."),
-                   pInfo ? pInfo->GetLocaleName() : _("unknown"));
+        /*wxLogError(_("Couldn't find/load the 'pyuv' catalog for locale '%s'."),
+                   pInfo ? pInfo->GetLocaleName() : _("unknown"));*/
     }
 
     // Now try to add wxstd.mo so that loading "NOTEXIST.ING" file will produce

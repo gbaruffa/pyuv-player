@@ -1583,7 +1583,10 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
 #ifdef __WXGTK__
         _("for Linux\n") + 
 #endif
-        wxString(wxT("(%s)\n\n")) +
+ #ifdef __WXMAC__
+        _("for Mac OS X\n") + 
+#endif
+       wxString(wxT("(%s)\n\n")) +
         _("Website: %s\n") + 
         wxString(wxT("Github:  %s\n")) +
         _("\nCreated with %s\n") +

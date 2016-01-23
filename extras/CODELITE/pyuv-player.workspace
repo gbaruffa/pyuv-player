@@ -2,7 +2,7 @@
 <CodeLite_Workspace Name="pyuv-player" Database="">
   <Project Name="pyuv-player" Path="pyuv-player.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="pyuv-player" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">

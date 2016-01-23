@@ -84,7 +84,7 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
     SetExtraStyle(wxDIALOG_EX_CONTEXTHELP|wxWS_EX_VALIDATE_RECURSIVELY);
 
     // Create the window
-    Create(win, wxID_ANY, wxT("Command synchronization"), wxDefaultPosition, wxDefaultSize,
+    Create(win, wxID_ANY, _("Command synchronization"), wxDefaultPosition, wxDefaultSize,
         wxDEFAULT_DIALOG_STYLE);
 
     // Create the top sizer
@@ -94,9 +94,9 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
     // A description message
     wxString description;
     if (pyuvApp::GetMyMaster() >= 0)
-        description = wxString::Format(wxT("Mastered by %02d"), pyuvApp::GetMyMaster());
+        description = wxString::Format(_("Mastered by %02d"), pyuvApp::GetMyMaster());
     else
-        description = wxString::Format(wxT("List of instances available to me (%02d)\n(select to command them)"), pyuvApp::GetServerNo());
+        description = wxString::Format(_("List of instances available to me (%02d)\n(select to command them)"), pyuvApp::GetServerNo());
     wxStaticText* descrText = new wxStaticText(this,
                                                Serverlist_Description_ID,
                                                description,
@@ -129,7 +129,7 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
     // Create the look for apps button
     wxButton* searchButton = new wxButton(this,
                                           Search_Button_ID,
-                                          wxT("&Search"),
+                                          _("&Search"),
                                           wxDefaultPosition,
                                           wxDefaultSize,
                                           wxBU_EXACTFIT
@@ -139,7 +139,7 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
     // Create the identify apps button
     wxButton* identifyButton = new wxButton(this,
                                           Identify_Button_ID,
-                                          wxT("&Identify"),
+                                          _("&Identify"),
                                           wxDefaultPosition,
                                           wxDefaultSize,
                                           wxBU_EXACTFIT
@@ -149,7 +149,7 @@ pyuvSyncDialog::pyuvSyncDialog(wxWindow* win) : parent(win)
     // Create the unlink apps button
     wxButton* unlinkButton = new wxButton(this,
                                           Unlink_Button_ID,
-                                          wxT("&Unlink"),
+                                          _("&Unlink"),
                                           wxDefaultPosition,
                                           wxDefaultSize,
                                           wxBU_EXACTFIT
@@ -275,7 +275,7 @@ void pyuvSyncDialog::OnUnlinkApps(wxCommandEvent& event)
 
     // Rewrite top description
     wxString description;
-    description = wxString::Format(wxT("List of instances available to me (%02d)\n(select to command them)"), pyuvApp::GetServerNo());
+    description = wxString::Format(_("List of instances available to me (%02d)\n(select to command them)"), pyuvApp::GetServerNo());
     FindWindow(Serverlist_Description_ID)->SetLabel(wxString(description));
 
     // Reenable and refill server list

@@ -30,14 +30,21 @@ chmod 755  debian/usr/share/icons/hicolor
 chmod 755  debian/usr/share/icons/hicolor/128x128
 chmod 755  debian/usr/share/icons/hicolor/128x128/apps
 cp -p ../../src/playuv128.png debian/usr/share/icons/hicolor/128x128/apps/pyuv.png
-#cp -p ../../src/playuv16.xpm debian/usr/share/icons/pyuv.xpm
 chmod 644 debian/usr/share/icons/hicolor/128x128/apps/pyuv.png
 mkdir -p debian/usr/share/applications
 chmod 755 debian/usr/share/applications
 cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
 chmod 644 ./debian/usr/share/applications/pyuv.desktop
+
+mkdir -p debian/usr/share/locale/it/LC_MESSAGES
+chmod 755  debian/usr/share/locale
+chmod 755  debian/usr/share/locale/it
+chmod 755  debian/usr/share/locale/it/LC_MESSAGES
+cp -p ../../src/po/it.mo debian/usr/share/locale/it/LC_MESSAGES/pyuv.mo
+chmod 644 debian/usr/share/locale/it/LC_MESSAGES/pyuv.mo
+
 fakeroot dpkg-deb --build debian
-mv debian.deb pyuv_0.6.2-1_amd64.deb
+mv debian.deb pyuv_0.7.0-1_amd64.deb
 du -sk debian
 rm -fr debian
 lintian pyuv*deb
