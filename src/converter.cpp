@@ -1319,6 +1319,35 @@ p444_321_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height)
     }
 }
 
+void
+p444_231_to_i111(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height)
+{
+    uint32_t area = width * height;
+    uint32_t row, col;
+
+    /* Pointers to planes */
+    uint8_t *orig2 = orig;
+    uint8_t *orig3 = orig2 + area;
+    uint8_t *orig1 = orig3 + area;
+
+    /* Cycle on rows */
+    for (row = 0; row < height; row++) {
+
+        /* Cycle on columns */
+        for (col = 0; col < width; col++) {
+
+            /* Component 1 @ FullHoriz-FullVert */
+            *(dest++) = *(orig1++);
+
+            /* Component 2 @ FullHoriz-FullVert */
+            *(dest++) = *(orig2++);
+
+            /* Component 3 @ FullHoriz-FullVert */
+            *(dest++) = *(orig3++);
+        }
+    }
+}
+
 /*
  * 4:4:4 planar interlaced to 1:1:1 interleaved conversion
  */

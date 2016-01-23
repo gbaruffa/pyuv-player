@@ -139,7 +139,7 @@ const wxString pyuvFormatDialog::pyuvSampling[] =
 
 const wxString pyuvFormatDialog::pyuvFourcc[] =
 {   wxT("Default"),
-    wxT("UYVY"), wxT("YUY2"), wxT("YVYU"), wxT("BGR"),
+    wxT("UYVY"), wxT("YUY2"), wxT("YVYU"), wxT("BGR"), wxT("GBR"),
     wxT("Custom")
 };
 

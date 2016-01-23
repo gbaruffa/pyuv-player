@@ -58,6 +58,7 @@ enum
     OR_YUY2,
     OR_YVYU,
     OR_BGR,
+    OR_GBR,
     OR_CUST
 };
 
