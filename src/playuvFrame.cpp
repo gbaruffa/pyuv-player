@@ -1626,6 +1626,8 @@ bool pyuvFrame::pyuvDraw(void)
                 else {
                     if (pyuvOrder == OR_BGR)
                         p444_321_to_i111(pyuvScreen, pyuvBuffer, pyuvWidth, pyuvHeight);
+                    else if (pyuvOrder == OR_GBR)
+                        p444_231_to_i111(pyuvScreen, pyuvBuffer, pyuvWidth, pyuvHeight);
                     else
                         p444_123_to_i111(pyuvScreen, pyuvBuffer, pyuvWidth, pyuvHeight);
                 }
