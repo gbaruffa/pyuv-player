@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Pyuv 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-23 19:14+0100\n"
-"PO-Revision-Date: 2016-01-23 19:30+0100\n"
+"PO-Revision-Date: 2016-01-23 19:43+0100\n"
 "Last-Translator: Giuseppe Baruffa <giuseppe.baruffa@unipg.it>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -622,8 +622,3 @@ msgstr "per Windows\n"
 
 #~ msgid "unknown"
 #~ msgstr "sconosciuto"
-
-msgstr 
-
-#: src/playuvFrame.cpp:316
-msgid 
