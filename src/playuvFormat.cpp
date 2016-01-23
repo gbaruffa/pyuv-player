@@ -122,11 +122,11 @@ const uint32_t pyuvFormatDialog::pyuvHeights[] =
 // Video resolutions: short names and sizes
 const wxString pyuvFormatDialog::pyuvResolutions[] =
 {
-    wxT("Choose one"),
+    _("Choose one"),
     wxT("QCIF"), wxT("SIF"), wxT("CIF"), wxT("VGA"), wxT("NTSC"),
     wxT("SD576"), wxT("PAL"), wxT("HD720"), wxT("HD1080"), wxT("DCI2K"),
     wxT("SHD"), wxT("DCI4K"), wxT("RED"), wxT("UHD"),
-    wxT("Custom")
+    _("Custom")
 };
 
 const wxString pyuvFormatDialog::pyuvSampling[] =
@@ -134,13 +134,13 @@ const wxString pyuvFormatDialog::pyuvSampling[] =
     wxT("Choose one"),
     wxT("4:4:4"), wxT("4:2:2"), wxT("4:2:0"), wxT("4:1:1"), wxT("4:1:0"),
     wxT("4:0:0"),
-    wxT("Custom")
+    _("Custom")
 };
 
 const wxString pyuvFormatDialog::pyuvFourcc[] =
-{   wxT("Default"),
+{   _("Default"),
     wxT("UYVY"), wxT("YUY2"), wxT("YVYU"), wxT("BGR"), wxT("GBR"),
-    wxT("Custom")
+    _("Custom")
 };
 
 pyuvFrame *pyuvFormatDialog::frame;
@@ -158,7 +158,7 @@ pyuvFormatDialog::pyuvFormatDialog(wxWindow *win)
     SetExtraStyle(wxDIALOG_EX_CONTEXTHELP|wxWS_EX_VALIDATE_RECURSIVELY);
 
     // Create the window
-    Create(win, wxID_ANY, wxT("Video sequence format"), wxDefaultPosition, wxDefaultSize,
+    Create(win, wxID_ANY, _("Video sequence format"), wxDefaultPosition, wxDefaultSize,
         wxDEFAULT_DIALOG_STYLE);
 
     // Get the top sizer
@@ -182,8 +182,8 @@ pyuvFormatDialog::pyuvFormatDialog(wxWindow *win)
     wxPanel* extraSettings = CreateExtraSettingsPage(notebook);
 
     // Add the tabs to the dialog
-    notebook->AddPage(mainSettings, wxT("Main settings"));
-    notebook->AddPage(extraSettings, wxT("Extra settings"));
+    notebook->AddPage(mainSettings, _("Main settings"));
+    notebook->AddPage(extraSettings, _("Extra settings"));
 
     // Lay out the dialog
     LayoutDialog();
@@ -202,14 +202,14 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     ////////////////////////
     //// Frame size
     ////////////////////////
-    wxStaticBox* framesizeBox = new wxStaticBox(panel, wxID_ANY, wxT("Frame size"));
+    wxStaticBox* framesizeBox = new wxStaticBox(panel, wxID_ANY, _("Frame size"));
     wxBoxSizer* framesizeSizer = new wxStaticBoxSizer(framesizeBox, wxVERTICAL);
     item0->Add(framesizeSizer, 0, wxGROW|wxALL, 3);
 
     // First row
     wxBoxSizer* itemSizer2 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer2->Add(new wxStaticText(panel, wxID_ANY, wxT("Resolution:")), 0,
+    itemSizer2->Add(new wxStaticText(panel, wxID_ANY, _("Resolution:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer2->Add(3, 3, 1, wxALL, 0);
@@ -226,7 +226,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
 
     // Second row
     wxBoxSizer* itemSizer3 = new wxBoxSizer(wxHORIZONTAL);
-    itemSizer3->Add(new wxStaticText(panel, wxID_ANY, wxT("Size (WxH):")), 0,
+    itemSizer3->Add(new wxStaticText(panel, wxID_ANY, _("Size (WxH):")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer3->Add(3, 3, 1, wxALL, 0);
@@ -251,14 +251,14 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     ////////////////////////
     //// Frame rate
     ////////////////////////
-    wxStaticBox* framerateBox = new wxStaticBox(panel, wxID_ANY, wxT("Frame rate"));
+    wxStaticBox* framerateBox = new wxStaticBox(panel, wxID_ANY, _("Frame rate"));
     wxBoxSizer* framerateSizer = new wxStaticBoxSizer(framerateBox, wxVERTICAL);
     item0->Add(framerateSizer, 0, wxGROW|wxALL, 3);
 
     // First row
     wxBoxSizer* itemSizer4 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer4->Add(new wxStaticText(panel, wxID_ANY, wxT("Frames/second:")), 0,
+    itemSizer4->Add(new wxStaticText(panel, wxID_ANY, _("Frames/second:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer4->Add(3, 3, 1, wxALL, 0);
@@ -285,7 +285,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     // Second row
     wxBoxSizer* itemSizer41 = new wxBoxSizer(wxHORIZONTAL);
 
-    interlaceCheck = new wxCheckBox(panel, wxID_ANY, wxT("Interlaced"),
+    interlaceCheck = new wxCheckBox(panel, wxID_ANY, _("Interlaced"),
         wxDefaultPosition, wxDefaultSize);
     interlaceCheck->SetValue(frame->GetInterlacedFlag());
     interlaceCheck->Enable();
@@ -300,14 +300,14 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     ///////////////////////////////
     //// Video format
     ///////////////////////////////
-    wxStaticBox* videoformatBox = new wxStaticBox(panel, wxID_ANY, wxT("Video format"));
+    wxStaticBox* videoformatBox = new wxStaticBox(panel, wxID_ANY, _("Video format"));
     wxBoxSizer* videoformatSizer = new wxStaticBoxSizer(videoformatBox, wxVERTICAL);
     item0->Add(videoformatSizer, 0, wxGROW|wxALL, 3);
 
     // First row
     wxBoxSizer* itemSizer5 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer5->Add(new wxStaticText(panel, wxID_ANY, wxT("Color space:")), 0,
+    itemSizer5->Add(new wxStaticText(panel, wxID_ANY, _("Color space:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer5->Add(3, 3, 1, wxALL, 0);
@@ -322,7 +322,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     // second row
     wxBoxSizer* itemSizer8 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer8->Add(new wxStaticText(panel, wxID_ANY, wxT("Gamma:")), 0,
+    itemSizer8->Add(new wxStaticText(panel, wxID_ANY, _("Gamma:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer8->Add(3, 3, 1, wxALL, 0);
@@ -335,7 +335,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     // Third row
     wxBoxSizer* itemSizer6 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer6->Add(new wxStaticText(panel, wxID_ANY, wxT("Subsampling:")), 0,
+    itemSizer6->Add(new wxStaticText(panel, wxID_ANY, _("Subsampling:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer6->Add(3, 3, 1, wxALL, 0);
@@ -350,7 +350,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     // Fourth row
     wxBoxSizer* itemSizer61 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer61->Add(new wxStaticText(panel, wxID_ANY, wxT("Ordering:")), 0,
+    itemSizer61->Add(new wxStaticText(panel, wxID_ANY, _("Ordering:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer61->Add(3, 3, 1, wxALL, 0);
@@ -365,7 +365,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     // Fifth row
     wxBoxSizer* itemSizer7 = new wxBoxSizer(wxHORIZONTAL);
 
-    interleaveCheck = new wxCheckBox(panel, ID_INTERLEAVED, wxT("Interleaved"),
+    interleaveCheck = new wxCheckBox(panel, ID_INTERLEAVED, _("Interleaved"),
         wxDefaultPosition, wxDefaultSize);
     interleaveCheck->SetValue(frame->GetInterleavedFlag());
     itemSizer7->Add(interleaveCheck, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5);
@@ -374,7 +374,7 @@ wxPanel* pyuvFormatDialog::CreateMainSettingsPage(wxWindow* parent)
     else
         orderChoice->Enable(false);*/
 
-    anamorphCheck = new wxCheckBox(panel, wxID_ANY, wxT("Anamorphic"),
+    anamorphCheck = new wxCheckBox(panel, wxID_ANY, _("Anamorphic"),
         wxDefaultPosition, wxDefaultSize);
     anamorphCheck->SetValue(frame->GetAnamorphicFlag());
     itemSizer7->Add(anamorphCheck, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5);
@@ -409,14 +409,14 @@ wxPanel* pyuvFormatDialog::CreateExtraSettingsPage(wxWindow* parent)
     ////////////////////////
     //// File format
     ////////////////////////
-    wxStaticBox* fileformatBox = new wxStaticBox(panel, wxID_ANY, wxT("File format"));
+    wxStaticBox* fileformatBox = new wxStaticBox(panel, wxID_ANY, _("File format"));
     wxBoxSizer* fileformatSizer = new wxStaticBoxSizer(fileformatBox, wxVERTICAL);
     item0->Add(fileformatSizer, 0, wxGROW|wxALL, 3);
 
     // First row
     wxBoxSizer* itemSizer8 = new wxBoxSizer(wxHORIZONTAL);
 
-    itemSizer8->Add(new wxStaticText(panel, wxID_ANY, wxT("Bits per sample:")), 0,
+    itemSizer8->Add(new wxStaticText(panel, wxID_ANY, _("Bits per sample:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer8->Add(3, 3, 1, wxALL, 0);
@@ -429,7 +429,7 @@ wxPanel* pyuvFormatDialog::CreateExtraSettingsPage(wxWindow* parent)
     // Second row
     wxBoxSizer* itemSizer85 = new wxBoxSizer(wxHORIZONTAL);
 
-    signedCheck = new wxCheckBox(panel, wxID_ANY, wxT("Signed format"),
+    signedCheck = new wxCheckBox(panel, wxID_ANY, _("Signed format"),
         wxDefaultPosition, wxDefaultSize);
     signedCheck->SetValue(frame->GetSignedFlag());
 
@@ -437,7 +437,7 @@ wxPanel* pyuvFormatDialog::CreateExtraSettingsPage(wxWindow* parent)
 
     itemSizer85->Add(3, 3, 1, wxALL, 0);
 
-    endianCheck = new wxCheckBox(panel, wxID_ANY, wxT("Endianness"),
+    endianCheck = new wxCheckBox(panel, wxID_ANY, _("Endianness"),
         wxDefaultPosition, wxDefaultSize);
     endianCheck->SetValue(frame->GetEndiannessFlag());
 
@@ -445,7 +445,7 @@ wxPanel* pyuvFormatDialog::CreateExtraSettingsPage(wxWindow* parent)
 
     // Third row
     wxBoxSizer* itemSizer9 = new wxBoxSizer(wxHORIZONTAL);
-    itemSizer9->Add(new wxStaticText(panel, wxID_ANY, wxT("Header bytes:")), 0,
+    itemSizer9->Add(new wxStaticText(panel, wxID_ANY, _("Header bytes:")), 0,
         wxALL|wxALIGN_CENTER_VERTICAL, 3);
 
     itemSizer9->Add(3, 3, 1, wxALL, 0);
@@ -572,19 +572,19 @@ pyuvFormatDialog::formatApplyClick(wxCommandEvent& e)
 
     // When size is not well defined
     if (!(frame->GetWidth() * frame->GetHeight())) {
-        wxMessageBox(wxT("You have to select a valid size"), wxT("Wait, wait..."), wxOK | wxICON_WARNING, this);
+        wxMessageBox(_("You have to select a valid size"), _("Wait, wait..."), wxOK | wxICON_WARNING, this);
         return;
     }
 
     // When colorspace is not defined
     if (frame->GetColorSpaceNumber() == CS_UNDEF) {
-        wxMessageBox(wxT("You have to select a valid colorspace"), wxT("Wait, wait..."), wxOK | wxICON_WARNING, this);
+        wxMessageBox(_("You have to select a valid colorspace"), _("Wait, wait..."), wxOK | wxICON_WARNING, this);
         return;
     }
 
     // When subsampling is not defined
     if (frame->GetSubsamplingNumber() == SS_UNDEF) {
-        wxMessageBox(wxT("You have to select a valid subsampling"), wxT("Wait, wait..."), wxOK | wxICON_WARNING, this);
+        wxMessageBox(_("You have to select a valid subsampling"), _("Wait, wait..."), wxOK | wxICON_WARNING, this);
         return;
     }
 
@@ -599,7 +599,7 @@ pyuvFormatDialog::formatApplyClick(wxCommandEvent& e)
 
         // Set up
         wxString info;
-        info.Printf(wxT("%d frames, %.0f'%.0f\", %.3f MB"), frame->GetNumFrame(), floorf(((float)frame->GetNumFrame() / (float)frame->GetRate()) / 60.0F), ((float)frame->GetNumFrame() / (float)frame->GetRate()) - 60.0F * floorf(((float)frame->GetNumFrame() / (float)frame->GetRate()) / 60.0F), (float)frame->GetFileSize() / 1048576.0F);
+        info.Printf(_("%d frames, %.0f'%.0f\", %.3f MB"), frame->GetNumFrame(), floorf(((float)frame->GetNumFrame() / (float)frame->GetRate()) / 60.0F), ((float)frame->GetNumFrame() / (float)frame->GetRate()) - 60.0F * floorf(((float)frame->GetNumFrame() / (float)frame->GetRate()) / 60.0F), (float)frame->GetFileSize() / 1048576.0F);
         frame->SetStatusText(info, 1);
         frame->pyuvDispose();
         frame->pyuvPrepare();

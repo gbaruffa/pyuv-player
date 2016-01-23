@@ -425,7 +425,7 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
 
     // Create a status bar
     CreateStatusBar(2);
-    int stwid[] = {120, -1};
+    int stwid[] = {250, -1};
     SetStatusWidths(2, stwid);
     SetStatusText(_("Welcome to PYUV!"), 0);
 
