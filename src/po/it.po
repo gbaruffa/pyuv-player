@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Pyuv 0.6.3\n"
+"Project-Id-Version: Pyuv 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-23 19:14+0100\n"
 "PO-Revision-Date: 2016-01-23 19:30+0100\n"
@@ -25,15 +25,15 @@ msgid ""
 "Created with %s\n"
 msgstr ""
 "\n"
-"Creato con%s\n"
+"Creato con %s\n"
 
 #: src/playuvFrame.cpp:1027
 msgid " - a portable YUV player"
-msgstr "- un visualizzatore YUV portabile"
+msgstr " - un visualizzatore YUV portabile"
 
 #: src/playuvFrame.cpp:404
 msgid " not found!!!"
-msgstr "non trovato!!!"
+msgstr " non trovato!!!"
 
 #: src/playuvFormat.cpp:602 src/playuvFrame.cpp:983
 #, c-format
@@ -351,7 +351,7 @@ msgid ""
 "List of instances available to me (%02d)\n"
 "(select to command them)"
 msgstr ""
-"Elenco di istanze disponibili per me (%02d)\n"
+"Elenco di istanze a me disponibili (%02d)\n"
 "(seleziona per comandarle)"
 
 #: src/playuvFrame.cpp:299
@@ -512,7 +512,7 @@ msgstr "Sottocampionamento:"
 
 #: src/playuvFrame.cpp:305
 msgid "Sync commands between PYUVs"
-msgstr "Sincronizza i comandi tra i PYUV"
+msgstr "Sinc i comandi tra i PYUV"
 
 #: src/playuvFrame.cpp:1571
 msgid "The file '"
@@ -622,3 +622,8 @@ msgstr "per Windows\n"
 
 #~ msgid "unknown"
 #~ msgstr "sconosciuto"
+
+msgstr 
+
+#: src/playuvFrame.cpp:316
+msgid 
