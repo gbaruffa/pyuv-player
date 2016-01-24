@@ -262,8 +262,11 @@ class pyuvFrame : public wxFrame
         static uint32_t pyuvFramenumber;
         static uint32_t pyuvNumframes;
         static int pyuvFrameTime;
+        static double pyuvSleepTime;
         static bool pyuvInterlaced;
         static bool pyuvDeinterlace;
+		wxStopWatch pyuvSW;
+		uint64_t pyuvTotalDoneFrames;
 
         // Format shortcut
         static int pyuvFormat;

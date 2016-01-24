@@ -152,6 +152,7 @@ unsigned long int pyuvFrame::pyuvWidth = PYUV_WIDTH;
 unsigned long int pyuvFrame::pyuvHeight = PYUV_HEIGHT;
 uint32_t pyuvFrame::pyuvArea;
 int pyuvFrame::pyuvFrameTime;
+double pyuvFrame::pyuvSleepTime;
 bool pyuvFrame::pyuvAnamorphic = false;
 double pyuvFrame::pyuvGamma = 1.0;
 int pyuvFrame::pyuvSamplebits = PYUV_DEPTH;
@@ -175,7 +176,7 @@ wxColour pyuvFrame::pyuvBackColor = wxColour(134U, 0U, 0U);
 bool pyuvFrame::pyuvDoublebuffer = false;
 int pyuvFrame::pyuvEngine = 0;
 
-wxString pyuvFrame::pyuvCurtime = wxT("0000: 00'00\"00");
+wxString pyuvFrame::pyuvCurtime = wxT("0000: 00'00\"00 00.00");
 wxCoord pyuvFrame::tcwidth = 0;
 wxCoord pyuvFrame::tcheight = 0;
 wxCoord pyuvFrame::tcx = 0;
@@ -253,7 +254,8 @@ uint32_t pyuvFrame::pyuvFramesize;
 uint32_t pyuvFrame::pyuvFramebytes;
 
 // Frame ctor
-pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxPoint(-1, -1), wxSize(PYUV_WIDTH, PYUV_HEIGHT), wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCAPTION|wxCLOSE_BOX|wxCLIP_CHILDREN), animTimer(this, ANIMATE_TIMER_ID), help(wxHF_DEFAULT_STYLE|wxHF_OPEN_FILES)
+pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxPoint(-1, -1), wxSize(PYUV_WIDTH, PYUV_HEIGHT), wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCAPTION|wxCLOSE_BOX|wxCLIP_CHILDREN),
+	animTimer(this, ANIMATE_TIMER_ID), help(wxHF_DEFAULT_STYLE|wxHF_OPEN_FILES)
 {
     pyuvTimeFont = wxFont(8, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     pyuvIdFont = wxFont(16, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
@@ -261,6 +263,7 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     pyuvArea = pyuvWidth * pyuvHeight;
 
     pyuvFrameTime = (int)floor((1000.0 / PYUV_RATE) + 0.5);
+	pyuvSleepTime = pyuvFrameTime;
 
     // Set the frame icon
     SetIcon(wxIcon(playuv16));
@@ -1153,7 +1156,9 @@ void pyuvFrame::OnPlay(wxCommandEvent& event)
     if (!pyuvPlay) {
 
         // Go to Play mode
-        animTimer.Start(pyuvFrameTime);
+		pyuvSW.Resume();
+		//wxStopWatch sw;
+        animTimer.Start(pyuvSleepTime + 0.5);
         pyuvPlay = true;
         mbar->SetLabel(Menu_Control_Play, _("P&ause\tSpace"));
         playButton->SetBitmapLabel(wxBitmap(pause16));
@@ -1165,6 +1170,7 @@ void pyuvFrame::OnPlay(wxCommandEvent& event)
     } else {
 
         // Go to Pause mode
+		pyuvSW.Pause();
         animTimer.Stop();
         pyuvPlay = false;
         mbar->SetLabel(Menu_Control_Play, _("P&lay\tSpace"));
@@ -1185,6 +1191,8 @@ void pyuvFrame::OnStop(wxCommandEvent& event)
     wxMenuBar *mbar = GetMenuBar();
 
     // Stop the timer and rewind the file
+	pyuvSW.Start();
+	pyuvSW.Pause();
     animTimer.Stop();
     if (pyuvFile && pyuvFile->IsOpened())
         pyuvFile->Seek(pyuvHeadersize, wxFromStart);
@@ -1206,6 +1214,7 @@ void pyuvFrame::OnStop(wxCommandEvent& event)
     pyuvPrepare();
     pyuvFramenumber = 0;
     pyuvDraw();
+	pyuvTotalDoneFrames = 0;
 
     // Move the slider from time to time
     if (!(pyuvFramenumber % pyuvSliderupdate))
@@ -1850,11 +1859,19 @@ bool pyuvFrame::pyuvDraw(void)
             float tot_sec  = tot_time - (floorf(tot_min) * 60.0F);
             float tot_cent = 100.0F * (tot_time - floorf(tot_time));
 
-            pyuvCurtime.Printf(wxT("%04u: %02.0f'%02.0f\"%02.0f"),
+            /*pyuvCurtime.Printf(wxT("%04u: %02.0f'%02.0f\"%02.0f"),
                 pyuvFramenumber,
                 floorf(tot_min),
                 floorf(tot_sec),
-                tot_cent);
+                tot_cent);*/
+
+			float cur_fps = 1000.0F * pyuvTotalDoneFrames / pyuvSW.Time();
+
+            pyuvCurtime.Printf(wxT("%04u: %02.0f'%02.0f\"%02.0f %.2f"),
+                pyuvFramenumber,
+                floorf(tot_min),
+                floorf(tot_sec),
+                tot_cent, cur_fps);
         };
 
         // Send an OnPaint event
@@ -1882,6 +1899,17 @@ void pyuvFrame::OnAnimate(wxTimerEvent& event)
 
         // Increment frame number
         pyuvFramenumber++;
+		pyuvTotalDoneFrames++;
+
+		// adjust animation timing from time to time
+		/*if (!(pyuvTotalDoneFrames % 25))
+		{
+			double real_fps = 1000 * pyuvTotalDoneFrames / pyuvSW.Time();
+			pyuvSleepTime = pyuvFrameTime * 0.8 * (real_fps / pyuvRate);
+			if (pyuvSleepTime < 1)
+				pyuvSleepTime = 1;
+			animTimer.Start(pyuvSleepTime + 0.5);
+		}*/
 
     } else {
 
@@ -1959,15 +1987,16 @@ void pyuvFrame::pyuvPrepare(void)
     // Compose a bitmap to show
     memset(pyuvScreenS, 0, pyuvWidthS * pyuvHeightS * 3);
 
-    // Sets the animation timer with proper interval
+    // Sets the animation timer with proper interval - will be adjusted along the way
     pyuvFrameTime = (int) floor((1000.0 / pyuvRate) + 0.5);
+	pyuvSleepTime = pyuvFrameTime;
 
     // Recreate the drawing bitmap
     delete drawCanvas->pyuvRowstart;
     delete drawCanvas->pyuvPixel;
     delete drawCanvas->pyuvBmpdata;
     delete drawCanvas->pyuvBmp;
-       drawCanvas->pyuvBmp      = new wxBitmap(wxImage(pyuvWidthS, pyuvHeightS));
+    drawCanvas->pyuvBmp      = new wxBitmap(wxImage(pyuvWidthS, pyuvHeightS));
     drawCanvas->pyuvBmpdata  = new PixelData(*(drawCanvas->pyuvBmp));
     drawCanvas->pyuvPixel    = new PixelData::Iterator(*(drawCanvas->pyuvBmpdata));
     drawCanvas->pyuvRowstart = new PixelData::Iterator(*(drawCanvas->pyuvBmpdata));
@@ -2011,7 +2040,7 @@ void pyuvFrame::pyuvPrepare(void)
     frameSizer->Fit(this);
 }
 
-// Dispose old sequence
+// Dispose of old sequence
 void pyuvFrame::pyuvDispose(void)
 {
     // Stop the animation, if any
