@@ -87,6 +87,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 ////////////////////////////////////////////////////////////
 
 // Event table for pyuvFrame
+class OnClose;
 wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     // File menu
     EVT_MENU(wxID_OPEN, pyuvFrame::OnOpen)                      // Open menu
@@ -141,6 +142,9 @@ wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     // Button events
     EVT_BUTTON(PlayButton_id, pyuvFrame::OnPlay)
     EVT_BUTTON(StopButton_id, pyuvFrame::OnStop)
+	
+	// window events
+	EVT_CLOSE(pyuvFrame::OnCloseWindow)
 wxEND_EVENT_TABLE()
 
 uint8_t *pyuvFrame::pyuvScreen = NULL;
@@ -264,6 +268,15 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
 
     pyuvFrameTime = (int)floor((1000.0 / PYUV_RATE) + 0.5);
 	pyuvSleepTime = pyuvFrameTime;
+	
+	// restore settings
+	wxConfig *config = new wxConfig("pyuv");
+	int xpos, ypos;
+	config->Read("tlw/xpos", &xpos);
+	config->Read("tlw/ypos", &ypos);
+	SetPosition(wxPoint(xpos, ypos));
+	delete config;
+
 
     // Set the frame icon
     SetIcon(wxIcon(playuv16));
@@ -1111,6 +1124,24 @@ void pyuvFrame::OnQuit(wxCommandEvent& event)
 {
     // Destroy the frame
     Close();
+}
+
+void pyuvFrame::OnCloseWindow(wxCloseEvent& event)
+{
+	// using wxConfig instead of writing wxFileConfig or wxRegConfig enhances
+	// portability of the code
+	wxConfig *config = new wxConfig("pyuv");
+
+	// at the end of the program we would save everything back
+	config->Write("tlw/width", GetSize().GetWidth());
+	config->Write("tlw/height", GetSize().GetHeight());
+	config->Write("tlw/xpos", GetPosition().x);
+	config->Write("tlw/ypos", GetPosition().y);
+	
+	// the changes will be written back automatically
+	delete config;
+
+	event.Skip();
 }
 
 void pyuvFrame::OnScroll(wxScrollEvent& event)

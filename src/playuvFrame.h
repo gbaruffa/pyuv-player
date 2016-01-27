@@ -22,6 +22,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // Components and color spaces
+class OnExit;
 enum
 {
     CS_UNDEF = 0,
@@ -182,8 +183,11 @@ class pyuvFrame : public wxFrame
         wxBoxSizer *controlSizer;
         wxBitmapButton* playButton;
         wxBitmapButton* stopButton;
+			
+private:
+		
+		void OnCloseWindow(wxCloseEvent& event);
 
-    private:
         // Constants for pyuvFrame
         enum
         {

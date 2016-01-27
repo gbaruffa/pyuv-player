@@ -350,8 +350,8 @@ bool pyuvApp::OnInit()
 int pyuvApp::OnExit()
 {
     delete m_server;
-
-    return 0;
+	
+   return 0;
 }
 
 /////////////////////////////////////////////////////

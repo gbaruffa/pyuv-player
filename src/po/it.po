@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: Pyuv 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-23 19:14+0100\n"
-"PO-Revision-Date: 2016-01-23 19:43+0100\n"
+"PO-Revision-Date: 2016-01-27 22:52+0100\n"
 "Last-Translator: Giuseppe Baruffa <giuseppe.baruffa@unipg.it>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/playuvFrame.cpp:1596
@@ -62,7 +62,7 @@ msgstr "&A proposito...\tF1"
 
 #: src/playuvFrame.cpp:334
 msgid "&All\tA"
-msgstr "&Tutto\tA"
+msgstr "&Tutte\tA"
 
 #: src/playuvFrame.cpp:292
 msgid "&Backward\tLeft"
@@ -122,7 +122,7 @@ msgstr "&Cicla\tCtrl+Y"
 
 #: src/playuvFrame.cpp:335
 msgid "&Next\tN"
-msgstr "&Prossimo\tN"
+msgstr "&Prossima\tN"
 
 #: src/playuvFrame.cpp:288
 msgid "&Play\tSpace"
