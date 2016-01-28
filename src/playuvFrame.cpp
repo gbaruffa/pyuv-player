@@ -66,6 +66,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/textfile.h>
 #include <wx/stdpaths.h>
 #include <wx/intl.h>
+#include <wx/filehistory.h>
 
 #include <stdint.h>
 
@@ -269,15 +270,6 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     pyuvFrameTime = (int)floor((1000.0 / PYUV_RATE) + 0.5);
 	pyuvSleepTime = pyuvFrameTime;
 	
-	// restore settings
-	wxConfig *config = new wxConfig("pyuv");
-	int xpos, ypos;
-	config->Read("tlw/xpos", &xpos);
-	config->Read("tlw/ypos", &ypos);
-	SetPosition(wxPoint(xpos, ypos));
-	delete config;
-
-
     // Set the frame icon
     SetIcon(wxIcon(playuv16));
 
@@ -294,7 +286,14 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     fileMenu->AppendSeparator();
     fileMenu->Append(Menu_File_Format, _("&Format\tCtrl+F"), _("Select the video format"));
     fileMenu->AppendSeparator();
+    wxMenu *fileHistoryMenu = new wxMenu;
+	fileMenu->AppendSubMenu(fileHistoryMenu, _("Recent files"), _("List of recently opened files"));
+    fileMenu->AppendSeparator();
     fileMenu->Append(wxID_EXIT,  _("E&xit\tCtrl+Q"), _("Quit this program"));
+
+	// Create a file history
+	fh = new wxFileHistory();
+	fh->UseMenu(fileHistoryMenu);
 
     // Create a control menu bar
     wxMenu *controlMenu = new wxMenu;
@@ -565,6 +564,14 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxCommandEvent e;
     OnClose(e);
 
+	// restore settings
+	wxConfig *config = new wxConfig("pyuv");
+	int xpos = -1, ypos = -1;
+	config->Read("tlw/xpos", &xpos);
+	config->Read("tlw/ypos", &ypos);
+	SetPosition(wxPoint(xpos, ypos));
+	fh->Load(*config);
+	delete config;
 }
 
 size_t pyuvFrame::GetSizeOfComponents(void) const
@@ -1012,6 +1019,9 @@ void pyuvFrame::openfile(wxFileName videofile)
 
         // Associate the drawing image
         pyuvImg = &(drawCanvas->img);
+
+		// Store the file in history
+		fh->AddFileToHistory(pyuvFilename);
     };
 
 }
@@ -1137,9 +1147,13 @@ void pyuvFrame::OnCloseWindow(wxCloseEvent& event)
 	config->Write("tlw/height", GetSize().GetHeight());
 	config->Write("tlw/xpos", GetPosition().x);
 	config->Write("tlw/ypos", GetPosition().y);
+	fh->Save(*config);
 	
 	// the changes will be written back automatically
 	delete config;
+
+	// delete file history menu
+	delete fh;
 
 	event.Skip();
 }

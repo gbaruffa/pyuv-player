@@ -20,22 +20,31 @@
 
 [Setup]
 AppName=pYUV
-AppVerName=pYUV 0.6.2
+AppVersion=0.7.0
 AppPublisher=Giuseppe Baruffa
 AppPublisherURL=http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
-AppSupportURL=http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
-AppUpdatesURL=http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
+AppSupportURL=http://github.com/gbaruffa/pyuv-player
+AppUpdatesURL=http://github.com/gbaruffa/pyuv-player
+AppCopyright=Copyright (C) 2006-2016 Giuseppe Baruffa
+AppReadmeFile=http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
 DefaultDirName={pf}\pYUV
 DefaultGroupName=pYUV
 OutputDir=.\setup
-OutputBaseFilename=pYUV_v062_setup
+OutputBaseFilename=pYUV_v070_setup
 SetupIconFile=..\..\src\playuv.ico
 Compression=lzma
 SolidCompression=yes
 WizardImageFile=wizardimage.bmp
+WizardSmallImageFile=wizardsmallimage.bmp
+LicenseFile=..\..\LICENSE
+InfoBeforeFile=..\..\README
+AppId={{0728C528-0B33-4942-ABFA-9FF075A9672F}
+InfoAfterFile=..\..\ChangeLog
+MinVersion=0,5.01
 
 [Languages]
-Name: english; MessagesFile: compiler:Default.isl
+Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl"
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked

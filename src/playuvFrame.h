@@ -21,6 +21,8 @@ You should have received a copy of the GNU General Public License
 along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <wx/filehistory.h>
+
 // Components and color spaces
 class OnExit;
 enum
@@ -192,6 +194,7 @@ private:
         enum
         {
             Menu_File_Format = 100,
+            Menu_File_History,
             Menu_Control_Play,
             Menu_Control_Stop,
             Menu_Control_Rewind,
@@ -318,6 +321,9 @@ private:
 
         // The help controller
         wxHtmlHelpController help;
+
+		// the file history
+		wxFileHistory *fh;
 
         // This class handles events
         wxDECLARE_EVENT_TABLE();
