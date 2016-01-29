@@ -2,7 +2,7 @@
 
 # script for generating the MAC app
 
-rm -R pyuv.app dmg_tmp pyuv_install.dmg
+rm -R pyuv.app dmg_tmp pyuv_*_install.dmg temp.dmg
 mkdir -p pyuv.app/Contents
 mkdir -p pyuv.app/Contents/MacOS
 mkdir -p pyuv.app/Contents/Resources
@@ -31,7 +31,37 @@ otool -L ./pyuv.app/Contents/MacOS/pyuv
 rm -rf dmg_tmp
 mkdir dmg_tmp
 cp -R pyuv.app dmg_tmp
-ln -s /Applications dmg_tmp
-touch dmg_tmp/"Drag and drop pyuv over the Applications folder"
-hdiutil create -srcfolder dmg_tmp -volname "Pyuv for Mac" -format UDZO -ov pyuv_070_install.dmg
-rm -R dmg_tmp
+mkdir dmg_tmp/.background
+cp ./backmac.bmp dmg_tmp/.background/mac_pyuv_bckg.bmp
+
+hdiutil create -srcfolder dmg_tmp -volname "Pyuv for Mac" -format UDRW -ov temp.dmg
+
+hdiutil attach -readwrite -noverify -noautoopen "temp.dmg"
+
+cat <<EOM | osascript
+tell application "Finder"
+        tell disk "Pyuv for Mac"
+                open
+                set current view of container window to icon view
+                set toolbar visible of container window to false
+                set statusbar visible of container window to false
+                set the bounds of container window to {400, 100, 885, 310}
+                set theViewOptions to the icon view options of container window
+                set background picture of theViewOptions to file ".background:mac_pyuv_bckg.bmp"
+                set arrangement of theViewOptions to not arranged
+                set icon size of theViewOptions to 104
+                make new alias file at container window to POSIX file "/Applications" with properties {name:"Applications"}
+                set position of item "pyuv" of container window to {90, 90}
+                set position of item "Applications" of container window to {400, 90}
+                update without registering applications
+                delay 5
+                set position of item "pyuv" of container window to {90, 90}
+        end tell
+end tell
+EOM
+
+hdiutil detach /dev/disk1
+hdiutil convert "temp.dmg" -format UDZO -imagekey zlib-level=9 -o "pyuv_070_install.dmg"
+
+
+rm -R dmg_tmp temp.dmg
