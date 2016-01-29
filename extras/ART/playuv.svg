@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:xml="http://www.w3.org/XML/1998/namespace"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:export-ydpi="23.928255"
-   inkscape:export-xdpi="23.928255"
-   inkscape:export-filename="./playuv250x200.xpm"
+   inkscape:export-ydpi="6.6041875"
+   inkscape:export-xdpi="6.6041875"
+   inkscape:export-filename="./playuv.png"
    sodipodi:docname="playuv.svg"
-   inkscape:version="0.40+cvs"
+   inkscape:version="0.48.4 r9939"
    sodipodi:version="0.32"
    version="1.0"
    x="0.00000000"
@@ -23,16 +23,13 @@
    id="svg2">
   <metadata
      id="metadata8">
-    <rdf:RDF
-       id="RDF10">
+    <rdf:RDF>
       <cc:Work
-         id="Work12"
          rdf:about="">
-        <dc:format
-           id="format14">image/svg+xml</dc:format>
+        <dc:format>image/svg+xml</dc:format>
         <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-           id="type16" />
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,17 +37,19 @@
      inkscape:current-layer="svg2"
      inkscape:window-y="66"
      inkscape:window-x="66"
-     inkscape:cy="377.02850"
-     inkscape:cx="375.00000"
-     inkscape:zoom="0.80000000"
-     inkscape:window-height="778"
-     inkscape:window-width="898"
+     inkscape:cy="-362.5836"
+     inkscape:cx="516.97069"
+     inkscape:zoom="0.4"
+     inkscape:window-height="912"
+     inkscape:window-width="1678"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
      bordercolor="#666666"
      pagecolor="#ffffff"
-     id="base" />
+     id="base"
+     showgrid="false"
+     inkscape:window-maximized="0" />
   <defs
      id="defs3" />
   <rect
@@ -122,4 +121,47 @@
      width="111.25000"
      id="rect3582"
      style="stroke-opacity:1.0000000;stroke-miterlimit:4.0000000;stroke-width:2.5000000;stroke:#000028;fill-opacity:1.0000000;fill:#e0822a" />
+  <g
+     id="g2992"
+     transform="matrix(1.0939697,0,0,3.0034161,47.41489,1110.4362)"
+     style="color:#000000;fill:#0c82a0;fill-opacity:1;fill-rule:nonzero;stroke:#0c62a0;stroke-width:4.41346407;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     inkscape:export-filename="C:\Users\Giuseppe\Progetti\Multimedia\pyuv-player\trunk\extras\ART\text3773.png"
+     inkscape:export-xdpi="16.880129"
+     inkscape:export-ydpi="16.880129">
+    <path
+       id="path2994"
+       d="m 0.09070308,33.669325 304.12743692,0 0,-33.62045806 285.44261,85.51715306 -285.44261,85.56602 0,-33.66932 -304.12743692,0 0,-103.793395 z"
+       style="color:#000000;fill:#0c82a0;fill-opacity:1;fill-rule:nonzero;stroke:#0c62a0;stroke-width:4.41346407;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path2996"
+       d="m 0.09070308,33.669325 304.12743692,0 0,-33.62045806 285.44261,85.51715306 -285.44261,85.56602 0,-33.66932 -304.12743692,0 0,-103.793395"
+       style="color:#000000;fill:#0c82a0;fill-opacity:1;fill-rule:nonzero;stroke:#0c62a0;stroke-width:4.41346407;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       inkscape:connector-curvature="0" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:211.3217926px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Jokerman;-inkscape-font-specification:Jokerman"
+     x="256.50586"
+     y="1496.9811"
+     id="text3773"
+     sodipodi:linespacing="125%"
+     transform="scale(1.1439653,0.87415238)"
+     inkscape:export-xdpi="16.880129"
+     inkscape:export-ydpi="16.880129"><tspan
+       sodipodi:role="line"
+       id="tspan3775"
+       x="256.50586"
+       y="1496.9811"
+       style="font-size:103.26267242px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:100%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#e0822a;fill-opacity:1;fill-rule:nonzero;stroke:#000028;stroke-width:3.58549333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Jokerman;-inkscape-font-specification:Sans">DRAG</tspan><tspan
+       sodipodi:role="line"
+       x="256.50586"
+       y="1600.2438"
+       id="tspan3777"
+       style="font-size:103.26267242px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:100%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#e0822a;fill-opacity:1;fill-rule:nonzero;stroke:#000028;stroke-width:3.58549333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Jokerman;-inkscape-font-specification:Sans">&amp;</tspan><tspan
+       sodipodi:role="line"
+       x="256.50586"
+       y="1703.5065"
+       id="tspan3779"
+       style="font-size:103.26267242px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:center;text-decoration:none;line-height:100%;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:middle;baseline-shift:baseline;color:#000000;fill:#e0822a;fill-opacity:1;fill-rule:nonzero;stroke:#000028;stroke-width:3.58549333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Jokerman;-inkscape-font-specification:Sans">DROP</tspan></text>
 </svg>
