@@ -24,6 +24,7 @@ along with PYUV.  If not, see <http://www.gnu.org/licenses/>.
 #include <wx/filehistory.h>
 
 // Components and color spaces
+class OnRecentFiles;
 class OnExit;
 enum
 {
@@ -82,6 +83,7 @@ class pyuvFrame : public wxFrame
         void OnClose(wxCommandEvent& event);
         void OnSaveAs(wxCommandEvent& event);
         void OnFormat(wxCommandEvent& event);
+        void OnRecentFiles(wxCommandEvent& event);
         void OnQuit(wxCommandEvent& event);
 
         void OnPlay(wxCommandEvent& event);
@@ -101,6 +103,7 @@ class pyuvFrame : public wxFrame
         void OnCopy(wxCommandEvent& event);
 
         void OnEngine(wxCommandEvent& event);
+        void OnLanguage(wxCommandEvent& event);
         void OnDouble(wxCommandEvent& event);
 
         void OnAbout(wxCommandEvent& event);
@@ -223,6 +226,10 @@ private:
             Menu_Settings_Draw_Raw,
             Menu_Settings_Draw_OGL,
             Menu_Settings_Draw_Double,
+			Menu_Settings_Language,
+            Menu_Settings_Language_Default,
+            Menu_Settings_Language_English,
+            Menu_Settings_Language_Italian,
             Menu_Help_Contents,
             ANIMATE_TIMER_ID,
             SLIDER_ID,

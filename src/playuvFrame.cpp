@@ -95,6 +95,7 @@ wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     EVT_MENU(wxID_CLOSE, pyuvFrame::OnClose)                    // Close menu
     EVT_MENU(wxID_SAVEAS, pyuvFrame::OnSaveAs)                  // Save As menu
     EVT_MENU(Menu_File_Format, pyuvFrame::OnFormat)             // Format menu
+	EVT_MENU_RANGE(wxID_FILE1, wxID_FILE9, pyuvFrame::OnRecentFiles)
     EVT_MENU(wxID_EXIT, pyuvFrame::OnQuit)                      // Quit menu
 
     // Control menu
@@ -127,6 +128,7 @@ wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     EVT_MENU(Menu_Settings_Draw_Raw, pyuvFrame::OnEngine)       // Switch engine
     EVT_MENU(Menu_Settings_Draw_OGL, pyuvFrame::OnEngine)       // Switch engine
     EVT_MENU(Menu_Settings_Draw_Double, pyuvFrame::OnDouble)    // Switch to double buffering
+    EVT_MENU_RANGE(Menu_Settings_Language_Default, Menu_Settings_Language_Italian, pyuvFrame::OnLanguage)    // Switch to language
 
     // Help menu
     EVT_MENU(wxID_ABOUT, pyuvFrame::OnAbout)                    // About menu
@@ -402,6 +404,25 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     // Append them to Settings
     settingsMenu->Append(Menu_Settings_Draw, _("Draw engine"), drawMenu);
 
+    // Append language selection
+    wxMenu *langMenu = new wxMenu;
+
+    // Languages
+    langMenu->AppendRadioItem(Menu_Settings_Language_Default, wxT("Default"), wxT("Default language"));
+    langMenu->AppendRadioItem(Menu_Settings_Language_English, wxT("English"), wxT("English language"));
+    langMenu->AppendRadioItem(Menu_Settings_Language_Italian, wxT("Italiano"), wxT("Italian language"));
+	if (wxGetApp().pyuvLangCode == 0)
+		langMenu->Check(Menu_Settings_Language_Default, true);
+	else if (wxGetApp().pyuvLangCode == 1)
+		langMenu->Check(Menu_Settings_Language_English, true);
+	else if (wxGetApp().pyuvLangCode == 2)
+		langMenu->Check(Menu_Settings_Language_Italian, true);
+	else
+		langMenu->Check(Menu_Settings_Language_English, true);
+	
+    // Append them to Settings
+    settingsMenu->Append(Menu_Settings_Language, _("Interface language"), langMenu);
+	
     // Create a help menu bar
     wxMenu *helpMenu = new wxMenu;
 
@@ -1130,6 +1151,11 @@ void pyuvFrame::OnFormat(wxCommandEvent& event)
     dialog.ShowModal();
 }
 
+void pyuvFrame::OnRecentFiles(wxCommandEvent& event)
+{
+	openfile(fh->GetHistoryFile(event.GetId() - fh->GetBaseId()));
+}
+
 void pyuvFrame::OnQuit(wxCommandEvent& event)
 {
     // Destroy the frame
@@ -1147,7 +1173,8 @@ void pyuvFrame::OnCloseWindow(wxCloseEvent& event)
 	config->Write("tlw/height", GetSize().GetHeight());
 	config->Write("tlw/xpos", GetPosition().x);
 	config->Write("tlw/ypos", GetPosition().y);
-	fh->Save(*config);
+	config->Write("langcode",  wxGetApp().pyuvLangCode);
+	fh->Save(*config);	
 	
 	// the changes will be written back automatically
 	delete config;
@@ -1585,6 +1612,15 @@ void pyuvFrame::OnEngine(wxCommandEvent& event)
         break;
     };
 
+}
+
+// Language change handler
+void pyuvFrame::OnLanguage(wxCommandEvent& event)
+{
+	wxGetApp().pyuvLangCode = event.GetId() - Menu_Settings_Language_Default;
+	
+	// Ask the user to restart the program
+	wxMessageBox(_("You need to restart the program in order to use the selected interface language."), _("Language changed"), wxICON_INFORMATION);
 }
 
 // Double buffering handler

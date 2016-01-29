@@ -108,7 +108,9 @@ public:
 
     static wxColour (*GetClientColour(void))[MAX_NO_SERVERS] { return &pyuvSlaveColors; }
 	
-	void initLanguageSupport2();
+	void initLanguageSupport2(int langcode);
+	
+	int pyuvLangCode;
 
 private:
     pyuvFrame *frame;

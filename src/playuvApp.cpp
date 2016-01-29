@@ -146,12 +146,17 @@ const wxString langNames[] =
 #endif
 };
 
-void pyuvApp::initLanguageSupport2()
+void pyuvApp::initLanguageSupport2(int langcode)
 {
-	m_lang = wxLANGUAGE_DEFAULT;
-	//m_lang = wxLANGUAGE_ENGLISH;
-	//m_lang = wxLANGUAGE_FRENCH;
-    //m_lang = wxLANGUAGE_UNKNOWN;
+	if (langcode == 0)
+		m_lang = wxLANGUAGE_DEFAULT;
+	else if (langcode == 1)
+		m_lang = wxLANGUAGE_ENGLISH;
+	else if (langcode == 2)
+		m_lang = wxLANGUAGE_ITALIAN;
+	else
+		m_lang = wxLANGUAGE_ENGLISH;
+	//m_lang = wxLANGUAGE_UNKNOWN;
     if ( m_lang == wxLANGUAGE_UNKNOWN )
     {
         int lng = wxGetSingleChoiceIndex
@@ -211,9 +216,15 @@ bool pyuvApp::OnInit()
     int res;
 #endif
 
+	// restore settings
+	wxConfig *config = new wxConfig("pyuv");
+	pyuvLangCode = 0;
+	config->Read("langcode", &pyuvLangCode);
+	delete config;
+
     // Set the English locale
     //wxLocale(wxLANGUAGE_ENGLISH, wxLOCALE_LOAD_DEFAULT);
-    initLanguageSupport2();
+    initLanguageSupport2(pyuvLangCode);
 
     // Look for existing clients and set up an IPC server
     {
