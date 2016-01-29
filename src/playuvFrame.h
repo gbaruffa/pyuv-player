@@ -54,7 +54,8 @@ enum
     SS_400,
     SS_CUST
 };
-// Packed order
+
+// Packing order
 enum
 {
     OR_DEFAULT,
