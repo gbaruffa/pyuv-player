@@ -212,6 +212,7 @@ private:
             Menu_View_Identity,
             Menu_View_Zoom,
             Menu_View_Zoom_400,
+            Menu_View_Zoom_300,
             Menu_View_Zoom_200,
             Menu_View_Zoom_100,
             Menu_View_Zoom_75,

@@ -112,6 +112,7 @@ wxBEGIN_EVENT_TABLE(pyuvFrame, wxFrame)
     EVT_MENU(Menu_View_Deinterlace, pyuvFrame::OnDeinterlace)   // Deinterlace menu
     EVT_MENU(Menu_View_Identity, pyuvFrame::OnIdentity)         // Identity menu
     EVT_MENU(Menu_View_Zoom_400, pyuvFrame::OnScale)            // Change of scale
+    EVT_MENU(Menu_View_Zoom_300, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_200, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_100, pyuvFrame::OnScale)            // Change of scale
     EVT_MENU(Menu_View_Zoom_50, pyuvFrame::OnScale)             // Change of scale
@@ -328,9 +329,11 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxMenu *zoomMenu = new wxMenu;
 
     // Append zoom menus
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_400, _("4&00%\tCtrl+Q"), _("Four x size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_400, _("&400%\tCtrl+Shift+4"), _("Quadruple size"));
     zoomMenu->Enable(Menu_View_Zoom_400, true);
-    zoomMenu->AppendRadioItem(Menu_View_Zoom_200, _("2&00%\tCtrl+D"), _("Double size"));
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_300, _("300%\tCtrl+Shift+3"), _("Triple size"));
+    zoomMenu->Enable(Menu_View_Zoom_300, true);
+    zoomMenu->AppendRadioItem(Menu_View_Zoom_200, _("2&00%\tCtrl+Shift+2"), _("Double size"));
     zoomMenu->Enable(Menu_View_Zoom_200, true);
     zoomMenu->AppendRadioItem(Menu_View_Zoom_100, _("&100%\tCtrl+1"), _("Original size"));
     zoomMenu->Check(Menu_View_Zoom_100, true);
@@ -1494,6 +1497,10 @@ void pyuvFrame::OnScale(wxCommandEvent& event)
 
     case (Menu_View_Zoom_400):
         pyuvScale = -4;
+        break;
+
+    case (Menu_View_Zoom_300):
+        pyuvScale = -3;
         break;
 
     case (Menu_View_Zoom_200):

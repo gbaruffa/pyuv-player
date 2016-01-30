@@ -813,7 +813,7 @@ void downsample_anamorphic(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_
 #define    uc    uint8_t
 
 /* Upsample */
-void upsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale)
+void disabled_upsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale)
 {
     uint32_t row, col, /*i,*/ j;
     uint32_t rowstep = 3 * width, width1 = width - 1;
@@ -858,6 +858,39 @@ void upsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uin
             // next good row
             orig -= rowstep;
         }
+        // good
+        orig += rowstep;
+    }
+}
+
+void upsample(uint8_t *dest, uint8_t *orig, uint32_t width, uint32_t height, uint32_t widths, uint32_t heights, uint32_t scale)
+{
+    uint32_t row, col, i, j;
+    uint32_t rowstep = 3 * width;
+
+    /* Cycle on rows */
+    for (row = 0; row < height; row++) {
+
+        for (j = 0; j < scale; j++) {
+
+            /* duplicate columns */
+            for (col = 0; col < width; col++) {
+
+                // hold interp
+				for (i = 0; i < scale; i++) {
+					*dest++ = orig[0];
+					*dest++ = orig[1];
+					*dest++ = orig[2];
+				}
+
+                // next good column
+                orig += 3;
+            }
+
+            // next good row
+            orig -= rowstep;
+        }
+
         // good
         orig += rowstep;
     }
