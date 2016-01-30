@@ -3,16 +3,14 @@
 # Ubuntu/Debian packager for PYUV
 
 rm -fR debian pyuv*.deb
-cp ../../src/pyuv .
-cp ../../doc/doc.htb .
 mkdir -p debian/usr/bin
-strip pyuv
-cp pyuv ./debian/usr/bin
+cp ../../src/pyuv  ./debian/usr/bin
+strip ./debian/usr/bin/pyuv
 chmod 755 ./debian/usr/bin/pyuv
 mkdir -p debian/usr/share/doc/pyuv
 cp copyright ./debian/usr/share/doc/pyuv
 chmod 644 ./debian/usr/share/doc/pyuv/copyright
-cp doc.htb ./debian/usr/share/doc/pyuv
+cp ../../doc/doc.htb ./debian/usr/share/doc/pyuv
 chmod 644 ./debian/usr/share/doc/pyuv/doc.htb
 gzip -n --best - <../../ChangeLog >./debian/usr/share/doc/pyuv/changelog.gz
 chmod 644 ./debian/usr/share/doc/pyuv/changelog.gz
@@ -33,7 +31,7 @@ cp -p ../../src/playuv128.png debian/usr/share/icons/hicolor/128x128/apps/pyuv.p
 chmod 644 debian/usr/share/icons/hicolor/128x128/apps/pyuv.png
 mkdir -p debian/usr/share/applications
 chmod 755 debian/usr/share/applications
-cp Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
+cp ../freedesktop/Pyuv.desktop ./debian/usr/share/applications/pyuv.desktop
 chmod 644 ./debian/usr/share/applications/pyuv.desktop
 
 mkdir -p debian/usr/share/locale/it/LC_MESSAGES
