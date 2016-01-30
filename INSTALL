@@ -3,26 +3,33 @@
 
 The preferred way to for installing PYUV is to download the proper binary for your OS/architecture combination:
 
-* Windows 32 bit self-installer (Windows XP/Vista/7/8/10)
+* Windows 32 bit self-installer (>= Windows XP)
 * Ubuntu 64 bit package (>= Ubuntu 15.10)
+* Apple Mac OS X 64 bit archive (>= Mountain Lion)
 
 The binaries can be downloaded from
 
-http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
+* http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
+* https://github.com/gbaruffa/pyuv-player
 
 
 2. Install from source code
 ===========================
 
 If your architecture/OS is not currently supported, PYUV can be compiled from the sources. 
-The only basic requirements are wxWidgets 3.0 and a modern C++ compiler.
+The only basic requirements are wxWidgets 3.0 (www.wxwidgets.org) and a modern C++ compiler.
 
 
-2.1 GNU/Linux
--------------
+2.1 GNU Autotools
+-----------------
 
+Autotools can be used to generate a configuration script.
 The configure script can (almost) cover all common distributions requirements, thus the commands are as simple as
 
+$ aclocal
+$ autoconf
+$ autoheader
+$ automake --add-missing
 $ ./configure
 $ make
 $ sudo make install
@@ -31,5 +38,16 @@ $ sudo make install
 2.2 Windows
 -----------
 
-Use the extras/MSVC workspace, containing a Visual Studio 2008 (VC9) solution and projects. For compilation, it is expected that the environment variable %WXWIN30% is set, pointing to the main install folder of wxWidgets 3.0.
+Use the extras/MSVC workspace, it contains a Visual Studio 2008 (VC9) solution and projects. For compilation, it is expected that the environment variable %WXWIN30% is set, pointing to the main install folder of wxWidgets 3.0.
+
+
+2.3 Extras
+----------
+
+There is a Ubuntu packaging script in extras/DEB.
+For Windows, there is an InnoSetup script in extras/MSVC.
+For Mac OS X, the packaging script is in extras/APPLE.
+For FreeBSD, a package can be generated using the script in extras/FREEBSD.
+The folder extras/ART contains the sources of the various icons that are generated.
+The folder extras/freedesktop contains files required for correct desktop integration in many linux distributions.
 

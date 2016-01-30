@@ -21,7 +21,7 @@ EOF
 
 cat >> ${STAGEDIR}/+MANIFEST <<EOF
 name: pyuv
-version: "0.7_0"
+version: "0.7.0_1"
 origin: multimedia/pyuv
 comment: "Raw YUV file player"
 desc: "A tool to play raw YUV files and similar"
@@ -39,9 +39,10 @@ mkdir -p ${STAGEDIR}/usr/local/share/applications
 mkdir -p ${STAGEDIR}/usr/local/share/icons/hicolor/128x128/apps
 mkdir -p ${STAGEDIR}/usr/local/share/locale/it/LC_MESSAGES
 mkdir -p ${STAGEDIR}/usr/local/share/doc
+mkdir -p ${STAGEDIR}/usr/local/man/man1
 cp ../../src/pyuv ${STAGEDIR}/usr/local/bin
 echo "/usr/local/bin/pyuv" >> ${STAGEDIR}/plist
-cp ../DEB/Pyuv.desktop ${STAGEDIR}/usr/local/share/applications/pyuv.desktop
+cp ../freedesktop/Pyuv.desktop ${STAGEDIR}/usr/local/share/applications/pyuv.desktop
 echo "/usr/local/share/applications/pyuv.desktop" >> ${STAGEDIR}/plist
 cp ../../src/playuv128.png ${STAGEDIR}/usr/local/share/icons/hicolor/128x128/apps/pyuv.png
 echo "/usr/local/share/icons/hicolor/128x128/apps/pyuv.png" >> ${STAGEDIR}/plist
@@ -49,5 +50,7 @@ cp ../../src/po/it.mo ${STAGEDIR}/usr/local/share/locale/it/LC_MESSAGES/pyuv.mo
 echo "/usr/local/share/locale/it/LC_MESSAGES/pyuv.mo" >> ${STAGEDIR}/plist
 cp ../../doc/doc.htb ${STAGEDIR}/usr/local/share/doc/pyuv
 echo "/usr/local/share/doc/pyuv" >> ${STAGEDIR}/plist
+gzip -n --best - <../../man/pyuv.1 >${STAGEDIR}/usr/local/man/man1/pyuv.1.gz
+echo "/usr/local/man/man1/pyuv.1.gz" >> ${STAGEDIR}/plist
 
 pkg create -m ${STAGEDIR}/ -r ${STAGEDIR}/ -p ${STAGEDIR}/plist -o .

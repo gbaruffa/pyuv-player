@@ -6,31 +6,29 @@ The original project was (historically, is)
 
 http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player
 
+In 2014 the project has switched to full open source using the liberal GPL licensing scheme, and migrated from local repository to GitHub
+
+https://github.com/gbaruffa/pyuv-player
+
 During our research activity, we have to deal sometimes with raw sequences that must be source encoded before being transmitted, let's say, with DVB-T. Of course, there are a number of players out there, but not so many are capable to display the raw sequence before it has been encoded. In terms of rawness, such sequences can be either in native RGB format or, more often, in YUV format (sometimes, there is also a VIX format).
 
 There are some specially crafted players which can satisfy your needs, but many of them are designed only for Windows, thus keeping out all Linux and Mac users.
 
 * It plays RGB and YUV sequences
-* It runs under Windows, Linux, and Mac OS X
+* It runs under Windows, Linux, Mac OS X, and FreeBSD
 * It is not written in Java or .NET, so it is extremely fast
 * It uses wxWidgets as GUI, making it consistent with your preferred environment
 * It is free: you can use it for your purposes without any sort of restriction
 
 
-2. Compilation instructions
-===========================
+2. Installation instructions
+============================
 
 Check the INSTALL file.
 
 
-3. Development
-==============
+3. Authors
+==========
 
-Under Linux/Mac OS X, do not forget to regenerate the configure script with autotools, like
+For a complete list of authors and contributors, check the AUTHORS and THANKS files.
 
-$ aclocal
-$ autoconf
-$ autoheader
-$ automake --add-missing
-
-There is a Ubuntu packaging script in extras/DEB. For Windows, there is an InnoSetup script in extras/MSVC. For Mac OS X, the packaging script is in extras/APPLE.

@@ -1,7 +1,10 @@
 pyuv (0.7.0-1)
 
 * Sat Jan 23 2016 Giuseppe Baruffa <giuseppe.baruffa@unipg.it> 0.7.0-1
-- IT translation
+- I18N and it_IT translation
+- 300% and 400% working zoom options
+- recently opened files and screen position memory
+- FreeBSD support
 
 pyuv (0.6.2-1)
 
