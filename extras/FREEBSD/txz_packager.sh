@@ -38,7 +38,7 @@ mkdir -p ${STAGEDIR}/usr/local/bin
 mkdir -p ${STAGEDIR}/usr/local/share/applications
 mkdir -p ${STAGEDIR}/usr/local/share/icons/hicolor/128x128/apps
 mkdir -p ${STAGEDIR}/usr/local/share/locale/it/LC_MESSAGES
-mkdir -p ${STAGEDIR}/usr/local/share/doc
+mkdir -p ${STAGEDIR}/usr/local/share/doc/pyuv
 mkdir -p ${STAGEDIR}/usr/local/man/man1
 cp ../../src/pyuv ${STAGEDIR}/usr/local/bin
 echo "/usr/local/bin/pyuv" >> ${STAGEDIR}/plist
@@ -48,9 +48,12 @@ cp ../../src/playuv128.png ${STAGEDIR}/usr/local/share/icons/hicolor/128x128/app
 echo "/usr/local/share/icons/hicolor/128x128/apps/pyuv.png" >> ${STAGEDIR}/plist
 cp ../../src/po/it.mo ${STAGEDIR}/usr/local/share/locale/it/LC_MESSAGES/pyuv.mo
 echo "/usr/local/share/locale/it/LC_MESSAGES/pyuv.mo" >> ${STAGEDIR}/plist
-cp ../../doc/doc.htb ${STAGEDIR}/usr/local/share/doc/pyuv
-echo "/usr/local/share/doc/pyuv" >> ${STAGEDIR}/plist
+cp ../../doc/doc.htb ${STAGEDIR}/usr/local/share/doc/pyuv/doc.htb
+echo "/usr/local/share/doc/pyuv/doc.htb" >> ${STAGEDIR}/plist
 gzip -n --best - <../../man/pyuv.1 >${STAGEDIR}/usr/local/man/man1/pyuv.1.gz
 echo "/usr/local/man/man1/pyuv.1.gz" >> ${STAGEDIR}/plist
 
 pkg create -m ${STAGEDIR}/ -r ${STAGEDIR}/ -p ${STAGEDIR}/plist -o .
+
+# clean
+rm -rf ${STAGEDIR} 

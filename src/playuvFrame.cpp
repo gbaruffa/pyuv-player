@@ -436,7 +436,8 @@ pyuvFrame::pyuvFrame(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxP
     wxImage::AddHandler(new wxPNGHandler);
     if (help.AddBook(wxFileName(wxT(HELP_FILENAME), wxPATH_UNIX))
         || help.AddBook(wxFileName(wxT("/Applications/pyuv.app/Contents/MacOS/doc.htb"), wxPATH_UNIX))
-        || help.AddBook(wxFileName(wxT("/usr/share/doc/pyuv/doc.htb"), wxPATH_UNIX))) {
+        || help.AddBook(wxFileName(wxT("/usr/share/doc/pyuv/doc.htb"), wxPATH_UNIX))
+        || help.AddBook(wxFileName(wxT("/usr/local/share/doc/pyuv/doc.htb"), wxPATH_UNIX))) {
         helpMenu->Append(Menu_Help_Contents, _("&Contents\tCtrl+H"), _("Show program help"));
         pyuvHelpsystem = true;
     } else {
@@ -1678,13 +1679,16 @@ void pyuvFrame::OnAbout(wxCommandEvent& event)
     msg.Printf(
         _("PYUV - A portable and multiplatform RAW sequence player\n") +
         _("Version %s - ") +
-#ifdef __WXMSW__
+#ifdef WIN32
         _("for Windows\n") +
 #endif
-#ifdef __WXGTK__
+#ifdef __linux__
         _("for Linux\n") + 
 #endif
- #ifdef __WXMAC__
+#ifdef __FreeBSD__
+        _("for FreeBSD\n") + 
+#endif
+#ifdef __APPLE__
         _("for Mac OS X\n") + 
 #endif
        wxString(wxT("(%s)\n\n")) +

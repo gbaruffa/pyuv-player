@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.69])
-AC_INIT([pyuv], [0.6.2], [giuseppe.baruffa@unipg.it])
+AC_INIT([pyuv], [0.7.0], [giuseppe.baruffa@unipg.it])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_SRCDIR([src/playuvApp.cpp])
 AC_CONFIG_HEADERS([config.h])
