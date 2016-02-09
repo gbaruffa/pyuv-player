@@ -28,9 +28,13 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=54675;C++;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fsrc%2FplayuvFrame.cpp;0;4
+current_page=4
+FILE_NAME_0=855;C++;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fsrc%2FplayuvFrame.cpp;0;4
 FILE_NAME_1=671;Sh;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fextras%2FFREEBSD%2Ftxz_packager.sh;0;4
+FILE_NAME_2=344;Sh;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fconfigure.ac;0;4
+FILE_NAME_3=276;None;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2FINSTALL;0;4
+FILE_NAME_4=0;Sh;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fextras%2FFREEBSD%2Fpbi.conf;0;4
+FILE_NAME_5=169;Sh;0;EUTF-8;1;1;0;%2Fusr%2Fhome%2Fgiuseppe%2FProgetti%2Fpyuv-player%2Ftrunk%2Fextras%2FFREEBSD%2Fpbi_packager.sh;0;4
 
 [VTE]
 last_dir=/usr/home/giuseppe
@@ -39,3 +43,9 @@ last_dir=/usr/home/giuseppe
 EX_00_LB=_Execute
 EX_00_CM=./pyuv
 EX_00_WD=%p
+NF_00_LB=Co_mpila
+NF_00_CM=make
+NF_00_WD=
+NF_01_LB=Compila su _Destinazione Scelta...
+NF_01_CM=make 
+NF_01_WD=%p
