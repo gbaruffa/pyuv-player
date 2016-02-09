@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="pyuv-player" InternalType="GUI">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0007Release000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Release",
@@ -12,9 +15,6 @@
   "arguments": [],
   "parentProject": ""
  }]]]>
-    </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0007Release000000000000]]>
     </Plugin>
   </Plugins>
   <Description/>
@@ -118,4 +118,20 @@
       </Completion>
     </Configuration>
   </Settings>
+  <VirtualDirectory Name="info">
+    <File Name="../../AUTHORS"/>
+    <File Name="../../ChangeLog"/>
+    <File Name="../../COPYING"/>
+    <File Name="../../INSTALL"/>
+    <File Name="../../LICENSE"/>
+    <File Name="../../NEWS"/>
+    <File Name="../../README"/>
+    <File Name="../../THANKS"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="config">
+    <File Name="../../configure.ac"/>
+    <File Name="../../Makefile.am"/>
+    <File Name="../../man/Makefile.am"/>
+    <File Name="../../src/Makefile.am"/>
+  </VirtualDirectory>
 </CodeLite_Project>

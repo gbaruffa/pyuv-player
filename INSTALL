@@ -3,9 +3,10 @@
 
 The preferred way to for installing PYUV is to download the proper binary for your OS/architecture combination:
 
-* Windows 32 bit self-installer (>= Windows XP)
-* Ubuntu 64 bit package (>= Ubuntu 15.10)
-* Apple Mac OS X 64 bit archive (>= Mountain Lion)
+* Windows 32 bit .exe self-installer (>= Windows XP)
+* Ubuntu 64 bit .deb package (>= Ubuntu 15.10)
+* Apple Mac OS X 64 bit .dmg archive (>= Mountain Lion)
+* FreeBSD 64 bit .txz package (>= Joule 10.2)
 
 The binaries can be downloaded from
 
@@ -32,22 +33,43 @@ $ autoheader
 $ automake --add-missing
 $ ./configure
 $ make
+
+Optionally, you can install with
+
 $ sudo make install
+
+Note that this command will install directly the executable in the filesystem. If you prefer a more modern package management system, see the sections below.
 
 
 2.2 Windows
 -----------
 
-Use the extras/MSVC workspace, it contains a Visual Studio 2008 (VC9) solution and projects. For compilation, it is expected that the environment variable %WXWIN30% is set, pointing to the main install folder of wxWidgets 3.0.
+Use the extras/MSVC workspace, it contains a Visual Studio 2008 (VC9) solution and projects. For compilation, it is expected that the environment variable %WXWIN30% is set, pointing to the main install folder of wxWidgets 3.0. If you have a newer version ov Visual Studio, just import the existing VC9 solution.
+There is also a legacy VC6 workspace and project, but it probably needs some updates to work.
+If you want to build a self-extracting installer, in the same folder there is also an InnoSetup script.
 
 
-2.3 Extras
+2.3 Linux
+---------
+
+It should just be sufficient to use the GNU Autotools. If you prefer, the folder extras/CODELITE contains a Codelite 9 project that can be used for improved visual development: it has been tested under Ubuntu 15.10, but should probably work well with any other similar Linux flavor.
+A packaging script is provided to build a .deb package (install via Software Center in order to resolve any dependancy).
+
+
+2.4 Mac OS X
+------------
+
+Use the GNU Autotools to build. Use the packaging script in extras/APPLE to build the app and to prepare the DMG installing archive.
+
+ 
+2.5 FreeBSD
+-----------
+
+Use the GNU Autotools. In extras/FREEBSD there is also a Geany project, if you prefer visual compilation, and a packaging script.
+
+
+2.6 Extras
 ----------
 
-There is a Ubuntu packaging script in extras/DEB.
-For Windows, there is an InnoSetup script in extras/MSVC.
-For Mac OS X, the packaging script is in extras/APPLE.
-For FreeBSD, a package can be generated using the script in extras/FREEBSD.
 The folder extras/ART contains the sources of the various icons that are generated.
-The folder extras/freedesktop contains files required for correct desktop integration in many linux distributions.
-
+The folder extras/freedesktop contains files required for correct desktop integration in many linux/FreeBSD distributions.
