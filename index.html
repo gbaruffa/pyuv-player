@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Pyuv-player by gbaruffa</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
@@ -38,37 +38,39 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a id="1-pyuv-player" class="anchor" href="#1-pyuv-player" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. pyuv-player</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Uncompressed video player for YUV files and similar.
+The original project was (historically, is)</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p><a href="http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player">http://dsplab.diei.unipg.it/software/pyuv_raw_video_sequence_player</a></p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>In 2014 the project has switched to full open source using the liberal GPL licensing scheme, and migrated from local repository to GitHub</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<p><a href="https://github.com/gbaruffa/pyuv-player">https://github.com/gbaruffa/pyuv-player</a></p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>During our research activity, we have to deal sometimes with raw sequences that must be source encoded before being transmitted, let's say, with DVB-T. Of course, there are a number of players out there, but not so many are capable to display the raw sequence before it has been encoded. In terms of rawness, such sequences can be either in native RGB format or, more often, in YUV format (sometimes, there is also a VIX format).</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>There are some specially crafted players which can satisfy your needs, but many of them are designed only for Windows, thus keeping out all Linux and Mac users.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<ul>
+<li>It plays RGB and YUV sequences</li>
+<li>It runs under Windows, Linux, Mac OS X, and FreeBSD</li>
+<li>It is not written in Java or .NET, so it is extremely fast</li>
+<li>It uses wxWidgets as GUI, making it consistent with your preferred environment</li>
+<li><p>It is free: you can use it for your purposes without any sort of restriction</p></li>
+</ul>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<h1>
+<a id="2-installation-instructions" class="anchor" href="#2-installation-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Installation instructions</h1>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Check the INSTALL file.</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h1>
+<a id="3-authors" class="anchor" href="#3-authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Authors</h1>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>For a complete list of authors and contributors, check the AUTHORS and THANKS files.</p>
       </section>
 
     </div>
