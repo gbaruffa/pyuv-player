@@ -707,7 +707,7 @@ void pyuvFrame::openfile(wxFileName videofile)
     // {ext}    = 3-letter abbreviation of the colorspace (can be anywhere in the filename, also)
     // {gamma}  = gamma correction value multiplied by 10, without commas or points
     //
-    // 3: a filename with the same base name, but with extension .hdr
+    // 3: a filename with the same base name followed by _ and the extension, ending in .hdr,
     // is searched in the same directory. It can contain the following lines
     //
     // width = XXXX
@@ -897,6 +897,7 @@ void pyuvFrame::openfile(wxFileName videofile)
         hints = 0;
 
         wxFileName headername(videofile);
+        headername.SetName(headername.GetName() + wxT("_") + headername.GetExt());
         headername.SetExt(wxT("hdr"));
         wxString linea, value;
 

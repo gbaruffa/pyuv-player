@@ -616,7 +616,7 @@ pyuvFormatDialog::formatApplyClick(wxCommandEvent& e)
     // manage header file
     wxFileName headername(frame->GetFileName());
 	wxString oldext = headername.GetExt(); // old extension
-	headername.SetName(headername.GetName() + "_" + oldext);
+	headername.SetName(headername.GetName() + wxT("_") + oldext);
     headername.SetExt(wxT("hdr"));
     wxTextFile headerfile;
 	
