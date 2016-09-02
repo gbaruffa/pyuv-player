@@ -613,19 +613,16 @@ pyuvFormatDialog::formatApplyClick(wxCommandEvent& e)
 
     }
 
-    // create header file
+    // manage header file
     wxFileName headername(frame->GetFileName());
+	wxString oldext = headername.GetExt(); // old extension
+	headername.SetName(headername.GetName() + "_" + oldext);
     headername.SetExt(wxT("hdr"));
     wxTextFile headerfile;
-    if (headername.FileExists()) {
-        // Open the file
-        headerfile.Open(headername.GetFullPath());
-    }
-    else {
-        // Create the file
-        headerfile.Create(headername.GetFullPath());            
-    }
-
+	
+	// always create an empty file
+    headerfile.Create(headername.GetFullPath());            
+    
     // write settings in it
     // width = XXXX
     // height = XXXX
