@@ -377,6 +377,7 @@ ycbcr601_to_rgb(uint8_t *rgb, uint8_t *ycbcr, uint32_t width, uint32_t height)
  * YCbCr->RGB conversion
  *
  * Rec. BT.709
+ * https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf
  *
  */
 void
@@ -406,7 +407,7 @@ ycbcr709_to_rgb(uint8_t *rgb, uint8_t *ycbcr, uint32_t width, uint32_t height)
             *(rgb++) = (uint8_t)  ((compo < 0) ? 0: ((compo > 255) ? 255: compo));
 
             /* Blue component conversion and clipping */
-            compo = (298 * y1 + 541 * cb1 + cr1) >> 8;
+            compo = (298 * y1 + 541 * cb1) >> 8;
             *(rgb++) = (uint8_t) ((compo < 0) ? 0: ((compo > 255) ? 255: compo));
         }
     }

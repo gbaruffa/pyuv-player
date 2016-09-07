@@ -40,6 +40,18 @@ clear all;
 %      -0.115  -0.385  +0.5;
 %      +0.5    -0.454  -0.046];
  
+% % RGB -> YCbCr (ITU-R BT.709)
+% https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf
+I = [0 0 0;
+     1 1 1];
+O = [];
+Obits = 8;
+Oq = [ 16  16  16;
+      235 240 240];
+A = [+0.2126 +0.7152 +0.0722;
+     -0.1146 -0.3854 +0.5000;
+     +0.5000 -0.4542 -0.0458];
+ 
 % % RGB -> YCoCg (H.264 reversible transform)
 % I = [0 0 0;
 %      1 1 1];
@@ -51,13 +63,16 @@ clear all;
 %      -0.25 +0.5  -0.25];
  
 % RGB -> YCxCz (Stereoscopic digital cinema)
-I = [0 0 0; 1 1 1]; % real numbers input range: top row is minimum values for each comp, bottom row is maximum values
-O = [0 -0.5 -0.5; 1 0.5 0.5]; % real numbers output range (empty is auto): top row is minimum values for each comp, bottom row is maximum values
-Obits = 8; % expected number of bits for the output values
-Oq = [0 0 0; 255 255 255]; % output precision integer values range: top row is minimum values for each comp, bottom row is maximum values
-A = [0.23447500416257   0.52652640688218   0.19768418642745;
-    0.10827354260078  -0.13669337549857  -0.02047781544626;
-    -0.12210863287956  -0.23047402039993   0.42438048133343]; % color transform coefficients
+% I = [0 0 0;
+%      1 1 1]; % real numbers input range: top row is minimum values for each comp, bottom row is maximum values
+% O = [0 -0.5 -0.5;
+%      1  0.5  0.5]; % real numbers output range (empty is auto): top row is minimum values for each comp, bottom row is maximum values
+% Obits = 8; % expected number of bits for the output values
+% Oq = [  0   0   0;
+%       255 255 255]; % output precision integer values range: top row is minimum values for each comp, bottom row is maximum values
+% A = [0.23447500416257   0.52652640688218   0.19768418642745;
+%      0.10827354260078  -0.13669337549857  -0.02047781544626;
+%     -0.12210863287956  -0.23047402039993   0.42438048133343]; % color transform coefficients
  
 % Conversion coefficients precision
 coeffbits = 9;
