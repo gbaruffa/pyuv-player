@@ -20,11 +20,7 @@ cp -f ../../src/po/it.mo pyuv.app/Contents/Resources/it.lproj/pyuv.mo
 #touch pyuv.app/Contents/Resources/en_GB.lproj/pyuv.mo
 #touch pyuv.app/Contents/Resources/en_US.lproj/pyuv.mo
 cp -f ../../doc/doc.htb pyuv.app/Contents/MacOS/doc.htb
-./dylibbundler -od -b -x ./pyuv.app/Contents/MacOS/pyuv -d ./pyuv.app/Contents/Frameworks
-
-#cp /usr/local/lib/libwx_osx_cocoau_xrc-3.0.dylib pyuv.app/Contents/Frameworks
-#install_name_tool -id @executable_path/../Frameworks/libwx_osx_cocoau_xrc-3.0.dylib pyuv.app/Contents/Frameworks/libwx_osx_cocoau_xrc-3.0.dylib
-#install_name_tool -change /usr/local/lib/libwx_osx_cocoau_xrc-3.0.dylib @executable_path/../Frameworks/libwx_osx_cocoau_xrc-3.0.dylib pyuv.app/Contents/MacOS/pyuv
+dylibbundler -od -b -x ./pyuv.app/Contents/MacOS/pyuv -d ./pyuv.app/Contents/Frameworks
 
 otool -L ./pyuv.app/Contents/MacOS/pyuv
 
@@ -56,11 +52,13 @@ tell application "Finder"
                 update without registering applications
                 delay 5
                 set position of item "pyuv" of container window to {90, 90}
+                close
         end tell
 end tell
 EOM
 
-hdiutil detach /dev/disk1
+
+hdiutil detach "/Volumes/Pyuv for Mac"
 hdiutil convert "temp.dmg" -format UDZO -imagekey zlib-level=9 -o "pyuv_070_install.dmg"
 
 

@@ -59,7 +59,9 @@ A packaging script is provided to build a .deb package (install via Software Cen
 2.4 Mac OS X
 ------------
 
-Use the GNU Autotools to build. Use the packaging script in extras/APPLE to build the app and to prepare the DMG installing archive.
+Use the GNU Autotools to build. Use the packaging script in extras/APPLE to build the app and to prepare the DMG installing archive. In order to create a completely autonomous bundle, you have also to download, compile, and install macdylibbundler from here
+
+https://github.com/auriamg/macdylibbundler/
 
  
 2.5 FreeBSD
