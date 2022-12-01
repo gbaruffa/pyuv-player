@@ -3,7 +3,7 @@ Version: 0.7.0-1
 Section: science
 Priority: optional
 Architecture: amd64
-Depends: libwxgtk3.0-0v5 (>= 3.0.0), libgcc1 (>= 4.8.2), libc6 (>= 2.19-0)
+Depends: libwxgtk3.0-gtk3-0v5 (>= 3.0.0), libgcc1 (>= 4.8.2), libc6 (>= 2.19-0)
 Installed-size: 768
 Maintainer: Giuseppe Baruffa <giuseppe.baruffa@unipg.it>
 Homepage: https://github.com/gbaruffa/pyuv-player
